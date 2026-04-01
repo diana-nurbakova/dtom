@@ -1,0 +1,1002 @@
+[
+  {
+    "id": 0,
+    "level": "B",
+    "reason": "Asking student to explain their thinking/procedure"
+  },
+  {
+    "id": 1,
+    "level": "A",
+    "reason": "Requesting specific numerical result to problem"
+  },
+  {
+    "id": 2,
+    "level": "B",
+    "reason": "Asking to show work and method used"
+  },
+  {
+    "id": 3,
+    "level": "C",
+    "reason": "Probing conceptual understanding of decimal point function"
+  },
+  {
+    "id": 4,
+    "level": "A",
+    "reason": "Asking for placement/categorization of number"
+  },
+  {
+    "id": 5,
+    "level": "C",
+    "reason": "Connecting to prior knowledge and understanding"
+  },
+  {
+    "id": 6,
+    "level": "A",
+    "reason": "Observational comparison of visual differences"
+  },
+  {
+    "id": 7,
+    "level": "A",
+    "reason": "Computational word problem seeking numerical answer"
+  },
+  {
+    "id": 8,
+    "level": "C",
+    "reason": "Probing conceptual understanding of mathematical terminology"
+  },
+  {
+    "id": 9,
+    "level": "B",
+    "reason": "Asking student to repeat their procedure"
+  },
+  {
+    "id": 10,
+    "level": "B",
+    "reason": "Requesting answer with explanation of method"
+  },
+  {
+    "id": 11,
+    "level": "C",
+    "reason": "Asking for conceptual understanding of graphing"
+  },
+  {
+    "id": 12,
+    "level": "B",
+    "reason": "Asking for verification method or procedure"
+  },
+  {
+    "id": 13,
+    "level": "A",
+    "reason": "Seeking correct numerical answer after confusion"
+  },
+  {
+    "id": 14,
+    "level": "B",
+    "reason": "Asking to identify strategy being used"
+  },
+  {
+    "id": 15,
+    "level": "B",
+    "reason": "Asking about procedural ability with fractions"
+  },
+  {
+    "id": 16,
+    "level": "A",
+    "reason": "Direct conversion problem seeking numerical answer"
+  },
+  {
+    "id": 17,
+    "level": "A",
+    "reason": "Requesting factual mathematical information"
+  },
+  {
+    "id": 18,
+    "level": "A",
+    "reason": "Comparison question seeking factual answer"
+  },
+  {
+    "id": 19,
+    "level": "A",
+    "reason": "Computational word problem seeking numerical result"
+  },
+  {
+    "id": 20,
+    "level": "C",
+    "reason": "Asking student to justify why equation belongs"
+  },
+  {
+    "id": 21,
+    "level": "A",
+    "reason": "Checking factual recall of initial shape"
+  },
+  {
+    "id": 22,
+    "level": "C",
+    "reason": "Probing understanding of fraction multiplication reasoning"
+  },
+  {
+    "id": 23,
+    "level": "A",
+    "reason": "Simple categorization of number into list"
+  },
+  {
+    "id": 24,
+    "level": "B",
+    "reason": "Asking to observe and describe patterns"
+  },
+  {
+    "id": 25,
+    "level": "A",
+    "reason": "Requesting calculation of percentage problem"
+  },
+  {
+    "id": 26,
+    "level": "A",
+    "reason": "Basic multiplication fact check"
+  },
+  {
+    "id": 27,
+    "level": "A",
+    "reason": "General opinion request without specific focus"
+  },
+  {
+    "id": 28,
+    "level": "A",
+    "reason": "Identifying smallest from given fractions"
+  },
+  {
+    "id": 29,
+    "level": "B",
+    "reason": "Asking to describe what to observe"
+  },
+  {
+    "id": 30,
+    "level": "A",
+    "reason": "General request for equation opinion"
+  },
+  {
+    "id": 31,
+    "level": "A",
+    "reason": "General opinion after factual question"
+  },
+  {
+    "id": 32,
+    "level": "C",
+    "reason": "Asking about conceptual understanding needed for conjectures"
+  },
+  {
+    "id": 33,
+    "level": "A",
+    "reason": "Basic multiplication fact check"
+  },
+  {
+    "id": 34,
+    "level": "B",
+    "reason": "Requesting alternative application or method"
+  },
+  {
+    "id": 35,
+    "level": "A",
+    "reason": "Checking understanding of fraction part"
+  },
+  {
+    "id": 36,
+    "level": "A",
+    "reason": "Completing calculation sequence"
+  },
+  {
+    "id": 37,
+    "level": "A",
+    "reason": "Asking what student wrote down"
+  },
+  {
+    "id": 38,
+    "level": "C",
+    "reason": "Connecting pattern to conceptual base understanding"
+  },
+  {
+    "id": 39,
+    "level": "B",
+    "reason": "Asking to interpret graph representation"
+  },
+  {
+    "id": 40,
+    "level": "B",
+    "reason": "Asking what to examine procedurally"
+  },
+  {
+    "id": 41,
+    "level": "B",
+    "reason": "Requesting specific procedural steps"
+  },
+  {
+    "id": 42,
+    "level": "C",
+    "reason": "Probing conceptual understanding of simplification purpose"
+  },
+  {
+    "id": 43,
+    "level": "A",
+    "reason": "Asking for factual measurement/distance"
+  },
+  {
+    "id": 44,
+    "level": "C",
+    "reason": "Evaluating reasoning after considering alternatives"
+  },
+  {
+    "id": 45,
+    "level": "A",
+    "reason": "Requesting specific coordinate value"
+  },
+  {
+    "id": 46,
+    "level": "C",
+    "reason": "Analyzing conceptual probability relationships"
+  },
+  {
+    "id": 47,
+    "level": "B",
+    "reason": "Requesting description of specific procedure"
+  },
+  {
+    "id": 48,
+    "level": "B",
+    "reason": "Asking for next procedural step"
+  },
+  {
+    "id": 49,
+    "level": "A",
+    "reason": "Checking factual decimal place value"
+  },
+  {
+    "id": 50,
+    "level": "C",
+    "reason": "Evaluating choice between mathematical concepts"
+  },
+  {
+    "id": 51,
+    "level": "B",
+    "reason": "Requesting observation of work shown"
+  },
+  {
+    "id": 52,
+    "level": "B",
+    "reason": "Asking about equation setup procedure"
+  },
+  {
+    "id": 53,
+    "level": "B",
+    "reason": "Requesting explanation of visual representation"
+  },
+  {
+    "id": 54,
+    "level": "B",
+    "reason": "Asking for verbal explanation of procedure"
+  },
+  {
+    "id": 55,
+    "level": "A",
+    "reason": "Requesting specific rule or pattern"
+  },
+  {
+    "id": 56,
+    "level": "C",
+    "reason": "Probing conceptual visualization of mathematical limit"
+  },
+  {
+    "id": 57,
+    "level": "B",
+    "reason": "Directing procedural analysis of remainder"
+  },
+  {
+    "id": 58,
+    "level": "C",
+    "reason": "Analyzing conceptual transformation of mathematical relationship"
+  },
+  {
+    "id": 59,
+    "level": "B",
+    "reason": "Requesting explanation of created work"
+  },
+  {
+    "id": 60,
+    "level": "B",
+    "reason": "Asking students to predict/show procedural approach"
+  },
+  {
+    "id": 61,
+    "level": "A",
+    "reason": "Requesting factual answer for problem six"
+  },
+  {
+    "id": 62,
+    "level": "A",
+    "reason": "Asking to identify hypotenuse factually"
+  },
+  {
+    "id": 63,
+    "level": "C",
+    "reason": "Probing conceptual connection between operations"
+  },
+  {
+    "id": 64,
+    "level": "B",
+    "reason": "Requesting student show their procedure step"
+  },
+  {
+    "id": 65,
+    "level": "A",
+    "reason": "Asking for factual arithmetic result"
+  },
+  {
+    "id": 66,
+    "level": "C",
+    "reason": "Probing understanding of what facts mean"
+  },
+  {
+    "id": 67,
+    "level": "A",
+    "reason": "Completing factual expression about exponent rules"
+  },
+  {
+    "id": 68,
+    "level": "A",
+    "reason": "Requesting factual multiplication result"
+  },
+  {
+    "id": 69,
+    "level": "B",
+    "reason": "Asking how to find median procedurally"
+  },
+  {
+    "id": 70,
+    "level": "A",
+    "reason": "Completing factual pattern about sign"
+  },
+  {
+    "id": 71,
+    "level": "A",
+    "reason": "Requesting factual multiplication result"
+  },
+  {
+    "id": 72,
+    "level": "B",
+    "reason": "Asking student to show checking procedure"
+  },
+  {
+    "id": 73,
+    "level": "B",
+    "reason": "Asking student to share their work"
+  },
+  {
+    "id": 74,
+    "level": "A",
+    "reason": "Requesting factual knowledge about volume"
+  },
+  {
+    "id": 75,
+    "level": "A",
+    "reason": "Asking for factual calculation result"
+  },
+  {
+    "id": 76,
+    "level": "A",
+    "reason": "Requesting factual multiplication result"
+  },
+  {
+    "id": 77,
+    "level": "C",
+    "reason": "Probing conceptual understanding of number relationships"
+  },
+  {
+    "id": 78,
+    "level": "B",
+    "reason": "Asking how to solve scaling procedure"
+  },
+  {
+    "id": 79,
+    "level": "C",
+    "reason": "Probing deeper understanding of definition meaning"
+  },
+  {
+    "id": 80,
+    "level": "A",
+    "reason": "Incomplete utterance checking procedural rule"
+  },
+  {
+    "id": 81,
+    "level": "B",
+    "reason": "Asking for visual description of diagram"
+  },
+  {
+    "id": 82,
+    "level": "B",
+    "reason": "Requesting method to represent the problem"
+  },
+  {
+    "id": 83,
+    "level": "A",
+    "reason": "Asking for specific Y value result"
+  },
+  {
+    "id": 84,
+    "level": "B",
+    "reason": "Asking how to rewrite mathematical expression"
+  },
+  {
+    "id": 85,
+    "level": "C",
+    "reason": "Probing evaluation of mathematical strategy effectiveness"
+  },
+  {
+    "id": 86,
+    "level": "A",
+    "reason": "Basic division fact checking answer"
+  },
+  {
+    "id": 87,
+    "level": "A",
+    "reason": "Counting specific number of lines needed"
+  },
+  {
+    "id": 88,
+    "level": "A",
+    "reason": "Requesting calculation of probability values"
+  },
+  {
+    "id": 89,
+    "level": "A",
+    "reason": "Asking for fraction equivalence result"
+  },
+  {
+    "id": 90,
+    "level": "A",
+    "reason": "Basic subtraction fact checking answer"
+  },
+  {
+    "id": 91,
+    "level": "A",
+    "reason": "Asking for count of numbers"
+  },
+  {
+    "id": 92,
+    "level": "A",
+    "reason": "Basic subtraction word problem answer"
+  },
+  {
+    "id": 93,
+    "level": "C",
+    "reason": "Probing conceptual understanding of linear relationships"
+  },
+  {
+    "id": 94,
+    "level": "A",
+    "reason": "Identifying which axis for reflection"
+  },
+  {
+    "id": 95,
+    "level": "C",
+    "reason": "Probing mental visualization and reasoning process"
+  },
+  {
+    "id": 96,
+    "level": "C",
+    "reason": "Clarifying student's conceptual meaning and understanding"
+  },
+  {
+    "id": 97,
+    "level": "A",
+    "reason": "General prediction about upcoming task"
+  },
+  {
+    "id": 98,
+    "level": "B",
+    "reason": "Directing discussion of methods and strategies"
+  },
+  {
+    "id": 99,
+    "level": "A",
+    "reason": "General solicitation of student opinion"
+  },
+  {
+    "id": 100,
+    "level": "A",
+    "reason": "Asking for simple calculation result"
+  },
+  {
+    "id": 101,
+    "level": "A",
+    "reason": "Requesting numerical estimate value"
+  },
+  {
+    "id": 102,
+    "level": "B",
+    "reason": "Asking students to examine and discuss"
+  },
+  {
+    "id": 103,
+    "level": "B",
+    "reason": "Asking how to measure concept"
+  },
+  {
+    "id": 104,
+    "level": "A",
+    "reason": "Requesting the correct answer"
+  },
+  {
+    "id": 105,
+    "level": "A",
+    "reason": "Asking to count data pieces"
+  },
+  {
+    "id": 106,
+    "level": "A",
+    "reason": "Checking if action is possible"
+  },
+  {
+    "id": 107,
+    "level": "A",
+    "reason": "Confirming what is being shown"
+  },
+  {
+    "id": 108,
+    "level": "B",
+    "reason": "Asking for method to find distance"
+  },
+  {
+    "id": 109,
+    "level": "C",
+    "reason": "Probing reasoning for mathematical classification"
+  },
+  {
+    "id": 110,
+    "level": "A",
+    "reason": "Asking for calculation result"
+  },
+  {
+    "id": 111,
+    "level": "B",
+    "reason": "Asking how procedure was done"
+  },
+  {
+    "id": 112,
+    "level": "B",
+    "reason": "Asking for problem-solving strategy"
+  },
+  {
+    "id": 113,
+    "level": "B",
+    "reason": "Asking to identify key information"
+  },
+  {
+    "id": 114,
+    "level": "A",
+    "reason": "Asking for numerical result"
+  },
+  {
+    "id": 115,
+    "level": "B",
+    "reason": "Asking what procedure to follow"
+  },
+  {
+    "id": 116,
+    "level": "A",
+    "reason": "Asking for fraction type name"
+  },
+  {
+    "id": 117,
+    "level": "A",
+    "reason": "Asking for property of angles"
+  },
+  {
+    "id": 118,
+    "level": "A",
+    "reason": "Asking for resulting numerator value"
+  },
+  {
+    "id": 119,
+    "level": "A",
+    "reason": "Asking for completion of procedure"
+  },
+  {
+    "id": 120,
+    "level": "C",
+    "reason": "Asking for essential components of mathematical rule"
+  },
+  {
+    "id": 121,
+    "level": "B",
+    "reason": "Requesting specific mathematical vocabulary to use"
+  },
+  {
+    "id": 122,
+    "level": "B",
+    "reason": "Asking student to describe solution strategy"
+  },
+  {
+    "id": 123,
+    "level": "A",
+    "reason": "Checking what answer students are whispering"
+  },
+  {
+    "id": 124,
+    "level": "A",
+    "reason": "Confirming final numerical answer"
+  },
+  {
+    "id": 125,
+    "level": "A",
+    "reason": "Asking for proximity comparison result"
+  },
+  {
+    "id": 126,
+    "level": "A",
+    "reason": "Requesting numerical value of fraction"
+  },
+  {
+    "id": 127,
+    "level": "A",
+    "reason": "Asking for alternative name for number"
+  },
+  {
+    "id": 128,
+    "level": "A",
+    "reason": "Requesting completion of exponential expression"
+  },
+  {
+    "id": 129,
+    "level": "C",
+    "reason": "Probing criteria for evaluating answer quality"
+  },
+  {
+    "id": 130,
+    "level": "B",
+    "reason": "Asking for explanation of terminology"
+  },
+  {
+    "id": 131,
+    "level": "B",
+    "reason": "Requesting explanation of estimate and solution"
+  },
+  {
+    "id": 132,
+    "level": "C",
+    "reason": "Probing conceptual understanding of subtraction operation"
+  },
+  {
+    "id": 133,
+    "level": "A",
+    "reason": "Asking for comparative judgment result"
+  },
+  {
+    "id": 134,
+    "level": "B",
+    "reason": "Asking what procedure to remember using"
+  },
+  {
+    "id": 135,
+    "level": "A",
+    "reason": "Requesting final answer result"
+  },
+  {
+    "id": 136,
+    "level": "A",
+    "reason": "Asking for proximity comparison judgment"
+  },
+  {
+    "id": 137,
+    "level": "A",
+    "reason": "Checking student's opinion on time unit"
+  },
+  {
+    "id": 138,
+    "level": "A",
+    "reason": "Requesting number sentence representation"
+  },
+  {
+    "id": 139,
+    "level": "C",
+    "reason": "Probing understanding of when conversion occurs"
+  },
+  {
+    "id": 140,
+    "level": "A",
+    "reason": "Requesting factual description of problem content"
+  },
+  {
+    "id": 141,
+    "level": "C",
+    "reason": "Probing conceptual connection between points"
+  },
+  {
+    "id": 142,
+    "level": "B",
+    "reason": "Asking for additional procedural considerations"
+  },
+  {
+    "id": 143,
+    "level": "A",
+    "reason": "Requesting factual multiplication result"
+  },
+  {
+    "id": 144,
+    "level": "A",
+    "reason": "Checking specific procedural result"
+  },
+  {
+    "id": 145,
+    "level": "A",
+    "reason": "Reading problem statement for calculation"
+  },
+  {
+    "id": 146,
+    "level": "C",
+    "reason": "Probing conceptual understanding of fraction equivalence"
+  },
+  {
+    "id": 147,
+    "level": "B",
+    "reason": "Requesting explanation of solution process"
+  },
+  {
+    "id": 148,
+    "level": "A",
+    "reason": "Counting visual elements in diagram"
+  },
+  {
+    "id": 149,
+    "level": "A",
+    "reason": "Requesting final numerical answer"
+  },
+  {
+    "id": 150,
+    "level": "A",
+    "reason": "Identifying components for ratio table"
+  },
+  {
+    "id": 151,
+    "level": "A",
+    "reason": "Requesting basic multiplication result"
+  },
+  {
+    "id": 152,
+    "level": "C",
+    "reason": "Probing meaning of numerical representations"
+  },
+  {
+    "id": 153,
+    "level": "A",
+    "reason": "Restating hypothetical scenario"
+  },
+  {
+    "id": 154,
+    "level": "B",
+    "reason": "Requesting demonstration of procedure"
+  },
+  {
+    "id": 155,
+    "level": "B",
+    "reason": "Asking about procedural next step"
+  },
+  {
+    "id": 156,
+    "level": "C",
+    "reason": "Probing conceptual comparison of quantities"
+  },
+  {
+    "id": 157,
+    "level": "A",
+    "reason": "Locating specific numerical value"
+  },
+  {
+    "id": 158,
+    "level": "B",
+    "reason": "Encouraging attempt at solution method"
+  },
+  {
+    "id": 159,
+    "level": "A",
+    "reason": "Comparing two fraction magnitudes"
+  },
+  {
+    "id": 160,
+    "level": "C",
+    "reason": "Probing conceptual understanding of explanation requirements"
+  },
+  {
+    "id": 161,
+    "level": "A",
+    "reason": "Requesting factual classification of number type"
+  },
+  {
+    "id": 162,
+    "level": "B",
+    "reason": "Asking for procedure to solve problem"
+  },
+  {
+    "id": 163,
+    "level": "A",
+    "reason": "Checking factual recall of class routine"
+  },
+  {
+    "id": 164,
+    "level": "B",
+    "reason": "Requesting explanation of work done"
+  },
+  {
+    "id": 165,
+    "level": "A",
+    "reason": "Requesting counting result or number"
+  },
+  {
+    "id": 166,
+    "level": "A",
+    "reason": "Checking final answer or result"
+  },
+  {
+    "id": 167,
+    "level": "A",
+    "reason": "Checking what result was found"
+  },
+  {
+    "id": 168,
+    "level": "A",
+    "reason": "Completing factual terminology relationship"
+  },
+  {
+    "id": 169,
+    "level": "A",
+    "reason": "Requesting final answer or result"
+  },
+  {
+    "id": 170,
+    "level": "A",
+    "reason": "Requesting specific numerical operation"
+  },
+  {
+    "id": 171,
+    "level": "A",
+    "reason": "Requesting factual identification of common factors"
+  },
+  {
+    "id": 172,
+    "level": "A",
+    "reason": "Requesting factual knowledge about even numbers"
+  },
+  {
+    "id": 173,
+    "level": "B",
+    "reason": "Asking for procedure to find perimeter"
+  },
+  {
+    "id": 174,
+    "level": "A",
+    "reason": "Stating computational problem to solve"
+  },
+  {
+    "id": 175,
+    "level": "A",
+    "reason": "Completing factual terminology identification"
+  },
+  {
+    "id": 176,
+    "level": "A",
+    "reason": "Requesting factual observation of function behavior"
+  },
+  {
+    "id": 177,
+    "level": "A",
+    "reason": "Requesting factual graph reading"
+  },
+  {
+    "id": 178,
+    "level": "B",
+    "reason": "Asking for procedure to find equivalents"
+  },
+  {
+    "id": 179,
+    "level": "C",
+    "reason": "Probing conceptual understanding of interpretation meaning"
+  },
+  {
+    "id": 180,
+    "level": "A",
+    "reason": "Requesting factual answer to addition problem"
+  },
+  {
+    "id": 181,
+    "level": "A",
+    "reason": "Asking for specific digit identification"
+  },
+  {
+    "id": 182,
+    "level": "A",
+    "reason": "Checking recall of array activity"
+  },
+  {
+    "id": 183,
+    "level": "A",
+    "reason": "Requesting specific numbers to add"
+  },
+  {
+    "id": 184,
+    "level": "B",
+    "reason": "Asking students to demonstrate their method"
+  },
+  {
+    "id": 185,
+    "level": "C",
+    "reason": "Probing understanding of place value notation"
+  },
+  {
+    "id": 186,
+    "level": "C",
+    "reason": "Asking for conceptual help strategy"
+  },
+  {
+    "id": 187,
+    "level": "A",
+    "reason": "Requesting calculation result from division"
+  },
+  {
+    "id": 188,
+    "level": "B",
+    "reason": "Asking to identify procedural differences"
+  },
+  {
+    "id": 189,
+    "level": "C",
+    "reason": "Probing student's mental reasoning process"
+  },
+  {
+    "id": 190,
+    "level": "A",
+    "reason": "Requesting multiplication calculation result"
+  },
+  {
+    "id": 191,
+    "level": "A",
+    "reason": "Asking for specific numerical values"
+  },
+  {
+    "id": 192,
+    "level": "A",
+    "reason": "Requesting comparison result between distances"
+  },
+  {
+    "id": 193,
+    "level": "C",
+    "reason": "Probing student's conceptual thinking process"
+  },
+  {
+    "id": 194,
+    "level": "A",
+    "reason": "Asking for specific fraction numerator"
+  },
+  {
+    "id": 195,
+    "level": "A",
+    "reason": "Requesting location of positive numbers"
+  },
+  {
+    "id": 196,
+    "level": "C",
+    "reason": "Probing conceptual understanding of comparison"
+  },
+  {
+    "id": 197,
+    "level": "C",
+    "reason": "Asking for strategic reasoning about probability"
+  },
+  {
+    "id": 198,
+    "level": "B",
+    "reason": "Requesting procedural alignment method"
+  },
+  {
+    "id": 199,
+    "level": "A",
+    "reason": "Asking for specific equality result"
+  }
+]

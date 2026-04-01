@@ -1,0 +1,2002 @@
+[
+  {
+    "id": 0,
+    "index": 93037,
+    "utterance": "Peyton, share your thinking.",
+    "context": "[T]: Anna, share your thinking and I want to see active listening thumb.\n[T]: Okay, I'll put you back in my pile.",
+    "next_student": "I got one because",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Keene.Spring.022420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 1,
+    "index": 99281,
+    "utterance": "What part of a whole fruit bar will he give to his brother?",
+    "context": "[T]: Our problem is Larry has half of a fruit bar.\n[T]: He wants to give half of what he has to his brother.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Koski.Spring.012320",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 2,
+    "index": 66187,
+    "utterance": "Mikel, will you go up and show us how you got your answer, please?",
+    "context": "[T]: Go.\n[T]: [background conversation] Hey, back to me please, thank, you.",
+    "next_student": "What I said was when Lilith was six, Noah was two because if you go to the six and to the line, you can see that Noah's age is going to be two because they both meet up at this area.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year1.Carter.Fall.120619",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 3,
+    "index": 203535,
+    "utterance": "What does it do?",
+    "context": "[T]: What is a decimal point or more importantly, what does a decimal point do?\n[T]: I've talked about this in at least 10 lessons so far this year, easy.",
+    "next_student": "The decimal point separates your whole from your fractions.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Parker.Spring.033121",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 4,
+    "index": 148450,
+    "utterance": "29, where does that one get stacked in?",
+    "context": "[T]: So that was really nice.\n[T]: Yes, I'm glad that you came up and explained that to me.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Wolfram.Spring.010920-1",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 5,
+    "index": 73116,
+    "utterance": "Carter, where have you heard that break apart decomposing before?",
+    "context": "[T]: Yes, so-- Oh, you're writing this.\n[T]: I would love to hear your connection after you write this.",
+    "next_student": "I watch some  and some of them-- There's a girl camp and a boy camp, so they break it up.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Cornish.Spring.010920",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 6,
+    "index": 106655,
+    "utterance": "When you look at these, what's different?",
+    "context": "[T]: What's different between the one that I cut and the one I didn't?\n[T]: What's different between these?",
+    "next_student": "No.",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Parker.Spring.010920",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 7,
+    "index": 19787,
+    "utterance": "How many cakes that are 30 yen cheaper do you need to buy in order to make up the 210 yen shortage?",
+    "context": "[T]: Then 30 yen is going to be saved.\n[T]: With each, 30 yen is going to be saved.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "Math JP4 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 8,
+    "index": 86985,
+    "utterance": "What does 'represent' mean?",
+    "context": "[T]: Okay, we have nothing highlighted there, so there isn't anything new.\n[T]: But I would like you guys to remind yourselves and remind the people at your tables what it means to represent.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Gibson.Fall.121219",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 9,
+    "index": 32038,
+    "utterance": "Tell me what you just did again.",
+    "context": "[T]: Hmm.\n[T]: Show- explain that to me again.",
+    "next_student": "This angle, R S U, is 70-",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math US4 transcript",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 10,
+    "index": 182728,
+    "utterance": "Would anybody like to share their answer and explain?",
+    "context": "[Ms. Gibson]: All right, show me.\n[Ms. Gibson]: Okay.",
+    "next_student": "So what I did was...",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year2.Gibson.041521",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 11,
+    "index": 134058,
+    "utterance": "Then you are going to discuss at your table group what a good graph would be, what would a line plot be?",
+    "context": "[T]: Where is your table [unintelligible 00:11:47]?\n[T]: What I am going to have you do, is, I'm going to have you go by table groups to look at the data that is up there.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Strathom.Spring.022420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 12,
+    "index": 128927,
+    "utterance": "How can I check that using what you have there?",
+    "context": "[T]: How can I check that one?\n[T]: Can you tell me how I can check that to see if it comes out to the 19 fourths?",
+    "next_student": "You count up fours and you keep your answer-- When you get to four fours, you put one hole down and when you get up to holes you keep--",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year1.Strathom.Spring.011320",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 13,
+    "index": 106079,
+    "utterance": "What's the right answer?",
+    "context": "[S]: Three.\n[T]: I hear half and three sixth.",
+    "next_student": "Four.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Parker.Fall.121019",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 14,
+    "index": 224942,
+    "utterance": "What is your strategy that you're using here, Anna?",
+    "context": "[T]: We do not do this freehand.\n[T]: Great strategy.",
+    "next_student": "Check marks?",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Strathom.Spring.022621",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 15,
+    "index": 65993,
+    "utterance": "How well could you rearrange these using the same denominator?",
+    "context": "[T]: [background conversation] Okay, back to me.\n[T]: Thank you.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Carter.Fall.120619",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 16,
+    "index": 162847,
+    "utterance": "How many dollars is that?",
+    "context": "[S]: I don't get allowance.\n[T]: My first question for you today says, a sticker costs 75 cents.",
+    "next_student": "It says 25.",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year2.Davies.Spring.020921-2",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 17,
+    "index": 154019,
+    "utterance": "15. factor pairs for 15 Harper.",
+    "context": "[T]: All right.\n[T]: And last, but certainly not least, we have 15.",
+    "next_student": "One times five I mean, 15.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Cornish.Fall.111920-1",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 18,
+    "index": 106387,
+    "utterance": "Mr Asher which one is larger?",
+    "context": "[T]: Already has a common denominator.\n[T]: Let's go and do number two.",
+    "next_student": "Seven ninth.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Parker.Fall.121019",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 19,
+    "index": 124166,
+    "utterance": "How many teaspoons of flavoring will he need for three batches of his new flavor?",
+    "context": "[ Teacher ]: This last one, Ezra wanted to try a new flavor combination for his lip balm.\n[ Teacher ]: To make one batch, he combined 1/8 teaspoon of peppermint oil, 3/8 teaspoon of vanilla oil, and 1/8 teaspoon of orange oil.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Smith.Spring.030220",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 20,
+    "index": 20421,
+    "utterance": "that you take one- when I call your name, you may select one- one equation and then you may explain to me why it belongs to that line.",
+    "context": "[T]: I want to ask while you're looking at this problem-\n[T]: For which of course you'll have several answers because you have checked which one belonged where, to which line,",
+    "next_student": "(inaudible)",
+    "next_student_move": "None",
+    "transcript": "Math NL1 transcript",
+    "rule_based_level": "C"
+  },
+  {
+    "id": 21,
+    "index": 106083,
+    "utterance": "What was our initial shape?",
+    "context": "[T]: Wrong.\n[T]: The answer is neither.",
+    "next_student": "One.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Parker.Fall.121019",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 22,
+    "index": 100077,
+    "utterance": "How do you know?",
+    "context": "[T]: 1/4.\n[T]: Now turn and talk to your shoulder partner and say how do you know it's 3/4 by 1/4 because I'm seeing a confusion.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Koski.Spring.012720",
+    "rule_based_level": "C"
+  },
+  {
+    "id": 23,
+    "index": 45347,
+    "utterance": "Does work or doesn\u2019t work?",
+    "context": "[T]: I want to keep track of the numbers that don\u2019t work and I want to keep track of the numbers that do.\n[T]: Which list does six go in? ",
+    "next_student": "Six doesn\u2019t work so just kick me in the head.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Video Mosaic Grade 6 1 variable 3",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 24,
+    "index": 140988,
+    "utterance": "What do you notice about the fractions in the gray shaded boxes?",
+    "context": "[T]: What do you notice about the fractions in the gray shaded boxes?\n[T]: I want you to think first.",
+    "next_student": "What I noticed that they  tenths.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Travers.Spring.010920",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 25,
+    "index": 164238,
+    "utterance": "If 10% is 9, what number would be 100%?",
+    "context": "[T]: No good, that was a really great question sweetie.\n[T]: So 10%, what number would be 100%?",
+    "next_student": "That would be 100...",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Davies.Spring.021621",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 26,
+    "index": 61915,
+    "utterance": "What's 30 x 5?",
+    "context": "[T]: Excellent.\n[T]: How about this one right here, Sean?",
+    "next_student": "150",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Benson.Spring.022020",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 27,
+    "index": 210749,
+    "utterance": "Carrie, what do you think?",
+    "context": "[Ms. Parker]: You just picked a new number.\n[Ms. Parker]: Okay.",
+    "next_student": "I think we should divide.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Smith.Spring.042221",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 28,
+    "index": 157766,
+    "utterance": "Who could tell me the smallest fraction?",
+    "context": "[T]: So I have one-twelfth, one-third, and one-sixth.\n[T]: Who think that they could tell me the smallest fraction out of all three of these?",
+    "next_student": "One-twelfth.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Cornish.Spring.030121-3",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 29,
+    "index": 129958,
+    "utterance": "What can I look at to help me discover, what is my out, what do I notice?",
+    "context": "[T]: My in rule is 10, 25, 15, 30.\n[T]: My out rule is three fifths.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Strathom.Spring.011620",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 30,
+    "index": 83065,
+    "utterance": "Piper, what do you think?",
+    "context": "[T]: Every time it goes up by 1, the y goes up by 3.\n[T]: Who's got an equation for this one?",
+    "next_student": "Y=4+3X",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Gautier.Fall.121219",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 31,
+    "index": 143457,
+    "utterance": "What do you think?",
+    "context": "[T]: What does that tell about a word if most of the word is the same?\n[T]: What does that tell us?",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Travers.Spring.020620-1",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 32,
+    "index": 91974,
+    "utterance": "Who can share, what do we need to have an understanding of in order to make a good conjecture, and I'm giving you a big hint right now as I do that?",
+    "context": "[T]: Go.\n[T]: Five, four, three, two and one, so in order to do that, we have to have an understanding of what?",
+    "next_student": "How to make X.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Keene.Spring.012420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 33,
+    "index": 225069,
+    "utterance": "Seven times two is?",
+    "context": "[T]: Five times two is?\n[S]: 10",
+    "next_student": "14",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Strathom.Spring.022621",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 34,
+    "index": 68793,
+    "utterance": "River, did you have an idea of another use that wasn't adding and subtracting?",
+    "context": "[T]: I like that too.\n[T]: What would be another use that's not having to do with adding and subtracting?",
+    "next_student": "When you find a different answer to something else and you don't want to use the same answer like everybody else is using, you could do that.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Carter.Spring.011420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 35,
+    "index": 60307,
+    "utterance": "If you have two of these, it's equal to that, so one what?",
+    "context": "[T]: What color shape it ends up being, so if you have one of the fourth  what's the whole?\n[T]: What's going to be the whole?",
+    "next_student": "One half.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Benson.Spring.011320",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 36,
+    "index": 26259,
+    "utterance": "You have already done the next one but... we do times one third, then we will find?",
+    "context": "[T]: So that's annoying because you...\n[S]: (inaudible) do three.",
+    "next_student": "Third.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math SW4 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 37,
+    "index": 138162,
+    "utterance": "What did you have down here?",
+    "context": "[T]: Let's get Silas to power clap.\n[T]: One, two, there, clap.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Tolliver.Spring.011620",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 38,
+    "index": 213148,
+    "utterance": "How does that pattern help you understand the base 10 in the easiest form?",
+    "context": "[T]: What does this simple pattern right here tell you what you're doing?\n[T]: I want you to take 30 seconds, think about it.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Strathom.Fall.102020",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 39,
+    "index": 169376,
+    "utterance": "And I'd like you to type your story, what story is this graph telling you?",
+    "context": "[T]: What is it showing you?\n[T]: it's showing you elevation in feet versus time in minutes.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Gautier.Fall.110520",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 40,
+    "index": 223759,
+    "utterance": "What do I have to look at?",
+    "context": "[S]: 200 I think?\n[S]: No one because it's not (inauidble).",
+    "next_student": "Yeah",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year2.Strathom.Spring.021921",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 41,
+    "index": 89166,
+    "utterance": "To be specific, what would you do?",
+    "context": "[ Nessa ]: Very detailed.\n[T]: Very detailed.",
+    "next_student": "Write your systems of accomplishing .",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Gibson.Spring.013020",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 42,
+    "index": 113903,
+    "utterance": "What is the need to simplify or reduce?",
+    "context": "[S]: Yes, like the  class, we would get  if we didn't simplify or we were supposed to simplify.\n[S]: I don't remember doing that.",
+    "next_student": "Reduce a fraction, I might know.",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Rossi.Spring.012720",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 43,
+    "index": 56913,
+    "utterance": "How about the school to the pool entrance?",
+    "context": "[T]: How about the school?\n[T]: Are you guys okay working together, or should I split you up?",
+    "next_student": "12",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Baker.Spring.012120",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 44,
+    "index": 139980,
+    "utterance": "What do you think?",
+    "context": "[T]: Do you feel like yours is correct, or do you feel like Connor's?\n[T]: Or did you do some revising of your thinking?",
+    "next_student": "We'd didn't really do any .",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Tolliver.Spring.022120",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 45,
+    "index": 124797,
+    "utterance": "What coordinate is the eight?",
+    "context": "[Bruce]: The X, so now I'm going to Y.\n[Mr. Strathom]: What coordinate is that?",
+    "next_student": "Eight is X.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Strathom.Fall.120619-2",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 46,
+    "index": 54359,
+    "utterance": "What would the probabilities look like that time?",
+    "context": "[T]: Now, suppose you had a two game, a, a, two game series but with these teams.  \n[T]: In other words they're not evenly matched.   ",
+    "next_student": "____ anything.",
+    "next_student_move": "None",
+    "transcript": "Video Mosiac 11th grade World Series 2",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 47,
+    "index": 106627,
+    "utterance": "What did I actually do?",
+    "context": "[T]: Let's be very specific.\n[T]: Don't  raise your hand.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Parker.Spring.010920",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 48,
+    "index": 32015,
+    "utterance": "So, what are you gonna do with that?",
+    "context": "[T]: Okay.\n[S]: (inaudible)",
+    "next_student": "Divide it in half.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math US4 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 49,
+    "index": 87011,
+    "utterance": "If one column is a 10th what is one square, Vicki?",
+    "context": "[T]: I can shade grid and represent and solve decimal, addition and subtraction problems.\n[T]: So if one column is a tenth, what is one square?",
+    "next_student": "One hundredth.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Gibson.Fall.121219",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 50,
+    "index": 158584,
+    "utterance": "Angelica, do you think GCF or LCM?",
+    "context": "[T]: You want me to put you in the middle for now?\n[T]: Okay, I'll put you in the middle for now.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Davies.Spring.012221",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 51,
+    "index": 111522,
+    "utterance": "So, what do you see there?",
+    "context": "[S]: You think we should?\n[T]: Yes.",
+    "next_student": "Nothing.",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Reeves.Spring.011420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 52,
+    "index": 235262,
+    "utterance": "Emanual, what did you do for your equation?",
+    "context": "[T]: Oh, this is gonna be a lot of adding.\n[T]: So what did you actually start with with your equation?",
+    "next_student": "I just did.",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year2.Tolliver.Fall.120420",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 53,
+    "index": 87183,
+    "utterance": "If we look at just his first one, can you tell me-- Tell us about your picture.",
+    "context": "[T]: Will you bring yours up here please?\n[T]: Okay.",
+    "next_student": "Yellow is the 54, and my regular pencil is 33.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Gibson.Fall.121219",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 54,
+    "index": 25621,
+    "utterance": "But take care that- Let's look at your- what did you do before, explain it to me in words.",
+    "context": "[SN]: Try to do this piece here.\n[SN]: It equals 48.",
+    "next_student": "Okay, thirty-eight point five squared plus 25 squared (inaudible) to find this diagonal here.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math SW3 transcript",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 55,
+    "index": 195113,
+    "utterance": "What's the rule for number two, Nate?",
+    "context": "[SS]: Yessety-yes?\n[T]: Who would like to share the rule?",
+    "next_student": "The rule?",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year2.Koski.Spring.040221",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 56,
+    "index": 32446,
+    "utterance": "So when it's zero, what would it visually look like?",
+    "context": "[T]: It's going to be a cone, yeah.\n[T]: Pyramid -- circular pyramid.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "MOLLY MCNINCH pt 4",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 57,
+    "index": 165534,
+    "utterance": "We need to look at this left over piece and see what fraction of the part it is.",
+    "context": "[T]: Okay.\n[T]: So, crew, we know that it goes in at least one time, right?",
+    "next_student": "Is it one-third?",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Davies.Spring.030521",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 58,
+    "index": 150030,
+    "utterance": "If I could take the smartboard and flip it upside down, we're not having the bottom win, we're now going to have what?",
+    "context": "[T]: Cancel out and in the long run, you're just approaching negative .\n[T]: This group's analysis is actually perfect.",
+    "next_student": "The top.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Wolfram.Spring.011420-2",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 59,
+    "index": 47718,
+    "utterance": "OK, tell me about this.",
+    "context": "[Stephanie]: And so, then I made, (flips through papers) we made this.\n[T1]: Oh, that\u2019s interesting, let me see. ",
+    "next_student": "Alright.",
+    "next_student_move": "None",
+    "transcript": "Video Mosaic Grade 6 Dice",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 60,
+    "index": 138776,
+    "utterance": "Anybody with me that has an idea of what I'm going to do for the other two sisters?",
+    "context": "[T]: We actually did that.\n[T]: Does this work?",
+    "next_student": "What you could do then is do that.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year1.Tolliver.Spring.012420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 61,
+    "index": 178400,
+    "utterance": "What do we think for the sixth one?",
+    "context": "[T]: Okay?\n[T]: alright., all right, someone online.",
+    "next_student": "None?",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Gautier.Spring.022321",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 62,
+    "index": 8388,
+    "utterance": "Triangle A B C and triangle F E D. And number 10, which is the hypotenuse of triangle A B C?",
+    "context": "[T]: Do you want me to repeat it?\n[SN]: Yeah.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "Math AU 2 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 63,
+    "index": 41690,
+    "utterance": "How is it related to subtraT2ion, Michael?",
+    "context": "[Meredith]: Do we have a pen?\n[Meredith]: Do you have a  pen in that desk?",
+    "next_student": "See, look",
+    "next_student_move": "None",
+    "transcript": "Video Mosaic Grade 4 Division of Fractions 2",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 64,
+    "index": 4548,
+    "utterance": "So if you have eight, what would you do?",
+    "context": "[Ariel]: For nine, I would do eight, then I would multiply the number by two and then I would subtract two and then I would add three.\n[T]: So I got when you said \u2026 says that again \u2026[the first way,] you seem to have so many ways of doing things that I get lost.",
+    "next_student": "Eight, right?",
+    "next_student_move": "MakingClaim",
+    "transcript": "Ladder problem 3_Grade 7",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 65,
+    "index": 229663,
+    "utterance": "6 and what equals 12?",
+    "context": "[T]: If my in is 12-\n[S]: 2 is 12.",
+    "next_student": "Yeah.",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year2.Strathom.Spring.040221",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 66,
+    "index": 200036,
+    "utterance": "So when I say multiplication facts, when I tell you to practice your multiplication facts, what should you be practicing?",
+    "context": "[Ezra]: Uh, factors multiples...\n[Mr. Parker]: Good, but basic right?",
+    "next_student": "Basic multiplication.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Parker.Fall.110920",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 67,
+    "index": 119353,
+    "utterance": "If I have a to the power of negative two, that equals one over a-",
+    "context": "[T]: Now, those explorations, particularly the first one, you're going to find that your tool kit from last week is going to be very helpful for you because notice all the property names are here.\n[T]: You've got to identify, you got to match those things together, but you're also completing what goes in the blank.",
+    "next_student": "Squared.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Saunders.Spring.021820",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 68,
+    "index": 100113,
+    "utterance": "3/4 x 1/4 equals?",
+    "context": "[T]: Write a multiplication number sentence for the area of the shaded rectangle.\n[T]: Basically, we've already done that.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Koski.Spring.012720",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 69,
+    "index": 81152,
+    "utterance": "Median, how can we find median?",
+    "context": "[T]: What's the median of this list?\n[T]: How can we find that?",
+    "next_student": "Four?",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Gautier.Fall.100419",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 70,
+    "index": 13147,
+    "utterance": "Negative, but in this one the number will be...",
+    "context": "[T]: Yes, the exponent is an even number but in the other one, the exponent is an odd number so what kind of number will you come up with?\n[S]: Negative.",
+    "next_student": "Positive.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math CZ4 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 71,
+    "index": 117902,
+    "utterance": "What's negative X times negative X times negative X going to be?",
+    "context": "[T]: Then the parentheses with the negative X here.\n[T]: Then I got to do a little math.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Saunders.Spring.021020-1",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 72,
+    "index": 53598,
+    "utterance": "How do you ... could you show me that check?",
+    "context": "[Ankur]: Yeah\n[Romina]: Yeah",
+    "next_student": "Well, we added up the two-sixteenths, four-sixteenths, five-sixteenths -",
+    "next_student_move": "MakingClaim",
+    "transcript": "Video Mosiac 11th grade World Series 2",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 73,
+    "index": 139707,
+    "utterance": "Okay, Owen, can you share what you did?",
+    "context": "[T]: I don't know what's going on.\n[T]: There we go.",
+    "next_student": "What I did is, so this is for the burritos.",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Tolliver.Spring.020520",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 74,
+    "index": 147348,
+    "utterance": "Logan, what do we know about volume?",
+    "context": "[T]: We'll do one more.\n[T]: Touch down.",
+    "next_student": "It's the space that an object takes up.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Travers.Spring.022620",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 75,
+    "index": 10584,
+    "utterance": "Sixty and so what is the second share worth?",
+    "context": "[T]: You found 30 and multiplied by two and got?\n[SN]: Sixty.",
+    "next_student": "A hundred and fifty.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math AU 4 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 76,
+    "index": 164865,
+    "utterance": "And what would that be?",
+    "context": "[T]: Landon, which one would you like to tackle?\n[Landon]: 30x2",
+    "next_student": "60",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Davies.Spring.030221",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 77,
+    "index": 120845,
+    "utterance": "Luke, what kind of connections do you see?",
+    "context": "[Ms. Parker]: Do you see a connection between these numbers?\n[Students]: Yes.",
+    "next_student": "The numerator is one, two, three, four, five.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Smith.Fall.111919",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 78,
+    "index": 211832,
+    "utterance": "So if they need two teaspoons but we're making three recipes, what are we going to do?",
+    "context": "[Ms. Smith]: Two teaspoons.\n[Class]: Six teaspoons.",
+    "next_student": "Six.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Smith.Spring.050421",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 79,
+    "index": 204993,
+    "utterance": "Like I say that, what am I really talking about?",
+    "context": "[Ms. Reeves]: Yeah, so these two lines mean absolute value.\n[Ms. Reeves]: Who can remember the definition of absolute value?",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Reeves.042921",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 80,
+    "index": 121342,
+    "utterance": "Whatever I do to the bottom--",
+    "context": "[Teacher]: Multiply?\n[Students]: By five.",
+    "next_student": "I do to the top.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Smith.Fall.120319",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 81,
+    "index": 21713,
+    "utterance": "How does the whole diagram look, the whole garden?",
+    "context": "[SN]: How can you determine how much of it is tiled?\n[T]: What does it look like, the example, the diagram?",
+    "next_student": "As a square.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math NL2 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 82,
+    "index": 167009,
+    "utterance": "How can we model problem number one?",
+    "context": "[T]: Next person.\n[T]: Adeline, you have problem number one.",
+    "next_student": "I think that we could model problem number one by  and then making it so that there is two groups of four.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year2.Davies.Spring.031021-3",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 83,
+    "index": 153770,
+    "utterance": "Tell me what the Y that goes with it is.",
+    "context": "[T]: This, I gave you the x.\n[T]: So this is saying go to five on the X, go find the function.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Barry.Fall.121420",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 84,
+    "index": 119461,
+    "utterance": "If I ignore the  and I just look at that, how could I rewrite that?",
+    "context": "[T]: All right so I don't have .\n[T]: How could I rewrite that?",
+    "next_student": "That's not very helpful.",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Saunders.Spring.021820",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 85,
+    "index": 46305,
+    "utterance": "What good is a secret that doesn\u2019t work?",
+    "context": "[Michael]: It only worked for a couple of them.\n[S]: It doesn\u2019t work.",
+    "next_student": "Ten doesn\u2019t work.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Video Mosaic Grade 6 1 variable 8",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 86,
+    "index": 110967,
+    "utterance": "What's 12 \u00f7 6?",
+    "context": "[T]: Yes, and that's not.\n[T]: This divided by 6.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Reeves.Fall.121119",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 87,
+    "index": 72483,
+    "utterance": "How many more lines am I going to need?",
+    "context": "[T]: Because can I say, \"SS right, 1/6, 2/6, 3/6, 6/6\"?\n[S]: No.",
+    "next_student": "Two more.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Cornish.Fall.112119",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 88,
+    "index": 54373,
+    "utterance": "What are the probabilities of those things happening?",
+    "context": "[T]:  Then -- or you could have Team A win the -- win one game and Team B win the other. \n[T]: Or Team B could win both games, right? ",
+    "next_student": "In the fiTeachert game we may have a two thirds chance of winning right?",
+    "next_student_move": "MakingClaim",
+    "transcript": "Video Mosiac 11th grade World Series 2",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 89,
+    "index": 221824,
+    "utterance": "If I take my two eighths, what does it equal?",
+    "context": "[Ms. Strathom]: Four and eight.\n[Ms. Strathom]: Well, look at that.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Strathom.Spring.020421",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 90,
+    "index": 194667,
+    "utterance": "3 12 minus 3 =?",
+    "context": "[T]: already.\n[T]: Okay.",
+    "next_student": "0",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Koski.Spring.031721-2",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 91,
+    "index": 152603,
+    "utterance": "How many numbers did you have in your list if you listed them all out?",
+    "context": "[SN]: If you use a calculator and find the percent of kids at Lincoln school, it's a decimal.\n[SN]: I think it's T because the C and B are like the same thing.",
+    "next_student": "30 seems like an awful lot more.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Wolfram.Spring.030920",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 92,
+    "index": 103052,
+    "utterance": "How many were left?",
+    "context": "[T]: No.\n[T]: What if I said I ate four of my eight cookies.",
+    "next_student": "Four.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Levy.Spring.030320-1",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 93,
+    "index": 16872,
+    "utterance": "And, for example, in what kind- what situations does this become a straight line?",
+    "context": "[T]: You won't get any numbers, right?\n[S]: Yes.",
+    "next_student": "A straight line?",
+    "next_student_move": "None",
+    "transcript": "Math JP2 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 94,
+    "index": 181480,
+    "utterance": "The green triangle up there, which axis?",
+    "context": "[T]: Not quite because then G' would match up with F, and F would match up with G. But it's a reflection, right?\n[T]: Like this, right?",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Gautier.Spring.042121",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 95,
+    "index": 37414,
+    "utterance": "What do you sort of do to  imagine it in your heads to imagine the length?",
+    "context": "[T]: So  Brian, you can't imagine but that's a good way of doing  it, so you could all imagine the length of a meter stick.\n[T]: And what do you do in your heads to imagine the  length of two meters?",
+    "next_student": "You double it?",
+    "next_student_move": "MakingClaim",
+    "transcript": "Ribbons 3_Grade 4",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 96,
+    "index": 107008,
+    "utterance": "What do you mean?",
+    "context": "[T]: What's the first thing you tried to do, Selena?\n[ Selena ]: I looked for my fourths.",
+    "next_student": "I looked for ones that's equal to fourth, like big fourth.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Parker.Spring.010920",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 97,
+    "index": 208396,
+    "utterance": "What do you think we're going to do?",
+    "context": "[Ms. Smith]: And then she sells four tickets a day for one week.\n[Ms. Smith]: Whoa.",
+    "next_student": "I have one.",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year2.Smith.Fall.111920",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 98,
+    "index": 68949,
+    "utterance": "I'd like you to talk at your teams about your multiples and your strategy for finding the multiples.",
+    "context": "[T]: Flash.\n[T]: Thank you.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Carter.Spring.011420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 99,
+    "index": 163933,
+    "utterance": "Alfie, what do you think?",
+    "context": "[T]: Yeah, nice job thinking about money there.\n[T]: Okay the last one we have is 50%.",
+    "next_student": "I think it's equivalent to one half.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Davies.Spring.021621",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 100,
+    "index": 188166,
+    "utterance": "So what is a fourth of three?",
+    "context": "[T]: And then a fourth of each of those.\n[T]: So 123412341234.",
+    "next_student": "Three fourths.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Gibson.Spring.021121",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 101,
+    "index": 129273,
+    "utterance": "What is your estimate?",
+    "context": "[S]: Closer to a half.\n[T]: Closer to a half.",
+    "next_student": "10th.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Strathom.Spring.011320",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 102,
+    "index": 145417,
+    "utterance": "What do we think about, look at the arc, and whisper to your face partner again?",
+    "context": "[T]: Let's do number two together.\n[T]: This is an interesting one.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Travers.Spring.020620-3",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 103,
+    "index": 34160,
+    "utterance": "And the question I forgot to ask you in the very first poster that we did, is: How do we measure area?",
+    "context": "[S]: The perimeter.\n[T]: As you work, think about what\u2026 what area is.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "Problem 1 part a",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 104,
+    "index": 199325,
+    "utterance": "Tell us how it is, what's the right answer?",
+    "context": "[Mr. Parker]: What would you do?\n[Adeline]: I'd...",
+    "next_student": "Equals two.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Parker.Fall.110320",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 105,
+    "index": 9589,
+    "utterance": "So how many pieces of data do I now have on the right-hand side?",
+    "context": "[T]: Therefore, the seventh and eighth piece of data can still remain in play when we are trying to find the first and third quartile.\n[SN]: Yeah.",
+    "next_student": "One to seven.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math AU 3 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 106,
+    "index": 17869,
+    "utterance": "Can't you make one on th- this side?",
+    "context": "[S]: Hm.\n[T]: Hm?",
+    "next_student": "This side (inaudible) a lot.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math JP2 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 107,
+    "index": 117339,
+    "utterance": "Then this one is showing that I modified?",
+    "context": "[S]: Modifying X.\n[T]: Just X.",
+    "next_student": "The whole function.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Saunders.Spring.020620-1",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 108,
+    "index": 193510,
+    "utterance": "Is there a way we can find out how far away they are from one another using the ordered pairs?",
+    "context": "[S]: I know.\n[S]: Yes.",
+    "next_student": "I think the bottom part of the Y-axis, and you can find it out by, since we know the one pair is at , at two, you can go all the way to 10.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year2.Koski.Spring.022321",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 109,
+    "index": 108852,
+    "utterance": "How do you know it's a line, ?",
+    "context": "[T]: It is not a line segment.\n[T]: It is not a Bailey.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Parker.Spring.012420",
+    "rule_based_level": "C"
+  },
+  {
+    "id": 110,
+    "index": 19947,
+    "utterance": "How much is it if you take off the brackets?",
+    "context": "[S]: Mm?\n[T]: How much is it when you multiply it?",
+    "next_student": "Two X.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math JP4 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 111,
+    "index": 43357,
+    "utterance": "How did you get one and one quarter when  you called the brown rod two now?",
+    "context": "[T1]: That\u2019s something new that Sarah and Audra  introduced that I think is very nice.\n[T1]: But now let\u2019s hear the  other argument.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "Video Mosaic Grade 4 Intro Fraction Comparison 3",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 112,
+    "index": 70458,
+    "utterance": "What was the strategy we used yesterday to solve problems like number three?",
+    "context": "[T]: Ready?\n[T]: Go.",
+    "next_student": "What we did is we used a unit fraction to find-- Just to find the regular one, and then we did times the numerator so we can see if 3/5 of 15--",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year1.Carter.Spring.012320",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 113,
+    "index": 66361,
+    "utterance": "Everybody look and see, what are the keywords to help you see how to modify this?",
+    "context": "[T]: What should the picture look like?\n[T]: What are the keywords there?",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Carter.Fall.121019",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 114,
+    "index": 12988,
+    "utterance": "So he went on the roller coaster and he could have gone on the roller coaster how many times?",
+    "context": "[T]: Grandmother gave him enough for two rides, which is two times eight korun.\n[T]: Plus he received from his grandfather an additional five times eight korun.",
+    "next_student": "Seven times.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Math CZ4 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 115,
+    "index": 129375,
+    "utterance": "What do you need to do?",
+    "context": "[T]: Addison, don't automatically say you don't know how to do it.\n[Addison]: I don't.",
+    "next_student": "A common denominator?",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Strathom.Spring.011420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 116,
+    "index": 217287,
+    "utterance": "Do you remember what that's called?",
+    "context": "[S]: Um, first you have to so you have to look at the numbers and then if\n[T]: what kind of fraction is one and nine twentieths?",
+    "next_student": "mixed number?",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Strathom.Fall.121020",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 117,
+    "index": 176935,
+    "utterance": "And Patrick, what kind of or what do we know about corresponding angles?",
+    "context": "[T]: corresponding Thanks, Patrick.\n[T]: Correspong.",
+    "next_student": "That they're parallel?",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Gautier.Spring.020221",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 118,
+    "index": 106125,
+    "utterance": "Good, so what'll my numerator be?",
+    "context": "[T]: Why did you say there at the end whatever you do to the bottom you do to the top?\n[ Alex ]: Because if you cut the pizza more, you're changing the number of slices that you care about.",
+    "next_student": "Three.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Parker.Fall.121019",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 119,
+    "index": 129944,
+    "utterance": "Then I had to exchange it for a--?",
+    "context": "[S]: The bottom numerator.\n[S]: I couldn't subtract the top numerator from the bottom numerator because the top numerator was smaller.",
+    "next_student": "Whole.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Strathom.Spring.011420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 120,
+    "index": 128589,
+    "utterance": "If I have to write a rule for subtracting decimals what is something the rule has to contain?",
+    "context": "[T]: Thank you.\n[T]: Come here.",
+    "next_student": "You have to align the decimals up.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Strathom.Fall.121619",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 121,
+    "index": 92249,
+    "utterance": "We have to use our math vocabulary, what's the math vocabulary I want to hear from you today?",
+    "context": "[T]: If I am explaining that piece to a third-grader, Pete, and I say I multiply it, are they going to understand what you're saying?\n[ Pete ]: No.",
+    "next_student": "Numerator and denominator.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Keene.Spring.022020",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 122,
+    "index": 206150,
+    "utterance": "David, what was one of your strategies?",
+    "context": "[Ms. Smith]: Before I hear answers, I want to know how you thought about this problem?\n[Ms. Smith]: What did you do to solve it?",
+    "next_student": ".",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year2.Smith.Fall.102320",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 123,
+    "index": 34693,
+    "utterance": "I\u2019m hearing people whisper, what is it?",
+    "context": "[T]: Okay, the number we give to an impossible even.\n[T]: Something\u2019s that impossible that can\u2019t happen.",
+    "next_student": "Zero.",
+    "next_student_move": "MakingClaim",
+    "transcript": "QMT training lesson",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 124,
+    "index": 100304,
+    "utterance": "What is our answer?",
+    "context": "[T]: 15, do we agree?\n[T]: I agree.",
+    "next_student": "15",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Koski.Spring.012720",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 125,
+    "index": 91762,
+    "utterance": "What is this one closer to?",
+    "context": "[T]: So thinking about it, I think Sasha had a really great way of visualizing it and then also, when you have 1/4, it's tricky because it's right in the middle.\n[T]: Let's just do one more and then we need to move on.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Keene.Spring.012420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 126,
+    "index": 217304,
+    "utterance": "How much is that one worth?",
+    "context": "[T]: If our fraction is nine twentieths.\n[T]: our denominators is 20.",
+    "next_student": "One?",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Strathom.Fall.121020",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 127,
+    "index": 41418,
+    "utterance": "Is there another number name for the  purple?",
+    "context": "[Erik]: One twelfth\n[T]: That's one name, one twelfth.",
+    "next_student": "One fourth, no.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Video Mosaic Grade 4 Building large models 4",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 128,
+    "index": 110780,
+    "utterance": "3^2 x 5. Who can take this one down for me?",
+    "context": "[T]: How do I re-write that using exponential form, Charlie?\n[ Charlie ]: You divide",
+    "next_student": "9 is 3 x 3.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Reeves.Fall.121119",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 129,
+    "index": 66505,
+    "utterance": "When you answer these questions, what would make them good answers?",
+    "context": "[Claud]: Compare your predictions with problem two.\n[T]: Yes, actuSSy answer these two questions.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Carter.Fall.121019",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 130,
+    "index": 89599,
+    "utterance": "What does that mean?",
+    "context": "[T]: With real-world contexts or situations.\n[T]: Talk to your friends, what's a real-world context or situation.",
+    "next_student": "Like maybe if John had 30/30 or maybe 15/15 of , and he spends 5/10 of that on some things.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year1.Gibson.Spring.013120",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 131,
+    "index": 217177,
+    "utterance": "Okay, Maya, will you please explain your estimate, and then how you solved it?",
+    "context": "[T]: Okay, so, Maya, will you turn your microphone on please?\n[S]: Yes.",
+    "next_student": "Okay, so I thought 11 twelfths was closer to a whole than a half, and then six twelfths is a half.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year2.Strathom.Fall.121020",
+    "rule_based_level": "C"
+  },
+  {
+    "id": 132,
+    "index": 127356,
+    "utterance": "Subtraction is doing what?",
+    "context": "[Georgia]: We needed to round it to help us get the answer, that's why, but then we got 0.33and then we started shading in but then we realized that-- We started shading in but then we realized that would like be adding the two.\n[T]: If you shade in both of those amounts, you're adding because putting two parts together is adding.",
+    "next_student": "Taking away.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Strathom.Fall.121219",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 133,
+    "index": 89080,
+    "utterance": "Is it going to be more or less?",
+    "context": "[T]: These other factors, or is it going to be less than those factors?\n[T]: RIcardo.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Gibson.Spring.012720",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 134,
+    "index": 103818,
+    "utterance": "Remind me, what should you make sure you definitely use if you are still feeling like you add maybe a two on this?",
+    "context": "[T]: What about the bottom one, please?\n[T]: 1/2 plus 2/5.",
+    "next_student": "Fraction-",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Levy.Spring.120319",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 135,
+    "index": 139944,
+    "utterance": "Then, your answer would be what?",
+    "context": "[T]: Quietly go with your partner, you have about-- Then decide who is A and B.\n[T]: We're going to have time for one minute each.",
+    "next_student": ".",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Tolliver.Spring.022120",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 136,
+    "index": 128966,
+    "utterance": "Am I going to be closer to a half, m I going to be closer to one or am I going to be closer to about one and a half?",
+    "context": "[T]: And there's one fourth, okay?\n[T]: I'm adding those together.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Strathom.Spring.011320",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 137,
+    "index": 168741,
+    "utterance": "What do you think, Thatcher?",
+    "context": "[Ms. Davies]: What unit are they using to measure time?\n[Class]: An hour?",
+    "next_student": "Minutes?",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Davies.Spring.042721",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 138,
+    "index": 167237,
+    "utterance": "And Whitney, what would your number sentence be?",
+    "context": "[T]: So you can write that in words, how many times does one fourth fit into two and three fourths.\n[T]: And remember, this is just to show you what to do and then you can just write your work in your notebook.",
+    "next_student": "two and three fourths divided by one eighth",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Davies.Spring.031021-3",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 139,
+    "index": 89715,
+    "utterance": "When we convert, when do you ever have to convert to something?",
+    "context": "[T]: I think you guys have to think way back.\n[T]: We're not thinking about fractions necessarily.",
+    "next_student": "Convert is when you have to really have I want to say",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Gibson.Spring.013120",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 140,
+    "index": 36163,
+    "utterance": "What we\u2019re asked to do in that first problem?",
+    "context": "[T]: Looks like we have  some work cut out for us, isn\u2019t that right?\n[T]: Ok, can someone  tell us what that first problem is about in your own words?",
+    "next_student": "Well, you\u2019re supposed to like\u2026 there\u2019s one meter of white  ribbon and then you have to split it into, um, a half so I got,  um, two bows.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "Ribbons 1_Grade 4",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 141,
+    "index": 180857,
+    "utterance": "How do those relate to these points?",
+    "context": "[T]: Five comma zero.\n[T]: Okay.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Gautier.Spring.042021",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 142,
+    "index": 66457,
+    "utterance": "Anything else that people think for this?",
+    "context": "[T]: It doesn't have to be double, they just have to be larger.\n[T]: They need to be accurate and larger.",
+    "next_student": "You have to remember to write the parenthesis and the comma.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Carter.Fall.121019",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 143,
+    "index": 119057,
+    "utterance": "What two numbers multiplied is 24?",
+    "context": "[T]: Let's see.\n[T]: Let's do it this way, make it easier.",
+    "next_student": "16 x 2 is 32.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year1.Saunders.Spring.021820",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 144,
+    "index": 94110,
+    "utterance": "Following my steps, what's the denominator?",
+    "context": "[ Teacher ]: Sorry, what would I write?\n[ Student ]: You should write 15.",
+    "next_student": "Four",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Keene.Spring.022720",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 145,
+    "index": 232590,
+    "utterance": "Dani earned $9 in allowance last week, he spent two thirds of his allowance on comic books, how much money did he spend on comic books?",
+    "context": "[S]: Let's go.\n[T]: Okay.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Strathom.Spring.041521",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 146,
+    "index": 104672,
+    "utterance": "But when we're dealing with fractions, they can be because what matters is the size of the...",
+    "context": "[T]: They're not equal when we're dealing with whole numbers, right?\n[Ss]: No.",
+    "next_student": "People.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Parker.Fall.112219",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 147,
+    "index": 57512,
+    "utterance": "Somebody take me through their thinking on this one.",
+    "context": "[T]: Show.\n[T]: All right.",
+    "next_student": "What I did is that I noticed that two thousandths is not bigger.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Baker.Spring.022820",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 148,
+    "index": 72503,
+    "utterance": "How many lines did they give us for our twelfths?",
+    "context": "[T]: Can you wait?\n[T]: Okay, so let's look at our twelfths then.",
+    "next_student": "Three.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Cornish.Fall.112119",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 149,
+    "index": 77336,
+    "utterance": "What would your final answer be?",
+    "context": "[T]: Good job keep going.\n[S]: Then 40 divided by 5 is 8.",
+    "next_student": ".",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Davies.Fall.120419",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 150,
+    "index": 168934,
+    "utterance": "Eden, what are the two things that we are comparing for Diego?",
+    "context": "[Ms. Davies]: So we're going to make two ratio tables at the top of page 15.\n[Ms. Davies]: We're going to start by making one for Diego.",
+    "next_student": "Price.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Davies.Spring.042721",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 151,
+    "index": 110285,
+    "utterance": "Six times two which is?",
+    "context": "[T]: Jonah.\n[ Ishmail ]: Two.",
+    "next_student": "12",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Parker.Spring.021120",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 152,
+    "index": 49771,
+    "utterance": "Let\u2019s take in the first column, what do those numbers represent?",
+    "context": "[Stephanie]: Uh, on these sides?\n[T1]: Yeah. ",
+    "next_student": "Right here, right here, right here?",
+    "next_student_move": "None",
+    "transcript": "Video Mosaic Grade 6 Dice",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 153,
+    "index": 183461,
+    "utterance": "So what if we had 10 apples.",
+    "context": "[Ms. Gibson]: So we have that if there were 10 apples in a basket?\n[Ms. Gibson]: Okay?",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Gibson.041521",
+    "rule_based_level": "C"
+  },
+  {
+    "id": 154,
+    "index": 222218,
+    "utterance": "Zach, come and show them what we did.",
+    "context": "[Ms. Strathom]: One fourth plus two sixths?\n[S1]: Yes.",
+    "next_student": "Okay.",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year2.Strathom.Spring.020421",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 155,
+    "index": 56288,
+    "utterance": "And then what could I do with it, if I sawed it in half?",
+    "context": "[T]: Would you agree that maybe I could take this one [white rod]  and saw it in half, if I had a saw?\n[Erik]: Yeah.",
+    "next_student": "Then you could put half here and half here",
+    "next_student_move": "MakingClaim",
+    "transcript": "What is one half 3_grade 4",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 156,
+    "index": 162331,
+    "utterance": "So what is the one in the orange juice mean compared to the one and one fourth in the soda water?",
+    "context": "[T]: The part that's circled in yellow?\n[Max]: Well, it's basically the answer because it's super extended or, sorry, it's super extended because we had to do work on the division problem for five divided by four.",
+    "next_student": "Well, I guess it means that it's not equivalent to them.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Davies.Spring.020521",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 157,
+    "index": 135956,
+    "utterance": "Where is it at?",
+    "context": "[ T ]: Let me see where you're at.\n[ T ]: Because I bet you just didn't round it, I bet that's all you forgot to do.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Strathom.Spring.031020",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 158,
+    "index": 53576,
+    "utterance": "Wanna take a shot at it?",
+    "context": "[Michael]: I don't know\n[ROmina]: Divide by half for the other line and go down ",
+    "next_student": "h, that's four games, five games, six games ...",
+    "next_student_move": "MakingClaim",
+    "transcript": "Video Mosiac 11th grade World Series 2",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 159,
+    "index": 235784,
+    "utterance": "And then which one's bigger?",
+    "context": "[T]: Yes.\n[T]: So then we will have four fifths.",
+    "next_student": "Three fourths.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Tolliver.Fall.120820",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 160,
+    "index": 86851,
+    "utterance": "The hardest part is the explaining part, so what is it that you're going to be explaining in the problem?",
+    "context": "[T]: Some of you've already gotten started, you're in a big hurry, you're going to have tons of time.\n[T]: I want you to talk to your neighbor about what you think you have to do.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Gibson.Fall.121019",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 161,
+    "index": 221592,
+    "utterance": "What type of number?",
+    "context": "[Ms. Strathom]: This is an easy one.\n[Ms. Strathom]: I can do it with anything that is a what type of number?",
+    "next_student": "It has to be",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year2.Strathom.Spring.020421",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 162,
+    "index": 139900,
+    "utterance": "what do you do?",
+    "context": "[T]: If you do the length * the width, you should get the area they gave you.\n[T]: Right now, I want you to turn and tell someone how do you figure out the missing sign.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Tolliver.Spring.022120",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 163,
+    "index": 139427,
+    "utterance": "Dan, how do we start math today?",
+    "context": "[T]: [unintelligible 00:34:32]\n[T]: Can anyone share how we started math today that is a little bit different than normal.",
+    "next_student": "We started math with",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Tolliver.Spring.020520",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 164,
+    "index": 219450,
+    "utterance": "John, can you explain what you did?",
+    "context": "[T]: John, turn your microphone on.\n[T]: Okay.",
+    "next_student": "Well, when *inauidble* I cut the pizza into thirds.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Strathom.Spring.012121",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 165,
+    "index": 96320,
+    "utterance": "All these squares, if you counted all the red squares up, how many squares would there be filled in?",
+    "context": "[T]: One, two, three, four, five, six, seven.\n[T]: 47 hundreds.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Koski.Fall.121119-1",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 166,
+    "index": 213025,
+    "utterance": "Brogan, what'd you get for an answer?",
+    "context": "[T]: Okay.\n[T]: All right.",
+    "next_student": "I got one million.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Strathom.Fall.102020",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 167,
+    "index": 25701,
+    "utterance": "Now what have you found?",
+    "context": "[T]: Have you done?\n[SN]: Here we have to do it in the simplified way or-",
+    "next_student": "Yes.",
+    "next_student_move": "None",
+    "transcript": "Math SW3 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 168,
+    "index": 184849,
+    "utterance": "And the denominator is the same as the what?",
+    "context": "[T]: So the numerator is the same as the dividend.\n[T]: Right?",
+    "next_student": "Divisor.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Gibson.Spring.012821",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 169,
+    "index": 129840,
+    "utterance": "What is my answer?",
+    "context": "[S]: Which makes it a?\n[S]: I did that now.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Strathom.Spring.011420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 170,
+    "index": 209287,
+    "utterance": "What am I doing to one to get four?",
+    "context": "[Ms. Smith]: They want us to find our denominator.\n[Ms. Smith]: Easy question.",
+    "next_student": "Four.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Smith.Spring.021721",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 171,
+    "index": 111373,
+    "utterance": "What [unintelligible 00:39:33] might go into both of those?",
+    "context": "[T]: It's weighted only 20% and it's only 1 point out of all that, yes.\n[T]: No, no, you just have to do-- Here you would want to think, \"What could I divide these by that's a factor of both of them?\"",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Reeves.Fall.121119",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 172,
+    "index": 111377,
+    "utterance": "What number is a factor of every even number?",
+    "context": "[T]: You know they're both even, and what number goes into every even number.\n[T]: What number goes into every even number?",
+    "next_student": "Two.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Reeves.Fall.121119",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 173,
+    "index": 209885,
+    "utterance": "Ethan, how do we find the perimeter?",
+    "context": "[Ms. Smith]: How do we find the fence?\n[Ms. Smith]: Samantha knows, but somebody else has to know.",
+    "next_student": "You have to add the length of all the sides.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Smith.Spring.041921",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 174,
+    "index": 164226,
+    "utterance": "Okay I'm going to go down here to 9 is 10% of what number?",
+    "context": "[T]: Good job.\n[T]: So your first one is 18, I can see that there are several, you can type that in all right.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Davies.Spring.021621",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 175,
+    "index": 15448,
+    "utterance": "Therefore, this is called?",
+    "context": "[T]: Of course we will, we will not call them terms, we should call him- call them?\n[T]: Factors.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "Math HK4 transcript",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 176,
+    "index": 149564,
+    "utterance": "At the ends of the function, all the way to the left at negative infinity, and all the way at the right at positive infinity, what is the function doing?",
+    "context": "[S]: Those look more sixes than zeros.\n[T]: Whatever, don't judge me.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Wolfram.Spring.011420-1",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 177,
+    "index": 170831,
+    "utterance": "What's the y intercept?",
+    "context": "[T]: What's the y intercept on this graph?\n[T]: What's the slope?",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Gautier.Fall.111220-2",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 178,
+    "index": 132335,
+    "utterance": "What am I going to do?",
+    "context": "[T]: If I'm using these fractions and I want them all to be equivalent to 4/5, what am I doing with them?\n[T]: How am I going to find out what is equivalent?",
+    "next_student": ".",
+    "next_student_move": "None",
+    "transcript": "TalkBack.Year1.Strathom.Spring.013020",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 179,
+    "index": 131293,
+    "utterance": "If you have an interpreter, what is that person doing?",
+    "context": "[T]: I can interpret a drawing to solve fraction, number story.\n[T]: Interpret; if I am interpreting something-- Think about a foreign language.",
+    "next_student": "I think they're like, I guess your example like if I'm saying a different language .",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Strathom.Spring.012920",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 180,
+    "index": 188582,
+    "utterance": "Anybody want to tell me?",
+    "context": "[Ms. Gibson]: 3/8ths plus one and 2/3rds.\n[Ms. Gibson]: Show me.",
+    "next_student": "It's closest to *inaudible*because if you add like the numbers, then it's close to *inaudible*.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year2.Gibson.Spring.022621",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 181,
+    "index": 57566,
+    "utterance": "Somebody tell me what digit is in the hundredths spot?",
+    "context": "[T]: Show.\n[T]: All right.",
+    "next_student": "The eight.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Baker.Spring.022820",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 182,
+    "index": 212328,
+    "utterance": "What were we making with our arrays?",
+    "context": "[Nathan]: We were doing arrays.\n[Ms. Smith]: We were looking at arrays.",
+    "next_student": "Lines?",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Smith.Spring.102320",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 183,
+    "index": 74171,
+    "utterance": "What are we going to add?",
+    "context": "[T]: What are we going to do to figure this out, Dana?\n[T]: We sure are, we're going to add.",
+    "next_student": "2 1/4 and 1 2/4.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Cornish.Spring.011420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 184,
+    "index": 6123,
+    "utterance": "Ok, why don't the rest of you sit down and let's have Erik  and Alan make that model.",
+    "context": "[Erik]: Yeah, Alan and I made that same model.\n[Erik]: We made the  same model that was, I think it was two oranges and like  one purple, yeah it was two oranges and one purple and  then it had the thirds",
+    "next_student": "I made that also",
+    "next_student_move": "RelatingToAnother",
+    "transcript": "Maher_Equivalence 2_Grade 4",
+    "rule_based_level": "C"
+  },
+  {
+    "id": 185,
+    "index": 73554,
+    "utterance": "What is that comma saying?",
+    "context": "[Jane]: One hundred sixty-nine hundred.\n[T]: Whoop.",
+    "next_student": "1000",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Cornish.Spring.011420",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 186,
+    "index": 136856,
+    "utterance": "What I would do is start off with my rectangle to figure out what the right way is and then, how could you help Eli?",
+    "context": "[T]: What mistake did Eli make?\n[T]: Sketch a partition rectangle that can help Eli understand what he did wrong.\"",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Tolliver.Fall.121019",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 187,
+    "index": 154857,
+    "utterance": "How many bags come in a carton.",
+    "context": "[T]: Okay, so the principle is ordering snack size bags of pretzels.\n[T]: Nine cartons contain 540 bags.",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year2.Cornish.Fall.120920-1",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 188,
+    "index": 38003,
+    "utterance": "Then well what do you see that's different?",
+    "context": "[T]: Yes.\n[T]: What do you see that is the same in both?",
+    "next_student": "There's a square on the top and there's a line that goes down on the bottom and there's a line that goes through the right on the bottom.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "Same or Different",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 189,
+    "index": 79532,
+    "utterance": "No, what are you thinking?",
+    "context": "[T]: Parker, what are you thinking?\n[Parker]: No.",
+    "next_student": "I thought three.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Davies.Spring.021120",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 190,
+    "index": 61931,
+    "utterance": "700 x 5, Charles.",
+    "context": "[Lennox]: 2,400.00\n[T]: Good job.",
+    "next_student": "350",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Benson.Spring.022020",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 191,
+    "index": 214495,
+    "utterance": "So what are your numbers up here?",
+    "context": "[S]: Yes, it makes sense.\n[T]: Okay.",
+    "next_student": "26 times 4.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year2.Strathom.Fall.102320",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 192,
+    "index": 56944,
+    "utterance": "Which is a longer walk?",
+    "context": "[T]: Over here.\n[T]: Okay, is it a longer walk to go from the family restaurant to the boat rental, or from the post office to the fire department?",
+    "next_student": "",
+    "next_student_move": null,
+    "transcript": "TalkBack.Year1.Baker.Spring.012120",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 193,
+    "index": 78015,
+    "utterance": "Wyatt, what are you thinking?",
+    "context": "[T]: With a raised hand, who can tell me what is different about 5/8 in the first three problems that you solved today.\n[T]: Cooper used a different strategy to solve that one.",
+    "next_student": "It's not a multiple that can get to a 100, you would have to multiply it by 100 and then divide by the number you started with.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year1.Davies.Fall.121119",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 194,
+    "index": 120598,
+    "utterance": "What would my numerator be for each of those pieces?",
+    "context": "[Student]: Denominator.\n[Ms. Parker]: My denominator is going to be three.",
+    "next_student": "One.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Smith.Fall.111919",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 195,
+    "index": 42548,
+    "utterance": "And the positive one?",
+    "context": "[Kimberly]: To the left of zero.\n[T1]: Okay.",
+    "next_student": "It's beyond zero.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Video Mosaic Grade 4 Infinite Number Line 2",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 196,
+    "index": 61428,
+    "utterance": "When you hear how much more what do you think of in your head?",
+    "context": "[T]: Hunter what are you going to do with them?\n[ Hunter ]: I'm going to look at the other number and try and compare how much more it has",
+    "next_student": "I look at the costs of the bottom for tap dancingand it's 396.",
+    "next_student_move": "ProvidingEvidence",
+    "transcript": "TalkBack.Year1.Benson.Spring.020520",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 197,
+    "index": 49963,
+    "utterance": "If you had one chance to roll the dice, and everything was on it, what number would you choose?",
+    "context": "[T2]: What was the one number from this one? \n[T2]: For a sum that you wanted to pick? ",
+    "next_student": "Seven.",
+    "next_student_move": "MakingClaim",
+    "transcript": "Video Mosaic Grade 6 Dice",
+    "rule_based_level": "A"
+  },
+  {
+    "id": 198,
+    "index": 87445,
+    "utterance": "How do you align it?",
+    "context": "[Hudson]: The ones place is with the tenths place.\n[S]: You can put zeros to hold them.",
+    "next_student": "I'll scoot it up to the bottom.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Gibson.Fall.121619",
+    "rule_based_level": "B"
+  },
+  {
+    "id": 199,
+    "index": 72261,
+    "utterance": "Shane, what does SS these equals?",
+    "context": "[T]: Shane just said something and I'm wondering if anybody else noticed this?\n[T]: She said, \"I know what it equals.\"",
+    "next_student": "Two tenths.",
+    "next_student_move": "MakingClaim",
+    "transcript": "TalkBack.Year1.Cornish.Fall.112119",
+    "rule_based_level": "A"
+  }
+]
