@@ -17,9 +17,11 @@ wheels/
 
 # Data (downloaded separately)
 data/TalkMoves/
+data/NCTE/
 
 # Output
 #output/
+#ncte_output/
 
 # 
 specs/

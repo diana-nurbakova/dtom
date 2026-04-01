@@ -1,0 +1,160 @@
+{
+  "dataset": {
+    "total_utterances": 580408,
+    "n_transcripts": 1660,
+    "speakers": {
+      "teacher": 286561,
+      "student": 255268,
+      "multiple students": 38566
+    }
+  },
+  "study_r1": {
+    "n_teacher": 250346,
+    "distribution": {
+      "A": {
+        "count": 220462,
+        "pct": 88.1
+      },
+      "B": {
+        "count": 14956,
+        "pct": 6.0
+      },
+      "C": {
+        "count": 14928,
+        "pct": 6.0
+      }
+    },
+    "replication_verdict": "PARTIAL REPLICATION"
+  },
+  "study_r2": {
+    "sequential": {
+      "by_depth": {
+        "A": {
+          "n": 217203,
+          "mean_words": 3.7,
+          "elaborate_pct": 7.5
+        },
+        "B": {
+          "n": 14805,
+          "mean_words": 5.4,
+          "elaborate_pct": 14.1
+        },
+        "C": {
+          "n": 14743,
+          "mean_words": 5.5,
+          "elaborate_pct": 15.8
+        }
+      },
+      "chi2": 1939.23,
+      "p": 0.0,
+      "dof": 2,
+      "cramers_v": 0.089,
+      "n": 246751,
+      "kruskal_h": 2441.56,
+      "kruskal_p": 0.0,
+      "pairwise": {
+        "A_vs_B": {
+          "chi2": 841.2,
+          "p": 5.938622442415331e-185,
+          "cramers_v": 0.06
+        },
+        "A_vs_C": {
+          "chi2": 1312.13,
+          "p": 2.6150733940418847e-287,
+          "cramers_v": 0.075
+        },
+        "B_vs_C": {
+          "chi2": 17.06,
+          "p": 3.6268018366412584e-05,
+          "cramers_v": 0.024
+        }
+      }
+    },
+    "student_reasoning_validation": {
+      "n": 2000,
+      "reasoning_pct": 21.0,
+      "chi2": 103.35,
+      "p": 3.6202332489177266e-23,
+      "cramers_v": 0.245,
+      "n_linked": 1721
+    },
+    "transcript_level": {
+      "n": 1654,
+      "pearson_r_elaborate": 0.248,
+      "pearson_p_elaborate": 1.397097329702247e-24,
+      "spearman_rho": 0.226,
+      "spearman_p": 1.3536445437817816e-20,
+      "pearson_r_words": 0.226,
+      "pearson_p_words": 1.4396390712385082e-20
+    },
+    "median_split": {
+      "high_n": 827,
+      "high_mean": 0.105,
+      "low_n": 827,
+      "low_mean": 0.078,
+      "t_stat": 8.804,
+      "p": 0.0,
+      "cohens_d": 0.433
+    },
+    "replication_verdict": "PARTIAL REPLICATION"
+  },
+  "study_r3": {
+    "n": 2348,
+    "annotation_distribution": {
+      "No_L3": {
+        "count": 1414,
+        "pct": 60.2
+      },
+      "Mid_L3": {
+        "count": 575,
+        "pct": 24.5
+      },
+      "Deep_L3": {
+        "count": 359,
+        "pct": 15.3
+      }
+    },
+    "classifier_distribution": {
+      "No_L3": {
+        "count": 2050,
+        "pct": 87.3
+      },
+      "Mid_L3": {
+        "count": 131,
+        "pct": 5.6
+      },
+      "Deep_L3": {
+        "count": 167,
+        "pct": 7.1
+      }
+    },
+    "cross_tabulation": {
+      "No_L3": {
+        "No_L3": 1300,
+        "Mid_L3": 490,
+        "Deep_L3": 260
+      },
+      "Mid_L3": {
+        "No_L3": 53,
+        "Mid_L3": 42,
+        "Deep_L3": 36
+      },
+      "Deep_L3": {
+        "No_L3": 61,
+        "Mid_L3": 43,
+        "Deep_L3": 63
+      }
+    },
+    "cohens_kappa": 0.107,
+    "kappa_interpretation": "slight agreement",
+    "depth_A_focusing": 12.7,
+    "depth_A_uptake": 31.6,
+    "depth_B_focusing": 27.5,
+    "depth_B_uptake": 50.4,
+    "depth_C_focusing": 37.7,
+    "depth_C_uptake": 59.3,
+    "focusing_chi2": 90.69,
+    "focusing_p": 2.0316270785933347e-20,
+    "focusing_cramers_v": 0.197
+  }
+}

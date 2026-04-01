@@ -13,6 +13,7 @@ dependencies = [
     "numpy>=1.24",
     "anthropic>=0.40",
     "python-dotenv>=1.0",
+    "scikit-learn>=1.3",
 ]
 
 [tool.uv]
@@ -28,3 +29,4 @@ packages = ["src/dtom"]
 [project.scripts]
 dtom-pipeline = "dtom.analysis_pipeline:main"
 dtom-llm = "dtom.llm_classifier:main"
+dtom-ncte = "dtom.ncte_replication:main"
