@@ -1,0 +1,19 @@
+[project]
+name = "dtom-lens"
+version = "1.0.0"
+description = "DToM Lens — Interactive Diagnostic Tool for Mentalizing Depth in Teacher Discourse"
+readme = "USER_MANUAL.md"
+requires-python = ">=3.10"
+dependencies = [
+    "streamlit>=1.30",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "plotly>=5.18",
+    "matplotlib>=3.7",
+    "openpyxl>=3.1",
+    "anthropic>=0.40",
+]
+
+[tool.uv]
+dev-dependencies = []

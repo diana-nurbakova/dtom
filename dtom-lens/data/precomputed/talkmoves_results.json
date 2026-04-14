@@ -1,0 +1,150 @@
+{
+  "study1_l3_mapping": {
+    "distribution": {
+      "level_0": {
+        "count": 147143,
+        "pct": 81.0
+      },
+      "level_1": {
+        "count": 29692,
+        "pct": 16.3
+      },
+      "level_2": {
+        "count": 4915,
+        "pct": 2.7
+      }
+    },
+    "total_teacher_utterances": 181750,
+    "sequential": {
+      "chi2": 2484.99,
+      "p": 0.0,
+      "dof": 2,
+      "cramers_v": 0.174,
+      "n": 82025,
+      "by_depth": {
+        "level_0": {
+          "n": 57893,
+          "evidence_pct": 8.1
+        },
+        "level_1": {
+          "n": 20761,
+          "evidence_pct": 9.2
+        },
+        "level_2": {
+          "n": 3371,
+          "evidence_pct": 33.9
+        }
+      },
+      "pairwise": {
+        "0_vs_1": {
+          "chi2": 21.41,
+          "p": 3.7103974332423187e-06,
+          "cramers_v": 0.016
+        },
+        "0_vs_2": {
+          "chi2": 2457.02,
+          "p": 0.0,
+          "cramers_v": 0.2
+        },
+        "1_vs_2": {
+          "chi2": 1611.77,
+          "p": 0.0,
+          "cramers_v": 0.258
+        }
+      }
+    },
+    "transcript_level": {
+      "n": 536,
+      "pearson_r": 0.394,
+      "pearson_p": 0.0,
+      "spearman_rho": 0.364,
+      "spearman_p": 0.0,
+      "pearson_r_hq": 0.414
+    },
+    "median_split": {
+      "median_l3": 0.231,
+      "high_n": 268,
+      "high_mean": 0.193,
+      "high_sd": 0.152,
+      "low_n": 268,
+      "low_mean": 0.129,
+      "low_sd": 0.12,
+      "t_stat": 5.422,
+      "p_ttest": 0.0,
+      "cohens_d": 0.468,
+      "mann_whitney_u": 45533.5,
+      "mann_whitney_p": 0.0
+    }
+  },
+  "study2_within_category": {
+    "distribution": {
+      "level_A": {
+        "count": 18232,
+        "pct": 87.8
+      },
+      "level_B": {
+        "count": 1988,
+        "pct": 9.6
+      },
+      "level_C": {
+        "count": 550,
+        "pct": 2.6
+      }
+    },
+    "total_utterances": 20770,
+    "examples": {
+      "A": [
+        "One way to think about this would be as what do you think?",
+        "Tell someone next to you how you think you'd figure this out.",
+        "And the answer is?",
+        "What is an equivalent fraction mean?",
+        "What would I fold it into?"
+      ],
+      "B": [
+        "Daniel, well, tell us what you're thinking.",
+        "Then what's my next one?",
+        "So Leo, can you tell us what is a strategy that we might be able to use to solve this problem?",
+        "So tell me what you\u2019re thinking.",
+        "I need a friend who is willing to help come up and share, and explain what they did."
+      ],
+      "C": [
+        "How can you prove that multiplying the top and the bottom by the original fraction still gives you an equivalent fraction?",
+        "How can you prove it?",
+        "What if you split those into thirds?",
+        "And how do you know there\u2019s none in between?",
+        "Explain to me how you did this, Julia."
+      ]
+    },
+    "validation": {
+      "by_depth": {
+        "A": {
+          "n": 13492,
+          "evidence_pct": 7.4
+        },
+        "B": {
+          "n": 1522,
+          "evidence_pct": 26.0
+        },
+        "C": {
+          "n": 373,
+          "evidence_pct": 29.8
+        }
+      },
+      "chi2": 714.2,
+      "p": 8.188775913391461e-156,
+      "cramers_v": 0.215,
+      "a_vs_c": {
+        "chi2": 245.07,
+        "p": 3.0818741810110536e-55,
+        "cramers_v": 0.133
+      }
+    }
+  },
+  "dataset": {
+    "name": "TalkMoves (Suresh et al., 2022)",
+    "url": "https://github.com/SumnerLab/TalkMoves",
+    "license": "CC BY-NC-SA 4.0",
+    "n_transcripts": 567,
+    "n_utterances": 237537
+  }
+}

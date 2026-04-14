@@ -1,0 +1,22 @@
+{
+  "n_samples": 200,
+  "n_coded": 200,
+  "model": "claude-sonnet-4-20250514",
+  "agreement": {
+    "n": 200,
+    "agreement": 0.61,
+    "cohens_kappa": 0.229,
+    "distribution": {
+      "rule_based": {
+        "A": 174,
+        "B": 20,
+        "C": 6
+      },
+      "llm": {
+        "A": 106,
+        "B": 55,
+        "C": 39
+      }
+    }
+  }
+}

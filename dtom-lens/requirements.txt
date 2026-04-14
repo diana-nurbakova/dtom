@@ -1,0 +1,8 @@
+streamlit>=1.30
+pandas
+numpy
+scipy
+plotly
+matplotlib
+openpyxl
+anthropic
