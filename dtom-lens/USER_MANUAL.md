@@ -10,7 +10,7 @@ DToM Lens is an interactive web application that applies the Double Theory of Mi
 
 1. [Getting Started](#1-getting-started)
 2. [Interface Overview](#2-interface-overview)
-3. [Sidebar: Data Source Selection](#3-sidebar-data-source-selection)
+3. [Sidebar](#3-sidebar)
 4. [Tab 1: Transcript Explorer](#4-tab-1-transcript-explorer)
 5. [Tab 2: Comparison View](#5-tab-2-comparison-view)
 6. [Tab 3: Dashboard](#6-tab-3-dashboard)
@@ -72,55 +72,70 @@ No additional configuration is required — sample transcripts and precomputed r
 
 The application is organized into two areas:
 
-- **Sidebar** (left): Data source selection, transcript picker, and framework overview.
+- **Sidebar** (left): Data source selection, dataset sources, and framework overview.
 - **Main area** (center): Five tabs, each providing a different view of the data.
 
-```
+```text
 ┌──────────────────┬──────────────────────────────────────────────────────┐
-│                  │                                                      │
-│  SIDEBAR         │  [ Transcript Explorer | Comparison | Dashboard |    │
-│                  │    Within-Category | About ]                         │
+│  🔍 DToM Lens    │                                                      │
+│  v1.0            │  [ Transcript Explorer | Comparison View |           │
+│                  │    Dashboard | Within-Category | About ]             │
 │  Data Source     │                                                      │
-│  ○ Sample        │  (Active tab content)                                │
-│  ○ Upload        │                                                      │
+│  ○ Sample        │                                                      │
+│  ○ Upload        │  (Active tab content)                                │
 │  ○ Pre-computed  │                                                      │
 │                  │                                                      │
 │  [Transcript ▾]  │                                                      │
 │                  │                                                      │
-│  About / DToM    │                                                      │
+│  Datasets        │                                                      │
+│  • TalkMoves     │                                                      │
+│  • NCTE          │                                                      │
 │                  │                                                      │
+│  About DToM      │                                                      │
 └──────────────────┴──────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 3. Sidebar: Data Source Selection
+## 3. Sidebar
 
-The sidebar offers three data source modes:
+The sidebar contains three sections:
 
-### Sample Transcripts (default)
+### Data Source
 
-Seven pre-loaded transcripts from the TalkMoves dataset (Suresh et al., 2022), selected to span the full range of mentalizing depth:
+Choose where transcripts come from:
 
-| Transcript | Characteristic |
-|---|---|
-| 7th grade math | Grade 7, shows student reasoning gradient |
-| Boats and Fish 1, Grade 4 | Near median L3 depth |
-| Boats and Fish 3, Grade 4 | High within-lesson variation (mean L3 = 0.50) |
-| Comparing Fractions 3, Grade 4 | High L3 depth (mean L3 = 0.68) |
-| Fraction as Number 1, Grade 4 | Lower L3 depth |
-| Gang of Four, Grade 4 | 75th percentile L3 depth |
-| Number line models 3, Grade 4 | 90th percentile L3 depth |
+- **Sample transcripts** (default) — Seven pre-loaded transcripts from TalkMoves, selected to span the full range of mentalizing depth:
 
-Use the **Select transcript** dropdown to switch between them. The selected transcript feeds into Tabs 1, 2, and 4.
+  | Transcript | Characteristic |
+  |---|---|
+  | 7th grade math | Grade 7, shows student reasoning gradient |
+  | Boats and Fish 1, Grade 4 | Near median L3 depth |
+  | Boats and Fish 3, Grade 4 | High within-lesson variation (mean L3 = 0.50) |
+  | Comparing Fractions 3, Grade 4 | High L3 depth (mean L3 = 0.68) |
+  | Fraction as Number 1, Grade 4 | Lower L3 depth |
+  | Gang of Four, Grade 4 | 75th percentile L3 depth |
+  | Number line models 3, Grade 4 | 90th percentile L3 depth |
 
-### Upload CSV/XLSX
+  Use the **Select transcript** dropdown to switch between them.
 
-Upload your own classroom transcript for analysis. See [Section 9](#9-uploading-your-own-data) for format requirements.
+- **Upload CSV/XLSX** — Upload your own classroom transcript for analysis. See [Section 9](#9-uploading-your-own-data) for format requirements.
 
-### Pre-computed Results
+- **Pre-computed results** — When selected, the Transcript Explorer and Comparison View tabs display a message directing you to the Dashboard tab, which always shows pre-computed aggregate statistics from the full TalkMoves and NCTE datasets.
 
-The Dashboard tab (Tab 3) always displays pre-computed aggregate statistics from the full TalkMoves (567 transcripts) and NCTE (1,660 transcripts) datasets, regardless of which data source mode is selected. This mode simply deactivates the transcript-level tabs.
+### Datasets
+
+Source attribution for the two datasets used in the analysis:
+
+- **TalkMoves** (Suresh et al., 2022) — 567 K-12 math transcripts. [GitHub link](https://github.com/SumnerLab/TalkMoves). Licensed CC BY-NC-SA 4.0.
+- **NCTE** (Demszky et al., 2021) — 1,660 elementary math transcripts. [GitHub link](https://github.com/ddemszky/classroom-transcript-analysis). Restricted access — individual application required.
+
+A caption reminds users that NCTE raw data is not displayed in the app; only aggregated statistics are shown per the data use agreement.
+
+### About
+
+- Brief description of the DToM framework.
+- Expandable **"What is DToM?"** section explaining the three layers (L1 Behavioral, L2 Intermediate, L3 Deep).
 
 ---
 
@@ -128,13 +143,13 @@ The Dashboard tab (Tab 3) always displays pre-computed aggregate statistics from
 
 **Purpose:** Inspect a single transcript with color-coded mentalizing depth annotations on every teacher utterance.
 
-### What You See
+The tab has a **fixed top section** (metrics, legend, filters) and a **scrollable transcript area** (600 px tall) — so statistics and filters remain visible while you browse the utterances.
 
-- **Summary metrics** at the top: total utterances, teacher/student counts, mean L3 depth, and percentage of deep L3 moves.
-- **Color legend:** Three depth levels are indicated by colored left borders.
-- **Utterance list:** Every turn in the transcript, displayed sequentially.
+### Fixed Top Section
 
-### Color Coding
+**Summary metrics** (four cards): Total utterances, Teacher count, Student count, Mean L3 Depth.
+
+**Color legend** — Three depth levels with color indicators:
 
 | Color | Level | Meaning |
 |---|---|---|
@@ -142,26 +157,24 @@ The Dashboard tab (Tab 3) always displays pre-computed aggregate statistics from
 | Blue | B — Intermediate | Asking for procedural explanation ("How did you get that?") |
 | Red | C — Deep | Probing conceptual understanding ("Why do you think that works?") |
 
-Student utterances appear with a light background and indented styling. Student responses tagged as *ProvidingEvidence* are marked with a checkmark (✓).
+**Filters** (three controls):
 
-### Expanding an Utterance
+- **Filter by Talk Move** — Multiselect over the TalkMoves categories present in the transcript (PressAccuracy, PressReasoning, Restating, Revoicing, Marking, Context, KeepingTogether, GettingStudentsRelate). Empty selection shows all. You can pick multiple categories at once.
+- **Filter by Depth** — Dropdown with options: All, A — Surface, B — Intermediate, C — Deep.
+- **Show student utterances** — Checkbox toggling student turns on/off. Unchecking gives a teacher-only view.
 
-Click any teacher utterance to expand it and reveal:
+Filters combine: selecting `PressAccuracy` + `C — Deep` shows only the deep questioning moves within that category.
 
-- **Preceding context:** The two turns before this utterance, so you can see the conversational flow.
-- **Student response:** The next student turn after this teacher move, along with its talk move tag and whether it was an evidence-providing response.
+### Scrollable Transcript Area
 
-This lets you see the immediate effect of teacher mentalizing depth on student reasoning.
+Each teacher utterance is rendered as an **expander** (click the caret to open). Inside the expander you see:
 
-### Filters
+- The full utterance text, with a colored left border indicating its mentalizing depth.
+- **Depth and Tag** line: `Depth: C (Deep - probing understanding) | Tag: PressReasoning`.
+- **Preceding context**: the two turns that appeared just before this utterance.
+- **Student response** that followed, with its tag and a checkmark (✓) if it was `ProvidingEvidence`.
 
-Three filter controls appear below the color legend:
-
-- **Filter by Talk Move** — Show only utterances with a specific TalkMoves category (e.g., PressAccuracy, PressReasoning). Select "All" to show everything.
-- **Filter by Depth** — Show only teacher utterances at a specific mentalizing depth (A, B, or C). Useful for quickly scanning all deep or intermediate moves.
-- **Show student utterances** — Toggle student turns on or off. Turning them off gives a teacher-only view for faster scanning.
-
-Filters combine: you can select "PressAccuracy" + "C — Deep" to see only the deep questioning moves within that category.
+Student utterances are shown inline with a light background and indented styling — not expanders — to keep the flow compact.
 
 ---
 
@@ -169,27 +182,52 @@ Filters combine: you can select "PressAccuracy" + "C — Deep" to see only the d
 
 **Purpose:** The key demonstration of what standard AI discourse coding misses. The same transcript is displayed in two columns side by side.
 
-### Left Column — Standard AI View
+The tab has a **fixed top section** (summary + filter + legend + column headers) and **two independently scrollable columns** (600 px tall each) — so headers and summary stay visible while you scroll through the transcript.
 
-Shows each teacher utterance with its **TalkMoves category label** only (e.g., "Press for Accuracy", "Revoicing"). All utterances within a category get the same gray border — no differentiation.
+### Fixed Top Section
 
-### Right Column — DToM Lens View
+**Key insight callout** — A blue information box summarizing the whole transcript, e.g.:
 
-Shows each teacher utterance with its **mentalizing depth** (A/B/C) and the corresponding color. Utterances that standard AI lumps together are now visually distinct.
+> Standard AI coding uses **5 categories** for 162 teacher utterances. DToM reveals hidden depth variation in **3 of them** (covering 78 utterances, 48% of teacher talk).
 
-### The "Aha" Moment
+**Per-category summary table** (expandable, shown by default) — Lists every TalkMoves category present in the transcript with:
 
-An insight box at the top highlights the teacher talk move category with the most depth variation and reports how many depth levels DToM reveals within it. For example:
+| Column | Meaning |
+|---|---|
+| Category | The TalkMoves tag (e.g., PressAccuracy) |
+| Total | Number of teacher utterances in this category |
+| A (Surface) | Count at depth A |
+| B (Intermediate) | Count at depth B |
+| C (Deep) | Count at depth C |
+| Depth levels | Number of distinct depth levels (1, 2, or 3) |
 
-> The category 'PressAccuracy' contains 48 utterances, all labeled identically by standard AI. DToM reveals 3 distinct depth levels within this single category.
+Categories with `Depth levels > 1` contain hidden variation that standard coding collapses.
 
-A summary bar at the bottom reports the A/B/C distribution within that category.
+**Category filter** — Multiselect letting you restrict the view to specific TalkMoves categories. By default all categories **except `None`** are selected (the `None` category contains procedural/management utterances with no talk-move label, and is usually noise for the comparison). Uncheck a category to hide it, or add `None` back in if you want to see it.
+
+**Category color legend** — Colored chips showing the distinct color assigned to each TalkMoves category, e.g.:
+
+- PressAccuracy (pink), PressReasoning (green), Restating (light blue), Revoicing (purple), Marking (teal), Context (amber), KeepingTogether (orange), GettingStudentsRelate (dark navy), None (light gray).
+
+**Column headers** stay fixed above the two scrollable columns:
+
+- **Standard AI View** (gray header) — TalkMoves labels only.
+- **DToM Lens View** (purple header) — Mentalizing depth revealed.
+
+### Scrollable Columns
+
+Each column scrolls independently:
+
+- **Left column (Standard AI View):** Each teacher utterance shows its TalkMoves tag with a **category-colored left border**, so you can visually see how the transcript is partitioned by standard categories.
+- **Right column (DToM Lens View):** Each teacher utterance shows its **mentalizing depth (A/B/C) color-coded on the left border**, plus the original tag in small gray text for reference. Utterances that standard AI groups together (same category, left column) now reveal distinct depth levels (right column).
+
+Student utterances appear identically in both columns (light background, tag label). The category filter hides student turns to keep category-focused views in context.
 
 ---
 
 ## 6. Tab 3: Dashboard
 
-**Purpose:** Aggregate statistics across full datasets, presented as interactive charts.
+**Purpose:** Aggregate statistics across full datasets, presented as interactive charts. This tab is always populated, regardless of the data source selection.
 
 ### Dataset Selector
 
@@ -199,9 +237,11 @@ A dropdown at the top lets you choose:
 - **NCTE** — 1,660 transcripts, 580,409 utterances
 - **Both** — TalkMoves followed by NCTE replication
 
-### Metric Cards
+Just below the heading, a caption shows the dataset source citation and license.
 
-Five summary cards at the top of each dataset section:
+### TalkMoves — Metric Cards
+
+Five summary cards at the top:
 
 | Card | TalkMoves Value | What It Means |
 |---|---|---|
@@ -211,29 +251,39 @@ Five summary cards at the top of each dataset section:
 | L3 Deep | 2.7% | Actively probes student reasoning and mental models |
 | Correlation (r) | 0.394 | Pearson correlation between transcript-level depth and student evidence rate |
 
-### Charts
+### TalkMoves — Four Charts in One Row
 
-The dashboard displays four interactive Plotly charts:
+To keep the dashboard compact, the four main charts are arranged in a single row. Each chart has a horizontal legend below the bars explaining the L1/L2/L3 colors, and any statistical annotation (χ², Cohen's d, r) appears just above the chart.
 
-1. **Depth Distribution** — Bar chart showing the count/percentage of teacher utterances at each level (L1 Behavioral, L2 Intermediate, L3 Deep). Reveals that the vast majority of teacher talk involves no modeling of student thinking.
+1. **Depth Distribution** — Utterance counts at each level (L1 Behavioral, L2 Intermediate, L3 Deep). Bars are labeled with percentages.
 
-2. **Student Evidence After Teacher Move** (Sequential Gradient) — Bar chart showing the percentage of student responses that provide evidence/reasoning after each depth level. Demonstrates a steep gradient: 8.1% after L1 vs. 33.9% after L3 Deep.
+2. **Evidence by Depth** — Percentage of student responses providing evidence after each depth level. Demonstrates a steep gradient: 8.1% after L1 vs. 33.9% after L3 Deep. Annotation: `χ²=2485, p<.001`.
 
-3. **Transcript-Level Correlation** (Scatter Plot) — Each dot is one transcript. The x-axis is mean depth, the y-axis is the student evidence rate. A red trend line shows the positive correlation. Hover over any dot to see the transcript name.
+3. **Transcript Correlation** (scatter plot) — Each dot is one transcript. x-axis: mean depth, y-axis: % student evidence. Red trend line with annotation `r=0.394, p<.001, N=536`. Hover any dot to see the transcript name.
 
-4. **Median-Split Comparison** — Transcripts split at the median depth. Bar chart with error bars showing that high-depth transcripts have significantly higher student evidence rates (Cohen's d = 0.468).
+4. **Median Split** — Transcripts split at the median depth. Bars with error bars show high-depth transcripts have significantly higher student evidence rates. Annotation: `Cohen's d=0.47, p<.001`.
 
-### Within-Category Summary
+### Within-Category Analysis (Press for Accuracy)
 
-Below the four main charts, a dedicated section shows Study 2 results for "Press for Accuracy": the distribution of A/B/C depths within this single category and the corresponding student evidence gradient (7.4% → 26.0% → 29.8%).
+A dedicated section below the four main charts shows Study 2 results for "Press for Accuracy":
+
+**Four metric cards:** Total Utterances (20,770), Surface A (87.8%), Intermediate B (9.6%), Deep C (2.6%).
+
+**Two charts in a half-width layout:**
+
+- **Within-Category Distribution** — A/B/C percentages within PressAccuracy.
+- **Evidence by Within-Cat Depth** — Student evidence rate by within-category depth (7.4% → 26.0% → 29.8%), with χ²=714, V=0.215 annotation.
 
 ### NCTE Replication
 
-When viewing NCTE or Both, the dashboard shows the replication of these patterns on an independent dataset, along with replication verdicts. Only aggregated statistics are displayed per the NCTE data use agreement — no individual utterances or transcripts are shown. Users wishing to access the raw NCTE data must apply through the [NCTE GitHub repository](https://github.com/ddemszky/classroom-transcript-analysis).
+When NCTE or Both is selected, a separate section shows replication on the independent NCTE dataset.
+
+A caption reminds users: **aggregated statistics only** — individual utterances and transcripts are not displayed, per the NCTE data use agreement. The caption links to the [NCTE GitHub repository](https://github.com/ddemszky/classroom-transcript-analysis) for raw data access applications.
 
 ### Interactivity
 
 All charts support:
+
 - **Hover** to see exact values and transcript names
 - **Zoom** by dragging a selection box
 - **Pan** by holding Shift and dragging
@@ -257,28 +307,41 @@ A dropdown lets you choose among all eight TalkMoves teacher categories:
 - **PressAccuracy** uses pre-computed results from the full TalkMoves dataset (20,770 utterances), providing the richest analysis.
 - **All other categories** run the classifier live on whichever transcript is currently selected in the sidebar.
 
-### Display
+### Charts
 
-Two charts appear side by side:
+Two charts side by side, each with a horizontal legend explaining A/B/C:
 
-1. **Distribution** — Percentage of utterances at each depth level (A/B/C) within the selected category.
-2. **Student Evidence Gradient** — The percentage of student responses that provide evidence after each depth level, with chi-square statistics.
+1. **Distribution** — Percentage of utterances at each depth level within the selected category. Bars are labeled with both the percentage and the count (e.g., `87.8% (n=18,232)`).
 
-Below the charts, **example utterances** are shown for each depth level (up to 5 per level), organized in three columns. This makes the abstract depth levels concrete and interpretable.
+2. **Student Evidence Gradient** — Percentage of student responses providing evidence after each depth level. Annotation above the chart shows the chi-square result, Cramér's V, and the A→C difference ratio (e.g., `χ²=714, V=0.215 — 4.0× difference (A→C)`).
+
+### Example Utterances
+
+Below the charts, three columns show **up to five example utterances per depth level**, so the abstract A/B/C labels become concrete. Each column is headed by its colored depth label.
 
 ### LLM Convergent Validity
 
 When viewing PressAccuracy, a section at the bottom shows agreement statistics between the rule-based classifier and an independent LLM-based classifier (Claude):
 
-- **Cohen's kappa** (κ = 0.229) — slight-to-fair agreement
-- **Agreement rate** (61%)
-- The key finding: the LLM identifies **more** non-surface depth than the rule-based classifier (47% vs. 13%), confirming that the rule-based estimates are conservative — real mentalizing depth variation is likely even larger than reported.
+- **Cohen's κ** (0.229) — slight-to-fair agreement.
+- **Agreement rate** (61%).
+- **Model** used.
+
+Key finding: the LLM identifies **more** non-surface depth than the rule-based classifier (47% vs. 13%), confirming that the rule-based estimates are conservative — real mentalizing depth variation is likely even larger than reported.
 
 ---
 
 ## 8. Tab 5: About
 
-Provides background on the DToM framework, methodology, datasets, and citation information. This tab is useful for conference visitors who want to understand the theoretical grounding.
+Provides background on the DToM framework, methodology, datasets, and citation information.
+
+Contents:
+
+- **The DToM Framework table** — L1 Behavioral, L2 Intermediate, L3 Deep with descriptions and examples.
+- **Why It Matters** — explains what standard tools miss and quotes the 87.8% / 9.6% / 2.6% finding within PressAccuracy.
+- **Methodology** — dataset summaries (TalkMoves and NCTE with links), classifier description, statistical approach.
+- **Citation** — suggested format.
+- **Links** — paper and source code (availability noted).
 
 ---
 
@@ -307,7 +370,7 @@ Column names are case-insensitive. The application automatically maps common var
 
 ### Without Tags
 
-If your file has only `Sentence` and `Speaker` columns (no talk move tags), the application will still run the within-category mentalizing depth classifier on all utterances. However, the L3 depth mapping and comparison view will not be available since they depend on standard talk move labels.
+If your file has only `Sentence` and `Speaker` columns (no talk move tags), the application will still run the within-category mentalizing depth classifier on all utterances. However, the L3 depth mapping and Comparison View will not be available since they depend on standard talk move labels.
 
 ### File Size
 
@@ -319,11 +382,11 @@ The maximum upload size is 50 MB (configurable in `.streamlit/config.toml`).
 
 DToM Lens uses a **rule-based classifier** that operates at two levels:
 
-### Level 1: L3 Depth Mapping (Talk Move → Depth)
+### Level 1: Talk Move → Depth Layer
 
-Each standard TalkMoves category is mapped to an L3 depth level based on the cognitive demands it places on teacher mentalizing:
+Each standard TalkMoves category is mapped to a DToM framework layer (L1/L2/L3) based on the cognitive demands it places on teacher mentalizing:
 
-| Level | Categories | Teacher Cognition |
+| Layer | Categories | Teacher Cognition |
 |---|---|---|
 | L1 Behavioral | None, Context, KeepingTogether, Marking | Procedural/management — no need to model student thinking |
 | L2 Intermediate | Restating, Revoicing, PressAccuracy | Acknowledges student output but does not probe reasoning |
@@ -334,12 +397,14 @@ Each standard TalkMoves category is mapped to an L3 depth level based on the cog
 Within any single talk move category, the classifier uses linguistic pattern matching to distinguish three depth levels:
 
 **Level C (Deep)** — detected by patterns such as:
+
 - "why do you think...", "how do you know...", "what makes you..."
 - "prove", "justify", "convince"
 - "what if...", "what would happen..."
 - "does that make sense", "is there another way"
 
 **Level B (Intermediate)** — detected by patterns such as:
+
 - "how did you...", "what did you do..."
 - "show me/us", "explain", "describe"
 - "tell me/us how/what..."
@@ -363,11 +428,11 @@ An effect size measure for the chi-square test, ranging from 0 (no association) 
 
 ### Pearson r
 
-A correlation coefficient measuring the linear relationship between transcript-level L3 depth and student evidence rates. The value r = 0.394 indicates a moderate positive correlation: transcripts with higher average L3 depth tend to have higher rates of student evidence-providing.
+A correlation coefficient measuring the linear relationship between transcript-level mentalizing depth and student evidence rates. The value r = 0.394 indicates a moderate positive correlation: transcripts with higher average depth tend to have higher rates of student evidence-providing.
 
 ### Cohen's d
 
-An effect size for the median-split comparison. The value d = 0.468 is a medium effect, meaning that high-L3 transcripts have meaningfully higher student reasoning than low-L3 transcripts.
+An effect size for the median-split comparison. The value d = 0.468 is a medium effect, meaning that high-depth transcripts have meaningfully higher student reasoning than low-depth transcripts.
 
 ### Cohen's Kappa (κ)
 
@@ -413,6 +478,7 @@ maxUploadSize = 50              # MB
 |---|---|
 | `ModuleNotFoundError` on startup | Run `uv sync` to install dependencies |
 | Plotly/Streamlit version conflict (`AttributeError: ... Icicle`) | Upgrade both: `uv add plotly@latest streamlit@latest` |
+| `VIRTUAL_ENV does not match project environment` warning | Harmless — caused by the parent project's venv being active. Either `deactivate` first or ignore. |
 | Port 8501 already in use | Streamlit auto-selects the next port, or specify one: `uv run streamlit run app.py --server.port 8502` |
 | Sample transcripts not loading | Ensure `.xlsx` files are present in `data/sample_transcripts/` |
 | Upload fails with column error | Check that your file has `Sentence` (or `text`) and `Speaker` columns |

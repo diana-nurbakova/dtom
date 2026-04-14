@@ -460,17 +460,18 @@ def render_comparison_view(active_transcript, active_df):
 
     st.markdown("---")
 
-    # Category filter for the views
+    # Category filter for the views — default selects all categories except 'None'
     all_categories = summary_df['Category'].tolist() if not summary_df.empty else []
+    default_categories = [c for c in all_categories if c != 'None']
     selected_categories = st.multiselect(
-        "Filter categories (empty = show all)",
+        "Filter categories",
         all_categories,
-        default=[],
+        default=default_categories,
         key="comparison_cat_filter",
     )
 
     # Color legend for the categories shown
-    legend_tags = selected_categories if selected_categories else all_categories
+    legend_tags = selected_categories
     if legend_tags:
         legend_html = '<div style="margin: 8px 0; font-size: 0.85em;">'
         legend_html += '<b>Category colors:</b> '
@@ -520,7 +521,7 @@ def render_comparison_view(active_transcript, active_df):
         if is_teacher:
             tag = row.get('t_move', '')
             # Apply category filter (only for teacher turns)
-            if selected_categories and tag not in selected_categories:
+            if tag not in selected_categories:
                 continue
 
             depth = row.get('mental_depth', 'A')
@@ -555,9 +556,9 @@ def render_comparison_view(active_transcript, active_df):
                     unsafe_allow_html=True,
                 )
         else:
-            # Student utterances: only show if no category filter is active
-            # (since filter is teacher-only, showing student turns would be out of context)
-            if selected_categories:
+            # Student utterances: show only when the filter is showing the full set
+            # (otherwise student turns would be out of context relative to the teacher filter)
+            if set(selected_categories) != set(all_categories):
                 continue
             s_tag = row.get('s_move', '')
             for scroll_container in [left_scroll, right_scroll]:
