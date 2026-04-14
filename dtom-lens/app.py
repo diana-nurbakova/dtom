@@ -19,6 +19,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 from dtom_classifier import (
+    CATEGORY_COLORS,
     DEPTH_COLORS,
     L3_COLORS,
     L3_DEPTH_MAP,
@@ -87,6 +88,16 @@ st.markdown("""
         background-color: #F8F7FC;
         padding: 12px;
         border-radius: 8px;
+    }
+    /* Larger tab labels */
+    button[data-baseweb="tab"] {
+        font-size: 1.05rem !important;
+        font-weight: 600 !important;
+        padding: 10px 20px !important;
+    }
+    button[data-baseweb="tab"] p {
+        font-size: 1.05rem !important;
+        font-weight: 600 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -276,12 +287,17 @@ def render_transcript_explorer(active_transcript, active_df):
     st.markdown("---")
 
     # Filters
-    filter_col1, filter_col2, filter_col3 = st.columns(3)
+    filter_col1, filter_col2, filter_col3 = st.columns([2, 1, 1])
     with filter_col1:
-        available_tags = ['All'] + sorted(
+        available_tags = sorted(
             [t for t in active_df['t_move'].dropna().unique() if t != 'Other']
         )
-        tag_filter = st.selectbox("Filter by Talk Move", available_tags, key="explorer_tag_filter")
+        tag_filter = st.multiselect(
+            "Filter by Talk Move (empty = all)",
+            available_tags,
+            default=[],
+            key="explorer_tag_filter",
+        )
     with filter_col2:
         depth_filter = st.selectbox(
             "Filter by Depth",
@@ -295,80 +311,83 @@ def render_transcript_explorer(active_transcript, active_df):
 
     st.markdown("---")
 
-    # Render each utterance
-    for i, (idx, row) in enumerate(active_df.iterrows()):
-        text = str(row.get('Sentence', '')).strip()
-        if not text or text == 'nan':
-            continue
+    # Scrollable transcript area (fixed height keeps header/filters visible)
+    transcript_container = st.container(height=600)
 
-        speaker = str(row.get('Speaker', '')).strip()
-        is_teacher = row.get('t_move') is not None and pd.notna(row.get('t_move'))
-
-        # Apply filters
-        if is_teacher:
-            if tag_filter != 'All' and row.get('t_move') != tag_filter:
-                continue
-            if depth_filter_val and row.get('mental_depth') != depth_filter_val:
-                continue
-        else:
-            if not show_students:
+    with transcript_container:
+        for i, (idx, row) in enumerate(active_df.iterrows()):
+            text = str(row.get('Sentence', '')).strip()
+            if not text or text == 'nan':
                 continue
 
-        if is_teacher:
-            depth = row.get('mental_depth', 'A')
-            color = DEPTH_COLORS.get(depth, '#95a5a6')
-            tag = row.get('t_move', '')
-            depth_label = MENTAL_DEPTH_LABELS.get(depth, '')
+            speaker = str(row.get('Speaker', '')).strip()
+            is_teacher = row.get('t_move') is not None and pd.notna(row.get('t_move'))
 
-            with st.expander(
-                f"Turn {i+1} [T] — {text[:80]}{'...' if len(text) > 80 else ''}",
-                expanded=False,
-            ):
+            # Apply filters
+            if is_teacher:
+                if tag_filter and row.get('t_move') not in tag_filter:
+                    continue
+                if depth_filter_val and row.get('mental_depth') != depth_filter_val:
+                    continue
+            else:
+                if not show_students:
+                    continue
+
+            if is_teacher:
+                depth = row.get('mental_depth', 'A')
+                color = DEPTH_COLORS.get(depth, '#95a5a6')
+                tag = row.get('t_move', '')
+                depth_label = MENTAL_DEPTH_LABELS.get(depth, '')
+
+                with st.expander(
+                    f"Turn {i+1} [T] — {text[:80]}{'...' if len(text) > 80 else ''}",
+                    expanded=False,
+                ):
+                    st.markdown(
+                        f'<div class="utterance-box utterance-teacher" '
+                        f'style="border-left-color: {color};">'
+                        f'<b>[{speaker}]</b> {text}<br>'
+                        f'<span class="depth-label">Depth: {depth} ({depth_label}) '
+                        f'| Tag: {tag}</span>'
+                        f'</div>',
+                        unsafe_allow_html=True,
+                    )
+
+                    # Show context: preceding turns
+                    if i >= 2:
+                        st.caption("Preceding context:")
+                        for j in range(max(0, i - 2), i):
+                            prev_row = active_df.iloc[j]
+                            prev_text = str(prev_row.get('Sentence', '')).strip()
+                            prev_speaker = str(prev_row.get('Speaker', '')).strip()
+                            if prev_text and prev_text != 'nan':
+                                st.caption(f"  [{prev_speaker}] {prev_text}")
+
+                    # Show next student response
+                    for offset in range(1, 4):
+                        if i + offset < len(active_df):
+                            next_row = active_df.iloc[i + offset]
+                            if pd.notna(next_row.get('s_move')):
+                                next_text = str(next_row.get('Sentence', '')).strip()
+                                next_tag = next_row.get('s_move', '')
+                                is_evidence = next_tag == 'ProvidingEvidence'
+                                st.caption(
+                                    f"→ Student response: \"{next_text}\" "
+                                    f"({next_tag}{'  ✓' if is_evidence else ''})"
+                                )
+                                break
+            else:
+                # Student utterance — compact display
+                s_tag = row.get('s_move', '')
+                is_evidence = s_tag == 'ProvidingEvidence'
                 st.markdown(
-                    f'<div class="utterance-box utterance-teacher" '
-                    f'style="border-left-color: {color};">'
+                    f'<div class="utterance-box utterance-student">'
                     f'<b>[{speaker}]</b> {text}<br>'
-                    f'<span class="depth-label">Depth: {depth} ({depth_label}) '
-                    f'| Tag: {tag}</span>'
+                    f'<span class="depth-label">Tag: {s_tag}'
+                    f'{"  ✓" if is_evidence else ""}</span>'
                     f'</div>',
                     unsafe_allow_html=True,
                 )
-
-                # Show context: preceding turns
-                if i >= 2:
-                    st.caption("Preceding context:")
-                    for j in range(max(0, i - 2), i):
-                        prev_row = active_df.iloc[j]
-                        prev_text = str(prev_row.get('Sentence', '')).strip()
-                        prev_speaker = str(prev_row.get('Speaker', '')).strip()
-                        if prev_text and prev_text != 'nan':
-                            st.caption(f"  [{prev_speaker}] {prev_text}")
-
-                # Show next student response
-                for offset in range(1, 4):
-                    if i + offset < len(active_df):
-                        next_row = active_df.iloc[i + offset]
-                        if pd.notna(next_row.get('s_move')):
-                            next_text = str(next_row.get('Sentence', '')).strip()
-                            next_tag = next_row.get('s_move', '')
-                            is_evidence = next_tag == 'ProvidingEvidence'
-                            st.caption(
-                                f"→ Student response: \"{next_text}\" "
-                                f"({next_tag}{'  ✓' if is_evidence else ''})"
-                            )
-                            break
-        else:
-            # Student utterance — compact display
-            s_tag = row.get('s_move', '')
-            is_evidence = s_tag == 'ProvidingEvidence'
-            st.markdown(
-                f'<div class="utterance-box utterance-student">'
-                f'<b>[{speaker}]</b> {text}<br>'
-                f'<span class="depth-label">Tag: {s_tag}'
-                f'{"  ✓" if is_evidence else ""}</span>'
-                f'</div>',
-                unsafe_allow_html=True,
-            )
 
 
 # ============================================================
@@ -394,57 +413,102 @@ def render_comparison_view(active_transcript, active_df):
         st.warning("No teacher utterances with tags found in this transcript.")
         return
 
-    # Find the category with the most depth variation to highlight
-    # (prefer categories that have B or C utterances, not just all-A)
-    highlight_tag = None
+    # Build a per-category summary table
+    summary_rows = []
     if 'mental_depth' in teacher_df.columns:
-        tag_counts = teacher_df['t_move'].value_counts()
-        best_score = -1
-        for tag in tag_counts.index:
-            cat = teacher_df[teacher_df['t_move'] == tag]
-            if len(cat) < 5:
-                continue
-            n_levels = cat['mental_depth'].nunique()
-            non_a_pct = (cat['mental_depth'] != 'A').mean()
-            # Score: more depth levels + more non-surface utterances = better demo
-            score = n_levels * 10 + non_a_pct * 100 + len(cat) * 0.01
-            if score > best_score:
-                best_score = score
-                highlight_tag = tag
+        for tag, cat in teacher_df.groupby('t_move'):
+            depths = cat['mental_depth'].value_counts()
+            n_a = int(depths.get('A', 0))
+            n_b = int(depths.get('B', 0))
+            n_c = int(depths.get('C', 0))
+            total = len(cat)
+            summary_rows.append({
+                'Category': tag,
+                'Total': total,
+                'A (Surface)': n_a,
+                'B (Intermediate)': n_b,
+                'C (Deep)': n_c,
+                'Depth levels': depths.nunique(),
+            })
+    summary_df = pd.DataFrame(summary_rows).sort_values('Total', ascending=False) if summary_rows else pd.DataFrame()
 
-    if highlight_tag:
-        cat_df = teacher_df[teacher_df['t_move'] == highlight_tag]
-        cat_depths = cat_df['mental_depth'].value_counts()
-        n_a = cat_depths.get('A', 0)
-        n_b = cat_depths.get('B', 0)
-        n_c = cat_depths.get('C', 0)
+    # Key insight: identify categories that have hidden variation (>1 depth level)
+    varied = summary_df[summary_df['Depth levels'] > 1] if not summary_df.empty else pd.DataFrame()
+    n_varied = len(varied)
+    total_teacher = len(teacher_df)
 
+    if n_varied > 0:
+        varied_utts = int(varied['Total'].sum())
         st.info(
-            f"**Key insight:** The category '{highlight_tag}' contains "
-            f"{len(cat_df)} utterances, all labeled identically by standard AI. "
-            f"DToM reveals {len(cat_depths)} distinct depth levels: "
-            f"A={n_a}, B={n_b}, C={n_c}."
+            f"**Key insight:** Standard AI coding uses **{len(summary_df)} categories** "
+            f"for {total_teacher} teacher utterances. DToM reveals hidden depth variation in "
+            f"**{n_varied} of them** (covering {varied_utts} utterances, "
+            f"{varied_utts/total_teacher*100:.0f}% of teacher talk)."
+        )
+    else:
+        st.info(
+            f"**Key insight:** Standard AI coding uses **{len(summary_df)} categories** "
+            f"for {total_teacher} teacher utterances. "
+            f"In this particular transcript, each category has a single depth level — "
+            f"hidden variation may be more visible in other transcripts."
         )
 
-    col1, col2 = st.columns(2)
+    # Summary table at top
+    if not summary_df.empty:
+        with st.expander("Per-category summary (click to expand)", expanded=True):
+            st.dataframe(summary_df, hide_index=True, use_container_width=True)
 
-    with col1:
+    st.markdown("---")
+
+    # Category filter for the views
+    all_categories = summary_df['Category'].tolist() if not summary_df.empty else []
+    selected_categories = st.multiselect(
+        "Filter categories (empty = show all)",
+        all_categories,
+        default=[],
+        key="comparison_cat_filter",
+    )
+
+    # Color legend for the categories shown
+    legend_tags = selected_categories if selected_categories else all_categories
+    if legend_tags:
+        legend_html = '<div style="margin: 8px 0; font-size: 0.85em;">'
+        legend_html += '<b>Category colors:</b> '
+        for t in legend_tags:
+            c = CATEGORY_COLORS.get(t, '#7f8c8d')
+            legend_html += (
+                f'<span style="background-color: {c}; color: white; '
+                f'padding: 2px 8px; border-radius: 3px; margin-right: 4px; '
+                f'display: inline-block; margin-bottom: 2px;">{t}</span>'
+            )
+        legend_html += '</div>'
+        st.markdown(legend_html, unsafe_allow_html=True)
+
+    # Fixed column headers
+    header_col1, header_col2 = st.columns(2)
+
+    with header_col1:
         st.markdown(
             '<div class="comparison-header" style="background-color: #e8e8e8;">'
-            '<h4>Standard AI View</h4>'
-            '<p style="color: gray;">TalkMoves labels only</p></div>',
+            '<h4 style="margin:0;">Standard AI View</h4>'
+            '<p style="color: gray; margin:0;">TalkMoves labels only</p></div>',
             unsafe_allow_html=True,
         )
 
-    with col2:
+    with header_col2:
         st.markdown(
             '<div class="comparison-header" style="background-color: #F8F7FC;">'
-            '<h4>DToM Lens View</h4>'
-            '<p style="color: gray;">Mentalizing depth revealed</p></div>',
+            '<h4 style="margin:0;">DToM Lens View</h4>'
+            '<p style="color: gray; margin:0;">Mentalizing depth revealed</p></div>',
             unsafe_allow_html=True,
         )
 
-    # Display utterances side by side
+    # Scrollable body: two containers of fixed height, one per column
+    body_col1, body_col2 = st.columns(2)
+    left_scroll = body_col1.container(height=600)
+    right_scroll = body_col2.container(height=600)
+
+    # Display utterances side by side — each column scrolls independently
     for i, (idx, row) in enumerate(active_df.iterrows()):
         text = str(row.get('Sentence', '')).strip()
         if not text or text == 'nan':
@@ -453,40 +517,51 @@ def render_comparison_view(active_transcript, active_df):
         speaker = str(row.get('Speaker', '')).strip()
         is_teacher = row.get('t_move') is not None and pd.notna(row.get('t_move'))
 
-        col1, col2 = st.columns(2)
-
         if is_teacher:
             tag = row.get('t_move', '')
+            # Apply category filter (only for teacher turns)
+            if selected_categories and tag not in selected_categories:
+                continue
+
             depth = row.get('mental_depth', 'A')
-            color = DEPTH_COLORS.get(depth, '#95a5a6')
+            depth_color = DEPTH_COLORS.get(depth, '#95a5a6')
+            cat_color = CATEGORY_COLORS.get(tag, '#7f8c8d')
             depth_label = MENTAL_DEPTH_LABELS.get(depth, '')
 
-            with col1:
+            with left_scroll:
+                # Standard AI View — colored by category
                 st.markdown(
-                    f'<div class="utterance-box" style="border-left: 4px solid #bbb; '
+                    f'<div class="utterance-box" style="border-left: 4px solid {cat_color}; '
                     f'background-color: #fafafa; padding: 8px 12px;">'
-                    f'<b>[T]</b> {tag}<br>'
+                    f'<b>[T]</b> <span style="color: {cat_color}; font-weight: bold;">'
+                    f'{tag}</span><br>'
                     f'<small style="color: #666;">{text[:100]}'
                     f'{"..." if len(text) > 100 else ""}</small>'
                     f'</div>',
                     unsafe_allow_html=True,
                 )
 
-            with col2:
+            with right_scroll:
+                # DToM Lens View — colored by depth
                 st.markdown(
-                    f'<div class="utterance-box" style="border-left: 4px solid {color}; '
+                    f'<div class="utterance-box" style="border-left: 4px solid {depth_color}; '
                     f'background-color: #fafafa; padding: 8px 12px;">'
-                    f'<b>[T]</b> <span style="color: {color}; font-weight: bold;">'
-                    f'{depth} — {depth_label}</span><br>'
+                    f'<b>[T]</b> <span style="color: {depth_color}; font-weight: bold;">'
+                    f'{depth} — {depth_label}</span>'
+                    f'<span style="color: gray; font-size: 0.85em;"> · {tag}</span><br>'
                     f'<small style="color: #666;">{text[:100]}'
                     f'{"..." if len(text) > 100 else ""}</small>'
                     f'</div>',
                     unsafe_allow_html=True,
                 )
         else:
+            # Student utterances: only show if no category filter is active
+            # (since filter is teacher-only, showing student turns would be out of context)
+            if selected_categories:
+                continue
             s_tag = row.get('s_move', '')
-            for c in [col1, col2]:
-                with c:
+            for scroll_container in [left_scroll, right_scroll]:
+                with scroll_container:
                     st.markdown(
                         f'<div class="utterance-box utterance-student">'
                         f'<b>[S]</b> {text[:100]}'
@@ -496,26 +571,70 @@ def render_comparison_view(active_transcript, active_df):
                         unsafe_allow_html=True,
                     )
 
-    # Summary bar
-    st.markdown("---")
-    if highlight_tag and 'mental_depth' in teacher_df.columns:
-        cat_df = teacher_df[teacher_df['t_move'] == highlight_tag]
-        n_a = (cat_df['mental_depth'] == 'A').sum()
-        n_b = (cat_df['mental_depth'] == 'B').sum()
-        n_c = (cat_df['mental_depth'] == 'C').sum()
-        st.markdown(
-            f"**Summary:** Standard coding assigns **1 label** ('{highlight_tag}') "
-            f"to all {len(cat_df)} teacher utterances in this category. "
-            f"DToM reveals **3 depth levels**: "
-            f"A={n_a} ({n_a/len(cat_df)*100:.0f}%), "
-            f"B={n_b} ({n_b/len(cat_df)*100:.0f}%), "
-            f"C={n_c} ({n_c/len(cat_df)*100:.0f}%)."
-        )
-
 
 # ============================================================
 # TAB 3: DASHBOARD
 # ============================================================
+
+def _make_level_bar_chart(
+    values: list,
+    labels: list,
+    legend_names: list,
+    colors: list,
+    y_title: str,
+    text_values: list | None = None,
+    y_range: tuple | None = None,
+    annotation: str | None = None,
+) -> go.Figure:
+    """Build a bar chart with one trace per level so legends render properly."""
+    fig = go.Figure()
+    for val, lbl, name, color, txt in zip(
+        values, labels, legend_names, colors,
+        text_values if text_values else [f"{v}" for v in values],
+    ):
+        fig.add_trace(go.Bar(
+            x=[lbl],
+            y=[val],
+            name=name,
+            marker_color=color,
+            text=[txt],
+            textposition='outside',
+            showlegend=True,
+        ))
+
+    # Give headroom for outside text labels
+    y_max = max(values) if values else 1
+    if y_range is None:
+        y_range = (0, y_max * 1.25) if y_max > 0 else (0, 1)
+
+    fig.update_layout(
+        height=260,
+        margin=dict(t=20, b=20, l=10, r=10),
+        yaxis_title=y_title,
+        yaxis_range=list(y_range),
+        font=dict(size=10),
+        legend=dict(
+            orientation="h",
+            yanchor="bottom", y=-0.3,
+            xanchor="center", x=0.5,
+            font=dict(size=9),
+        ),
+        barmode='group',
+    )
+
+    if annotation:
+        fig.add_annotation(
+            text=annotation,
+            xref="paper", yref="paper",
+            x=0.5, y=1.02, showarrow=False,
+            xanchor='center',
+            font=dict(size=10, color="gray"),
+        )
+
+    return fig
+
+
+
 
 def render_dashboard(precomputed):
     """Render the Dashboard tab with aggregate statistics."""
@@ -587,75 +706,58 @@ def _render_talkmoves_dashboard(precomputed):
         help="Pearson r: mean L3 depth vs student evidence rate (p < .001)",
     )
 
-    # Charts row 1
-    chart_col1, chart_col2 = st.columns(2)
+    # All four L3 charts in one row
+    chart_col1, chart_col2, chart_col3, chart_col4 = st.columns(4)
+
+    l3_labels = ['L1', 'L2', 'L3']
+    l3_legend = ['L1 Behavioral', 'L2 Intermediate', 'L3 Deep']
+    l3_colors = ['#95a5a6', '#3498db', '#e74c3c']
 
     with chart_col1:
-        st.markdown("##### L3 Depth Distribution")
+        st.markdown("##### Depth Distribution")
         dist = s1.get('distribution', {})
-        fig = go.Figure(data=[
-            go.Bar(
-                x=['L1 Behavioral\n(Procedural)', 'L2 Intermediate\n(Acknowledge)', 'L3 Deep\n(Probe Reasoning)'],
-                y=[
-                    dist.get('level_0', {}).get('count', 0),
-                    dist.get('level_1', {}).get('count', 0),
-                    dist.get('level_2', {}).get('count', 0),
-                ],
-                marker_color=['#95a5a6', '#3498db', '#e74c3c'],
-                text=[
-                    f"{dist.get('level_0', {}).get('pct', 0)}%",
-                    f"{dist.get('level_1', {}).get('pct', 0)}%",
-                    f"{dist.get('level_2', {}).get('pct', 0)}%",
-                ],
-                textposition='outside',
-            )
-        ])
-        fig.update_layout(
-            height=350, margin=dict(t=30, b=30),
-            yaxis_title="Number of Utterances",
-            showlegend=False,
+        counts = [
+            dist.get('level_0', {}).get('count', 0),
+            dist.get('level_1', {}).get('count', 0),
+            dist.get('level_2', {}).get('count', 0),
+        ]
+        pcts = [
+            dist.get('level_0', {}).get('pct', 0),
+            dist.get('level_1', {}).get('pct', 0),
+            dist.get('level_2', {}).get('pct', 0),
+        ]
+        fig = _make_level_bar_chart(
+            values=counts,
+            labels=l3_labels,
+            legend_names=l3_legend,
+            colors=l3_colors,
+            y_title="Utterances",
+            text_values=[f"{p}%" for p in pcts],
         )
         st.plotly_chart(fig, use_container_width=True)
 
     with chart_col2:
-        st.markdown("##### Student Evidence After Teacher L3 Move")
+        st.markdown("##### Evidence by Depth")
         seq = s1.get('sequential', {}).get('by_depth', {})
-        fig = go.Figure(data=[
-            go.Bar(
-                x=['L1 Behavioral\n(Procedural)', 'L2 Intermediate\n(Acknowledge)', 'L3 Deep\n(Probe Reasoning)'],
-                y=[
-                    seq.get('level_0', {}).get('evidence_pct', 0),
-                    seq.get('level_1', {}).get('evidence_pct', 0),
-                    seq.get('level_2', {}).get('evidence_pct', 0),
-                ],
-                marker_color=['#95a5a6', '#3498db', '#e74c3c'],
-                text=[
-                    f"{seq.get('level_0', {}).get('evidence_pct', 0)}%",
-                    f"{seq.get('level_1', {}).get('evidence_pct', 0)}%",
-                    f"{seq.get('level_2', {}).get('evidence_pct', 0)}%",
-                ],
-                textposition='outside',
-            )
-        ])
-        fig.update_layout(
-            height=350, margin=dict(t=30, b=30),
-            yaxis_title="% Student Evidence/Reasoning",
-            showlegend=False,
-        )
+        vals = [
+            seq.get('level_0', {}).get('evidence_pct', 0),
+            seq.get('level_1', {}).get('evidence_pct', 0),
+            seq.get('level_2', {}).get('evidence_pct', 0),
+        ]
         chi2 = s1.get('sequential', {}).get('chi2', 0)
-        fig.add_annotation(
-            text=f"χ²={chi2}, p<.001",
-            xref="paper", yref="paper",
-            x=0.95, y=0.95, showarrow=False,
-            font=dict(size=11, color="gray"),
+        fig = _make_level_bar_chart(
+            values=vals,
+            labels=l3_labels,
+            legend_names=l3_legend,
+            colors=l3_colors,
+            y_title="% Student Evidence",
+            text_values=[f"{v}%" for v in vals],
+            annotation=f"χ²={chi2}, p<.001",
         )
         st.plotly_chart(fig, use_container_width=True)
 
-    # Charts row 2
-    chart_col3, chart_col4 = st.columns(2)
-
     with chart_col3:
-        st.markdown("##### Transcript-Level Correlation")
+        st.markdown("##### Transcript Correlation")
         transcript_data = precomputed.get('transcript_data')
         if transcript_data is not None and len(transcript_data) > 0:
             fig = px.scatter(
@@ -686,54 +788,68 @@ def _render_talkmoves_dashboard(precomputed):
             ))
             r = s1.get('transcript_level', {}).get('pearson_r', 0)
             n = s1.get('transcript_level', {}).get('n', 0)
+            fig.update_layout(
+                height=260,
+                margin=dict(t=30, b=20, l=10, r=10),
+                font=dict(size=10),
+                xaxis_title="Mean Depth",
+                yaxis_title="% Student Evidence",
+            )
             fig.add_annotation(
                 text=f"r={r:.3f}, p<.001, N={n}",
                 xref="paper", yref="paper",
-                x=0.05, y=0.95, showarrow=False,
-                font=dict(size=11, color="gray"),
+                x=0.5, y=1.02, showarrow=False,
+                xanchor='center',
+                font=dict(size=10, color="gray"),
             )
-            fig.update_layout(height=350, margin=dict(t=30, b=30))
             st.plotly_chart(fig, use_container_width=True)
         else:
             st.caption("Transcript-level data not available.")
 
     with chart_col4:
-        st.markdown("##### Median-Split Comparison")
+        st.markdown("##### Median Split")
         ms = s1.get('median_split', {})
-        fig = go.Figure(data=[
-            go.Bar(
-                x=['Low Depth\nTranscripts', 'High Depth\nTranscripts'],
-                y=[
-                    ms.get('low_mean', 0) * 100,
-                    ms.get('high_mean', 0) * 100,
-                ],
-                marker_color=['#3498db', '#e74c3c'],
-                text=[
-                    f"{ms.get('low_mean', 0) * 100:.1f}%",
-                    f"{ms.get('high_mean', 0) * 100:.1f}%",
-                ],
-                textposition='outside',
-                error_y=dict(
-                    type='data',
-                    array=[
-                        ms.get('low_sd', 0) * 100,
-                        ms.get('high_sd', 0) * 100,
-                    ],
-                    visible=True,
-                ),
-            )
-        ])
+        low_val = ms.get('low_mean', 0) * 100
+        high_val = ms.get('high_mean', 0) * 100
+        low_sd = ms.get('low_sd', 0) * 100
+        high_sd = ms.get('high_sd', 0) * 100
+
+        fig = go.Figure()
+        fig.add_trace(go.Bar(
+            x=['Low'], y=[low_val],
+            name='Low Depth',
+            marker_color='#3498db',
+            text=[f"{low_val:.1f}%"], textposition='outside',
+            error_y=dict(type='data', array=[low_sd], visible=True),
+        ))
+        fig.add_trace(go.Bar(
+            x=['High'], y=[high_val],
+            name='High Depth',
+            marker_color='#e74c3c',
+            text=[f"{high_val:.1f}%"], textposition='outside',
+            error_y=dict(type='data', array=[high_sd], visible=True),
+        ))
+
         d = ms.get('cohens_d', 0)
+        y_max = max(low_val + low_sd, high_val + high_sd)
+        fig.update_layout(
+            height=260, margin=dict(t=30, b=20, l=10, r=10),
+            yaxis_title="% Student Evidence",
+            yaxis_range=[0, y_max * 1.3],
+            font=dict(size=10),
+            legend=dict(
+                orientation="h",
+                yanchor="bottom", y=-0.3,
+                xanchor="center", x=0.5,
+                font=dict(size=9),
+            ),
+        )
         fig.add_annotation(
             text=f"Cohen's d={d:.2f}, p<.001",
             xref="paper", yref="paper",
-            x=0.95, y=0.95, showarrow=False,
-            font=dict(size=11, color="gray"),
-        )
-        fig.update_layout(
-            height=350, margin=dict(t=30, b=30),
-            yaxis_title="% Student Evidence/Reasoning",
-            showlegend=False,
+            x=0.5, y=1.02, showarrow=False,
+            xanchor='center',
+            font=dict(size=10, color="gray"),
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -756,69 +872,48 @@ def _render_talkmoves_dashboard(precomputed):
         f"{s2.get('distribution', {}).get('level_C', {}).get('pct', 0)}%",
     )
 
-    wc_chart1, wc_chart2 = st.columns(2)
+    wc_chart1, wc_chart2, _, _ = st.columns(4)
+    wc_labels = ['A', 'B', 'C']
+    wc_legend = ['A — Surface', 'B — Intermediate', 'C — Deep']
+    wc_colors = ['#95a5a6', '#3498db', '#e74c3c']
 
     with wc_chart1:
-        st.markdown("##### Distribution Within 'Press for Accuracy'")
+        st.markdown("##### Within-Category Distribution")
         wc_dist = s2.get('distribution', {})
-        fig = go.Figure(data=[
-            go.Bar(
-                x=['Surface\n(check answer)', 'Intermediate\n(request procedure)',
-                   'Deep\n(probe understanding)'],
-                y=[
-                    wc_dist.get('level_A', {}).get('pct', 0),
-                    wc_dist.get('level_B', {}).get('pct', 0),
-                    wc_dist.get('level_C', {}).get('pct', 0),
-                ],
-                marker_color=['#95a5a6', '#3498db', '#e74c3c'],
-                text=[
-                    f"{wc_dist.get('level_A', {}).get('pct', 0)}%",
-                    f"{wc_dist.get('level_B', {}).get('pct', 0)}%",
-                    f"{wc_dist.get('level_C', {}).get('pct', 0)}%",
-                ],
-                textposition='outside',
-            )
-        ])
-        fig.update_layout(
-            height=350, margin=dict(t=30, b=30),
-            yaxis_title="% of Utterances",
-            yaxis_range=[0, 100],
-            showlegend=False,
+        pcts = [
+            wc_dist.get('level_A', {}).get('pct', 0),
+            wc_dist.get('level_B', {}).get('pct', 0),
+            wc_dist.get('level_C', {}).get('pct', 0),
+        ]
+        fig = _make_level_bar_chart(
+            values=pcts,
+            labels=wc_labels,
+            legend_names=wc_legend,
+            colors=wc_colors,
+            y_title="% of Utterances",
+            text_values=[f"{p}%" for p in pcts],
+            y_range=(0, 100),
         )
         st.plotly_chart(fig, use_container_width=True)
 
     with wc_chart2:
-        st.markdown("##### Student Evidence by Depth (Within Category)")
+        st.markdown("##### Evidence by Within-Cat Depth")
         val = s2.get('validation', {}).get('by_depth', {})
-        fig = go.Figure(data=[
-            go.Bar(
-                x=['Surface (A)', 'Intermediate (B)', 'Deep (C)'],
-                y=[
-                    val.get('A', {}).get('evidence_pct', 0),
-                    val.get('B', {}).get('evidence_pct', 0),
-                    val.get('C', {}).get('evidence_pct', 0),
-                ],
-                marker_color=['#95a5a6', '#3498db', '#e74c3c'],
-                text=[
-                    f"{val.get('A', {}).get('evidence_pct', 0)}%",
-                    f"{val.get('B', {}).get('evidence_pct', 0)}%",
-                    f"{val.get('C', {}).get('evidence_pct', 0)}%",
-                ],
-                textposition='outside',
-            )
-        ])
+        vals = [
+            val.get('A', {}).get('evidence_pct', 0),
+            val.get('B', {}).get('evidence_pct', 0),
+            val.get('C', {}).get('evidence_pct', 0),
+        ]
         chi2 = s2.get('validation', {}).get('chi2', 0)
         v = s2.get('validation', {}).get('cramers_v', 0)
-        fig.add_annotation(
-            text=f"χ²={chi2}, p<.001, V={v}",
-            xref="paper", yref="paper",
-            x=0.95, y=0.95, showarrow=False,
-            font=dict(size=11, color="gray"),
-        )
-        fig.update_layout(
-            height=350, margin=dict(t=30, b=30),
-            yaxis_title="% Student Evidence/Reasoning",
-            showlegend=False,
+        fig = _make_level_bar_chart(
+            values=vals,
+            labels=wc_labels,
+            legend_names=wc_legend,
+            colors=wc_colors,
+            y_title="% Student Evidence",
+            text_values=[f"{v_}%" for v_ in vals],
+            annotation=f"χ²={chi2}, p<.001, V={v}",
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -854,67 +949,48 @@ def _render_ncte_dashboard(precomputed):
         f"{r2.get('transcript_level', {}).get('pearson_r_elaborate', 0):.3f}",
     )
 
-    ncte_c1, ncte_c2 = st.columns(2)
+    ncte_c1, ncte_c2, _, _ = st.columns(4)
+
+    ncte_labels = ['A', 'B', 'C']
+    ncte_legend = ['A — Surface', 'B — Intermediate', 'C — Deep']
+    ncte_colors = ['#95a5a6', '#3498db', '#e74c3c']
 
     with ncte_c1:
-        st.markdown("##### Mentalizing Depth Distribution (NCTE)")
+        st.markdown("##### Depth Distribution (NCTE)")
         dist = r1.get('distribution', {})
-        fig = go.Figure(data=[
-            go.Bar(
-                x=['Surface (A)', 'Intermediate (B)', 'Deep (C)'],
-                y=[
-                    dist.get('A', {}).get('pct', 0),
-                    dist.get('B', {}).get('pct', 0),
-                    dist.get('C', {}).get('pct', 0),
-                ],
-                marker_color=['#95a5a6', '#3498db', '#e74c3c'],
-                text=[
-                    f"{dist.get('A', {}).get('pct', 0)}%",
-                    f"{dist.get('B', {}).get('pct', 0)}%",
-                    f"{dist.get('C', {}).get('pct', 0)}%",
-                ],
-                textposition='outside',
-            )
-        ])
-        fig.update_layout(
-            height=350, margin=dict(t=30, b=30),
-            yaxis_title="% of Teacher Utterances",
-            yaxis_range=[0, 100],
-            showlegend=False,
+        pcts = [
+            dist.get('A', {}).get('pct', 0),
+            dist.get('B', {}).get('pct', 0),
+            dist.get('C', {}).get('pct', 0),
+        ]
+        fig = _make_level_bar_chart(
+            values=pcts,
+            labels=ncte_labels,
+            legend_names=ncte_legend,
+            colors=ncte_colors,
+            y_title="% Teacher Utterances",
+            text_values=[f"{p}%" for p in pcts],
+            y_range=(0, 100),
         )
         st.plotly_chart(fig, use_container_width=True)
 
     with ncte_c2:
-        st.markdown("##### Student Elaboration by Depth (NCTE)")
+        st.markdown("##### Student Elaboration (NCTE)")
         seq = r2.get('sequential', {}).get('by_depth', {})
-        fig = go.Figure(data=[
-            go.Bar(
-                x=['Surface (A)', 'Intermediate (B)', 'Deep (C)'],
-                y=[
-                    seq.get('A', {}).get('elaborate_pct', 0),
-                    seq.get('B', {}).get('elaborate_pct', 0),
-                    seq.get('C', {}).get('elaborate_pct', 0),
-                ],
-                marker_color=['#95a5a6', '#3498db', '#e74c3c'],
-                text=[
-                    f"{seq.get('A', {}).get('elaborate_pct', 0)}%",
-                    f"{seq.get('B', {}).get('elaborate_pct', 0)}%",
-                    f"{seq.get('C', {}).get('elaborate_pct', 0)}%",
-                ],
-                textposition='outside',
-            )
-        ])
+        vals = [
+            seq.get('A', {}).get('elaborate_pct', 0),
+            seq.get('B', {}).get('elaborate_pct', 0),
+            seq.get('C', {}).get('elaborate_pct', 0),
+        ]
         chi2 = r2.get('sequential', {}).get('chi2', 0)
-        fig.add_annotation(
-            text=f"χ²={chi2:.1f}, p<.001",
-            xref="paper", yref="paper",
-            x=0.95, y=0.95, showarrow=False,
-            font=dict(size=11, color="gray"),
-        )
-        fig.update_layout(
-            height=350, margin=dict(t=30, b=30),
-            yaxis_title="% Elaborated Student Response",
-            showlegend=False,
+        fig = _make_level_bar_chart(
+            values=vals,
+            labels=ncte_labels,
+            legend_names=ncte_legend,
+            colors=ncte_colors,
+            y_title="% Elaborated Response",
+            text_values=[f"{v_}%" for v_ in vals],
+            annotation=f"χ²={chi2:.1f}, p<.001",
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -961,31 +1037,31 @@ def render_within_category(active_df, precomputed):
 def _render_within_category_precomputed(s2, precomputed):
     """Render within-category analysis from precomputed Study 2 data."""
     dist_col, grad_col = st.columns(2)
+    wc_labels = ['A', 'B', 'C']
+    wc_legend = ['A — Surface', 'B — Intermediate', 'C — Deep']
+    wc_colors = ['#95a5a6', '#3498db', '#e74c3c']
 
     with dist_col:
         st.markdown("##### Distribution")
         wc_dist = s2.get('distribution', {})
-        fig = go.Figure(data=[
-            go.Bar(
-                x=['A: Surface', 'B: Intermediate', 'C: Deep'],
-                y=[
-                    wc_dist.get('level_A', {}).get('pct', 0),
-                    wc_dist.get('level_B', {}).get('pct', 0),
-                    wc_dist.get('level_C', {}).get('pct', 0),
-                ],
-                marker_color=['#95a5a6', '#3498db', '#e74c3c'],
-                text=[
-                    f"{wc_dist.get('level_A', {}).get('pct', 0)}%<br>(n={wc_dist.get('level_A', {}).get('count', 0):,})",
-                    f"{wc_dist.get('level_B', {}).get('pct', 0)}%<br>(n={wc_dist.get('level_B', {}).get('count', 0):,})",
-                    f"{wc_dist.get('level_C', {}).get('pct', 0)}%<br>(n={wc_dist.get('level_C', {}).get('count', 0):,})",
-                ],
-                textposition='outside',
-            )
-        ])
-        fig.update_layout(
-            height=350, margin=dict(t=30, b=30),
-            yaxis_title="% of Utterances", yaxis_range=[0, 100],
-            showlegend=False,
+        pcts = [
+            wc_dist.get('level_A', {}).get('pct', 0),
+            wc_dist.get('level_B', {}).get('pct', 0),
+            wc_dist.get('level_C', {}).get('pct', 0),
+        ]
+        counts = [
+            wc_dist.get('level_A', {}).get('count', 0),
+            wc_dist.get('level_B', {}).get('count', 0),
+            wc_dist.get('level_C', {}).get('count', 0),
+        ]
+        fig = _make_level_bar_chart(
+            values=pcts,
+            labels=wc_labels,
+            legend_names=wc_legend,
+            colors=wc_colors,
+            y_title="% of Utterances",
+            text_values=[f"{p}% (n={c:,})" for p, c in zip(pcts, counts)],
+            y_range=(0, 115),
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -993,38 +1069,19 @@ def _render_within_category_precomputed(s2, precomputed):
         st.markdown("##### Student Evidence Gradient")
         val = s2.get('validation', {}).get('by_depth', {})
         a_pct = val.get('A', {}).get('evidence_pct', 0)
+        b_pct = val.get('B', {}).get('evidence_pct', 0)
         c_pct = val.get('C', {}).get('evidence_pct', 0)
         ratio = round(c_pct / a_pct, 1) if a_pct > 0 else 0
-
-        fig = go.Figure(data=[
-            go.Bar(
-                x=['A: Surface', 'B: Intermediate', 'C: Deep'],
-                y=[
-                    a_pct,
-                    val.get('B', {}).get('evidence_pct', 0),
-                    c_pct,
-                ],
-                marker_color=['#95a5a6', '#3498db', '#e74c3c'],
-                text=[
-                    f"{a_pct}%",
-                    f"{val.get('B', {}).get('evidence_pct', 0)}%",
-                    f"{c_pct}%",
-                ],
-                textposition='outside',
-            )
-        ])
         chi2 = s2.get('validation', {}).get('chi2', 0)
         v = s2.get('validation', {}).get('cramers_v', 0)
-        fig.add_annotation(
-            text=f"χ²={chi2}, V={v}<br>{ratio}× difference (A→C)",
-            xref="paper", yref="paper",
-            x=0.95, y=0.95, showarrow=False,
-            font=dict(size=11, color="gray"),
-        )
-        fig.update_layout(
-            height=350, margin=dict(t=30, b=30),
-            yaxis_title="% Student Evidence/Reasoning",
-            showlegend=False,
+        fig = _make_level_bar_chart(
+            values=[a_pct, b_pct, c_pct],
+            labels=wc_labels,
+            legend_names=wc_legend,
+            colors=wc_colors,
+            y_title="% Student Evidence",
+            text_values=[f"{a_pct}%", f"{b_pct}%", f"{c_pct}%"],
+            annotation=f"χ²={chi2}, V={v} — {ratio}× difference (A→C)",
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -1074,23 +1131,22 @@ def _render_within_category_precomputed(s2, precomputed):
 def _render_within_category_live(result):
     """Render within-category analysis from live computation."""
     dist_col, grad_col = st.columns(2)
+    wc_labels = ['A', 'B', 'C']
+    wc_legend = ['A — Surface', 'B — Intermediate', 'C — Deep']
+    wc_colors = ['#95a5a6', '#3498db', '#e74c3c']
 
     with dist_col:
         st.markdown("##### Distribution")
         dist = result['distribution']
-        fig = go.Figure(data=[
-            go.Bar(
-                x=['A: Surface', 'B: Intermediate', 'C: Deep'],
-                y=[dist['A']['pct'], dist['B']['pct'], dist['C']['pct']],
-                marker_color=['#95a5a6', '#3498db', '#e74c3c'],
-                text=[f"{dist['A']['pct']}%", f"{dist['B']['pct']}%", f"{dist['C']['pct']}%"],
-                textposition='outside',
-            )
-        ])
-        fig.update_layout(
-            height=350, margin=dict(t=30, b=30),
-            yaxis_title="% of Utterances", yaxis_range=[0, 100],
-            showlegend=False,
+        pcts = [dist['A']['pct'], dist['B']['pct'], dist['C']['pct']]
+        fig = _make_level_bar_chart(
+            values=pcts,
+            labels=wc_labels,
+            legend_names=wc_legend,
+            colors=wc_colors,
+            y_title="% of Utterances",
+            text_values=[f"{p}%" for p in pcts],
+            y_range=(0, 115),
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -1098,31 +1154,22 @@ def _render_within_category_live(result):
         st.markdown("##### Student Evidence Gradient")
         val = result.get('validation', {}).get('by_depth', {})
         if val:
-            fig = go.Figure(data=[
-                go.Bar(
-                    x=['A: Surface', 'B: Intermediate', 'C: Deep'],
-                    y=[
-                        val.get('A', {}).get('evidence_pct', 0),
-                        val.get('B', {}).get('evidence_pct', 0),
-                        val.get('C', {}).get('evidence_pct', 0),
-                    ],
-                    marker_color=['#95a5a6', '#3498db', '#e74c3c'],
-                    textposition='outside',
-                )
-            ])
+            vals = [
+                val.get('A', {}).get('evidence_pct', 0),
+                val.get('B', {}).get('evidence_pct', 0),
+                val.get('C', {}).get('evidence_pct', 0),
+            ]
             chi2 = result.get('validation', {}).get('chi2', '')
             v = result.get('validation', {}).get('cramers_v', '')
-            if chi2:
-                fig.add_annotation(
-                    text=f"χ²={chi2}, V={v}",
-                    xref="paper", yref="paper",
-                    x=0.95, y=0.95, showarrow=False,
-                    font=dict(size=11, color="gray"),
-                )
-            fig.update_layout(
-                height=350, margin=dict(t=30, b=30),
-                yaxis_title="% Student Evidence/Reasoning",
-                showlegend=False,
+            annotation = f"χ²={chi2}, V={v}" if chi2 else None
+            fig = _make_level_bar_chart(
+                values=vals,
+                labels=wc_labels,
+                legend_names=wc_legend,
+                colors=wc_colors,
+                y_title="% Student Evidence",
+                text_values=[f"{v_}%" for v_ in vals],
+                annotation=annotation,
             )
             st.plotly_chart(fig, use_container_width=True)
         else:

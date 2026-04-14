@@ -102,6 +102,20 @@ L3_COLORS = {
     2: '#e74c3c',  # red
 }
 
+# Distinct colors for each standard TalkMoves category (used in Comparison View)
+CATEGORY_COLORS = {
+    'None':                  '#bdc3c7',  # light gray
+    'Context':               '#f39c12',  # amber
+    'KeepingTogether':       '#e67e22',  # orange
+    'Marking':               '#1abc9c',  # teal
+    'Restating':             '#5dade2',  # light blue
+    'Revoicing':             '#9b59b6',  # purple
+    'PressAccuracy':         '#e84393',  # pink/magenta
+    'PressReasoning':        '#27ae60',  # green
+    'GettingStudentsRelate': '#2c3e50',  # dark navy
+    'Other':                 '#7f8c8d',  # mid gray
+}
+
 
 # ============================================================
 # NORMALIZATION FUNCTIONS
