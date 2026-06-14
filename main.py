@@ -57,7 +57,25 @@ def main():
         "--ncte-output-dir", type=str, default="ncte_output",
         help="Directory for NCTE replication output files",
     )
+    parser.add_argument(
+        "--additional", action="store_true",
+        help="Run the four additional experiments (WI-IAT 2026 revision)",
+    )
     args = parser.parse_args()
+
+    if args.additional:
+        print("=" * 70)
+        print("RUNNING ADDITIONAL EXPERIMENTS (Options 1-4)")
+        print("=" * 70)
+        sys.argv = [
+            "dtom_additional_experiments",
+            "--option", "all",
+            "--data-dir", args.data_dir,
+            "--output-dir", args.output_dir,
+        ]
+        from dtom.additional_experiments import main as run_additional
+        run_additional()
+        return
 
     if not args.study3_only and not args.ncte:
         print("=" * 70)

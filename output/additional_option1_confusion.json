@@ -1,0 +1,46 @@
+{
+  "n": 200,
+  "matrix": {
+    "A": {
+      "A": 106,
+      "B": 31,
+      "C": 37
+    },
+    "B": {
+      "A": 3,
+      "B": 16,
+      "C": 1
+    },
+    "C": {
+      "A": 0,
+      "B": 2,
+      "C": 4
+    }
+  },
+  "row_totals": {
+    "A": 174,
+    "B": 20,
+    "C": 6
+  },
+  "col_totals": {
+    "A": 109,
+    "B": 49,
+    "C": 42
+  },
+  "rule_based_A_reclassification": {
+    "n_rule_A": 174,
+    "stays_A": {
+      "n": 106,
+      "pct": 60.9
+    },
+    "to_B_intermediate": {
+      "n": 31,
+      "pct": 17.8
+    },
+    "to_C_deep": {
+      "n": 37,
+      "pct": 21.3
+    }
+  },
+  "exact_agreement_pct": 63.0
+}

@@ -1,0 +1,101 @@
+{
+  "PressAccuracy": {
+    "n": 20770,
+    "distribution_pct": {
+      "A": 87.8,
+      "B": 9.6,
+      "C": 2.6
+    },
+    "distribution_n": {
+      "A": 18232,
+      "B": 1988,
+      "C": 550
+    },
+    "evidence_gradient": {
+      "A": {
+        "n": 13492,
+        "evidence_pct": 7.4
+      },
+      "B": {
+        "n": 1522,
+        "evidence_pct": 26.0
+      },
+      "C": {
+        "n": 373,
+        "evidence_pct": 29.8
+      }
+    },
+    "evidence_gradient_monotonic": true,
+    "chi_square": {
+      "chi2": 714.2,
+      "p": 8.188775913391461e-156,
+      "cramers_v": 0.215
+    }
+  },
+  "Revoicing": {
+    "n": 3093,
+    "distribution_pct": {
+      "A": 99.0,
+      "B": 0.5,
+      "C": 0.5
+    },
+    "distribution_n": {
+      "A": 3062,
+      "B": 17,
+      "C": 14
+    },
+    "evidence_gradient": {
+      "A": {
+        "n": 1642,
+        "evidence_pct": 9.2
+      },
+      "B": {
+        "n": 9,
+        "evidence_pct": 33.3
+      },
+      "C": {
+        "n": 6,
+        "evidence_pct": 0.0
+      }
+    },
+    "evidence_gradient_monotonic": false,
+    "chi_square": {
+      "chi2": 6.8,
+      "p": 0.03332343547821608,
+      "cramers_v": 0.064
+    }
+  },
+  "Restating": {
+    "n": 390,
+    "distribution_pct": {
+      "A": 97.7,
+      "B": 1.5,
+      "C": 0.8
+    },
+    "distribution_n": {
+      "A": 381,
+      "B": 6,
+      "C": 3
+    },
+    "evidence_gradient": {
+      "A": {
+        "n": 199,
+        "evidence_pct": 10.1
+      },
+      "B": {
+        "n": 4,
+        "evidence_pct": 0.0
+      },
+      "C": {
+        "n": 1,
+        "evidence_pct": 0.0
+      }
+    },
+    "evidence_gradient_monotonic": false,
+    "chi_square": {
+      "chi2": 0.56,
+      "p": 0.756867747580853,
+      "cramers_v": 0.052
+    }
+  }
+}

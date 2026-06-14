@@ -1,0 +1,51 @@
+{
+  "n_lifts": 67,
+  "n_corroborated": 47,
+  "n_reverted": 20,
+  "categories": {
+    "contextual_probing": {
+      "label": "Contextual probing",
+      "corroborated": {
+        "n": 7,
+        "pct": 14.9
+      },
+      "reverted": {
+        "n": 0,
+        "pct": 0.0
+      }
+    },
+    "implicit_reasoning_demand": {
+      "label": "Implicit reasoning demand",
+      "corroborated": {
+        "n": 31,
+        "pct": 66.0
+      },
+      "reverted": {
+        "n": 0,
+        "pct": 0.0
+      }
+    },
+    "keyword_over_extension": {
+      "label": "Keyword over-extension",
+      "corroborated": {
+        "n": 1,
+        "pct": 2.1
+      },
+      "reverted": {
+        "n": 7,
+        "pct": 35.0
+      }
+    },
+    "pragmatic_reinterpretation": {
+      "label": "Pragmatic reinterpretation",
+      "corroborated": {
+        "n": 8,
+        "pct": 17.0
+      },
+      "reverted": {
+        "n": 13,
+        "pct": 65.0
+      }
+    }
+  }
+}
