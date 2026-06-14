@@ -1,30 +1,18 @@
 #!/usr/bin/env python3
 """
-DToM Study 3: LLM-Based Convergent Classification (GPT-4o)
-==========================================================
+DToM Within-Category Analysis: LLM-Based Mentalizing Depth Classifier
+=====================================================================
 
-Uses OpenAI GPT-4o to classify "Press for Accuracy" teacher utterances by
-mentalizing depth, providing convergent validity for the rule-based classifier
-in the main pipeline (Study 2).
-
-This is the v2, concept-anchored, reason-before-label implementation specified
-in specs/ectel_revision_blueprint.md. GPT-4o is used (rather than Claude) for
-vendor independence from the writing tools used during the research process.
-
-Run LOCALLY (requires OPENAI_API_KEY, read from the environment or a .env file).
+Uses GPT-4o to classify "Press for Accuracy" teacher utterances by
+mentalizing depth, providing convergent validity for the rule-based
+classifier in the main pipeline.
 
 Usage:
-    # OPENAI_API_KEY in .env or environment
-    python -m dtom.llm_classifier --data-dir data/TalkMoves/data --output-dir output
-
-The script:
-  1. Samples 200 "Press for Accuracy" utterances (>3 words) with 2 turns of context
-  2. Sends them to GPT-4o in batches of 20 for mentalizing depth coding (A/B/C)
-  3. Computes inter-method agreement (Cohen's kappa) with the rule-based classifier
-  4. Reports the disagreement direction and student-evidence gradient
+    export OPENAI_API_KEY="your-key-here"
+    python dtom_llm_classifier.py --data-dir TalkMoves/data --output-dir output
 
 Requirements:
-    pip install openai pandas openpyxl scipy numpy python-dotenv
+    pip install openai pandas openpyxl scipy numpy
 """
 
 import argparse
@@ -42,7 +30,12 @@ if sys.platform == 'win32':
 
 import numpy as np
 import pandas as pd
-from dotenv import load_dotenv
+from scipy import stats
+
+try:
+    from dotenv import load_dotenv
+except ImportError:  # python-dotenv is optional for the standalone script
+    load_dotenv = None
 
 # ============================================================
 # CONFIGURATION
@@ -210,8 +203,13 @@ def normalize_teacher_tag(tag):
     if pd.isna(tag):
         return None
     tag = str(tag).strip().lower()
-    if 'accuracy' in tag:
-        return 'PressAccuracy'
+    mapping = {
+        'press for accuracy': 'PressAccuracy',
+        'press_for_accuracy': 'PressAccuracy',
+    }
+    for key, val in mapping.items():
+        if key in tag:
+            return val
     return 'Other'
 
 
@@ -230,7 +228,7 @@ def normalize_student_tag(tag):
     return 'Other'
 
 
-def load_and_sample(data_dir: str) -> tuple[pd.DataFrame, list[dict]]:
+def load_and_sample(data_dir: str) -> tuple:
     """Load transcripts and sample Press for Accuracy utterances with context."""
     files = glob.glob(os.path.join(data_dir, 'Subset 1', '*.xlsx')) + \
             glob.glob(os.path.join(data_dir, 'Subset 2', '*.xlsx'))
@@ -267,7 +265,7 @@ def load_and_sample(data_dir: str) -> tuple[pd.DataFrame, list[dict]]:
     for idx in sample_indices:
         row = combined.loc[idx]
 
-        # Get up to 2 preceding utterances for context
+        # Get 2 preceding utterances for context
         context_rows = []
         for offset in range(1, 4):
             if idx - offset >= 0:
@@ -277,7 +275,7 @@ def load_and_sample(data_dir: str) -> tuple[pd.DataFrame, list[dict]]:
                     context_rows.append(f"[{speaker}]: {prev['Sentence']}")
         context_rows.reverse()
 
-        # Get next student response (within 3 turns) for outcome linkage
+        # Get next student response
         next_student = None
         next_student_move = None
         for offset in range(1, 4):
@@ -308,7 +306,7 @@ def load_and_sample(data_dir: str) -> tuple[pd.DataFrame, list[dict]]:
 # LLM CLASSIFICATION
 # ============================================================
 
-def classify_with_llm(samples: list[dict], api_key: str) -> list[dict]:
+def classify_with_llm(samples: list, api_key: str) -> list:
     """Send samples to GPT-4o in batches for mentalizing depth coding."""
     try:
         from openai import OpenAI
@@ -334,7 +332,6 @@ def classify_with_llm(samples: list[dict], api_key: str) -> list[dict]:
 
         prompt = CODING_PROMPT_TEMPLATE.format(utterances=utterance_text)
 
-        response_text = ""
         try:
             response = client.chat.completions.create(
                 model=MODEL,
@@ -343,8 +340,8 @@ def classify_with_llm(samples: list[dict], api_key: str) -> list[dict]:
                 max_tokens=2000,
                 messages=[
                     {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": prompt},
-                ],
+                    {"role": "user", "content": prompt}
+                ]
             )
 
             response_text = response.choices[0].message.content.strip()
@@ -365,7 +362,7 @@ def classify_with_llm(samples: list[dict], api_key: str) -> list[dict]:
         except Exception as e:
             print(f"  Batch {batch_num}/{total_batches}: API error — {e}")
 
-        # Rate limiting: pause between batches
+        # Rate limiting
         if batch_start + BATCH_SIZE < len(samples):
             time.sleep(1)
 
@@ -376,59 +373,60 @@ def classify_with_llm(samples: list[dict], api_key: str) -> list[dict]:
 # INTER-METHOD AGREEMENT ANALYSIS
 # ============================================================
 
-def _normalize_level(level_str):
-    """Extract the letter from labels like 'A — SURFACE' or just 'A'."""
-    if not level_str:
-        return None
-    level_str = str(level_str).strip()
-    if level_str and level_str[0] in ('A', 'B', 'C'):
-        return level_str[0]
-    return None
-
-
-def compute_agreement(samples: list[dict], llm_results: list[dict]) -> tuple[dict, pd.DataFrame]:
-    """Compute Cohen's kappa and agreement statistics between classifiers."""
+def compute_agreement(samples: list, llm_results: list) -> dict:
+    """Compute Cohen's kappa and agreement statistics."""
 
     # Map LLM results by ID, normalizing level labels
-    llm_level_by_id = {}
-    llm_reason_by_id = {}
+    def normalize_level(level_str):
+        """Extract letter from labels like 'A — SURFACE' or just 'A'."""
+        if not level_str:
+            return None
+        level_str = str(level_str).strip()
+        if level_str[0] in ('A', 'B', 'C'):
+            return level_str[0]
+        return None
+
+    llm_by_id = {}
     for r in llm_results:
-        level = _normalize_level(r.get('level'))
-        if level is not None and 'id' in r:
-            llm_level_by_id[r['id']] = level
-            llm_reason_by_id[r['id']] = r.get('reason', '')
+        level = normalize_level(r.get('level'))
+        if level:
+            llm_by_id[r['id']] = level
 
     # Build comparison data
     comparison = []
     for s in samples:
-        if s['id'] in llm_level_by_id:
+        if s['id'] in llm_by_id:
             comparison.append({
                 'id': s['id'],
                 'utterance': s['utterance'],
                 'context': s['context'],
                 'rule_based': s['rule_based_level'],
-                'llm': llm_level_by_id[s['id']],
-                'llm_reason': llm_reason_by_id.get(s['id'], ''),
+                'llm': llm_by_id[s['id']],
+                'llm_reason': next(
+                    (r.get('reason', '') for r in llm_results if r['id'] == s['id']),
+                    ''
+                ),
                 'next_student_move': s.get('next_student_move'),
             })
 
     if not comparison:
         print("WARNING: No matched samples for agreement analysis")
-        return {}, pd.DataFrame()
+        return {}
 
     comp_df = pd.DataFrame(comparison)
     n = len(comp_df)
-    labels = ['A', 'B', 'C']
 
     # Overall agreement
     agreement = (comp_df['rule_based'] == comp_df['llm']).mean()
 
-    # Cohen's kappa
-    try:
-        from sklearn.metrics import cohen_kappa_score
-        kappa = cohen_kappa_score(comp_df['rule_based'], comp_df['llm'], labels=labels)
-    except ImportError:
-        kappa = _manual_kappa(comp_df['rule_based'].tolist(), comp_df['llm'].tolist(), labels)
+    # Cohen's kappa (manual computation to avoid sklearn dependency)
+    labels = ['A', 'B', 'C']
+    po = agreement
+    pe = sum(
+        (comp_df['rule_based'] == l).mean() * (comp_df['llm'] == l).mean()
+        for l in labels
+    )
+    kappa = (po - pe) / (1 - pe) if pe < 1 else 1.0
 
     print(f"\n{'=' * 60}")
     print(f"INTER-METHOD AGREEMENT (n={n})")
@@ -443,7 +441,7 @@ def compute_agreement(samples: list[dict], llm_results: list[dict]) -> tuple[dic
         llm_pct = (comp_df['llm'] == level).mean() * 100
         print(f"    Level {level}: Rule-based={rb_pct:.1f}%, GPT-4o={llm_pct:.1f}%")
 
-    # Confusion matrix (rows = rule-based, cols = GPT-4o)
+    # Confusion matrix
     print(f"\n  Confusion matrix (rows=rule-based, cols=GPT-4o):")
     print(f"         {'A':>6} {'B':>6} {'C':>6}")
     confusion = {}
@@ -456,18 +454,23 @@ def compute_agreement(samples: list[dict], llm_results: list[dict]) -> tuple[dic
         print(f"    {rb_level}:  {counts[0]:>6} {counts[1]:>6} {counts[2]:>6}")
 
     # Disagreement direction
+    deeper = ((comp_df['rule_based'] < comp_df['llm'].map({'A': 0, 'B': 1, 'C': 2}.get)) |
+              ((comp_df['rule_based'] == 'A') & (comp_df['llm'].isin(['B', 'C']))) |
+              ((comp_df['rule_based'] == 'B') & (comp_df['llm'] == 'C')))
+
+    # Simpler approach
     depth_map = {'A': 0, 'B': 1, 'C': 2}
     comp_df['rb_num'] = comp_df['rule_based'].map(depth_map)
     comp_df['llm_num'] = comp_df['llm'].map(depth_map)
 
-    n_agree = int((comp_df['rb_num'] == comp_df['llm_num']).sum())
-    n_llm_deeper = int((comp_df['llm_num'] > comp_df['rb_num']).sum())
-    n_llm_shallower = int((comp_df['llm_num'] < comp_df['rb_num']).sum())
+    n_agree = (comp_df['rb_num'] == comp_df['llm_num']).sum()
+    n_llm_deeper = (comp_df['llm_num'] > comp_df['rb_num']).sum()
+    n_llm_shallower = (comp_df['llm_num'] < comp_df['rb_num']).sum()
 
     print(f"\n  Disagreement direction:")
-    print(f"    Agree: {n_agree} ({n_agree / n * 100:.1f}%)")
-    print(f"    GPT-4o codes deeper: {n_llm_deeper} ({n_llm_deeper / n * 100:.1f}%)")
-    print(f"    GPT-4o codes shallower: {n_llm_shallower} ({n_llm_shallower / n * 100:.1f}%)")
+    print(f"    Agree: {n_agree} ({n_agree/n*100:.1f}%)")
+    print(f"    GPT-4o codes deeper: {n_llm_deeper} ({n_llm_deeper/n*100:.1f}%)")
+    print(f"    GPT-4o codes shallower: {n_llm_shallower} ({n_llm_shallower/n*100:.1f}%)")
 
     # Validation: do BOTH classifiers' depth predict student evidence?
     print(f"\n  Student evidence rates by depth:")
@@ -485,17 +488,17 @@ def compute_agreement(samples: list[dict], llm_results: list[dict]) -> tuple[dic
         'model': MODEL,
         'temperature': 0,
         'seed': RANDOM_SEED,
-        'agreement': round(float(agreement), 3),
-        'cohens_kappa': round(float(kappa), 3),
+        'agreement': round(agreement, 3),
+        'cohens_kappa': round(kappa, 3),
         'distribution': {
             'rule_based': {l: int((comp_df['rule_based'] == l).sum()) for l in labels},
             'llm': {l: int((comp_df['llm'] == l).sum()) for l in labels},
         },
         'confusion_matrix': confusion,
         'disagreement': {
-            'agree': n_agree,
-            'llm_deeper': n_llm_deeper,
-            'llm_shallower': n_llm_shallower,
+            'agree': int(n_agree),
+            'llm_deeper': int(n_llm_deeper),
+            'llm_shallower': int(n_llm_shallower),
         },
         'evidence_rates': {},
     }
@@ -515,35 +518,22 @@ def compute_agreement(samples: list[dict], llm_results: list[dict]) -> tuple[dic
     return results, comp_df
 
 
-def _manual_kappa(y1, y2, labels):
-    """Compute Cohen's kappa without sklearn."""
-    n = len(y1)
-    po = sum(a == b for a, b in zip(y1, y2)) / n
-    pe = sum(
-        (sum(a == l for a in y1) / n) * (sum(b == l for b in y2) / n)
-        for l in labels
-    )
-    if pe == 1:
-        return 1.0
-    return (po - pe) / (1 - pe)
-
-
 # ============================================================
 # MAIN
 # ============================================================
 
 def main():
-    global SAMPLE_SIZE
-    load_dotenv()
+    if load_dotenv is not None:
+        load_dotenv()
 
     parser = argparse.ArgumentParser(
-        description='DToM Study 3: LLM-based mentalizing depth classifier (GPT-4o)'
+        description='DToM LLM-based mentalizing depth classifier (GPT-4o)'
     )
     parser.add_argument('--data-dir', type=str, default='data/TalkMoves/data')
     parser.add_argument('--output-dir', type=str, default='output')
     parser.add_argument(
         '--api-key', type=str, default=None,
-        help='OpenAI API key (or set OPENAI_API_KEY env var / .env)'
+        help='OpenAI API key (or set OPENAI_API_KEY env var)'
     )
     parser.add_argument(
         '--sample-size', type=int, default=SAMPLE_SIZE,
@@ -555,18 +545,19 @@ def main():
 
     api_key = args.api_key or os.environ.get('OPENAI_API_KEY')
     if not api_key:
-        print("ERROR: Set OPENAI_API_KEY (env or .env) or pass --api-key")
+        print("ERROR: Set OPENAI_API_KEY or pass --api-key")
         return
 
+    global SAMPLE_SIZE
     SAMPLE_SIZE = args.sample_size
 
     # Load and sample
     combined, samples = load_and_sample(args.data_dir)
 
-    # Save samples for reference / inspection
+    # Save samples for reference
     samples_path = os.path.join(args.output_dir, 'llm_samples.json')
-    with open(samples_path, 'w', encoding='utf-8') as f:
-        json.dump(samples, f, indent=2, ensure_ascii=False)
+    with open(samples_path, 'w') as f:
+        json.dump(samples, f, indent=2)
     print(f"Samples saved to {samples_path}")
 
     # Run LLM classification
@@ -578,20 +569,19 @@ def main():
         print("ERROR: No LLM results obtained. Check API key and connection.")
         return
 
-    # Save raw LLM results (with per-utterance reasons)
+    # Save raw LLM results (with reasons)
     llm_path = os.path.join(args.output_dir, 'llm_coding_results.json')
-    with open(llm_path, 'w', encoding='utf-8') as f:
-        json.dump(llm_results, f, indent=2, ensure_ascii=False)
+    with open(llm_path, 'w') as f:
+        json.dump(llm_results, f, indent=2)
     print(f"LLM results saved to {llm_path}")
 
     # Compute agreement
     agreement_results, comp_df = compute_agreement(samples, llm_results)
 
     # Save comparison dataframe (for qualitative analysis of disagreements)
-    if not comp_df.empty:
-        comp_path = os.path.join(args.output_dir, 'llm_comparison.csv')
-        comp_df.to_csv(comp_path, index=False, encoding='utf-8')
-        print(f"Comparison data saved to {comp_path}")
+    comp_path = os.path.join(args.output_dir, 'llm_comparison.csv')
+    comp_df.to_csv(comp_path, index=False)
+    print(f"Comparison data saved to {comp_path}")
 
     # Save all results
     all_results = {
@@ -602,8 +592,8 @@ def main():
         'agreement': agreement_results,
     }
     results_path = os.path.join(args.output_dir, 'llm_agreement_results.json')
-    with open(results_path, 'w', encoding='utf-8') as f:
-        json.dump(all_results, f, indent=2, ensure_ascii=False)
+    with open(results_path, 'w') as f:
+        json.dump(all_results, f, indent=2)
 
     print(f"\n{'=' * 60}")
     print(f"All results saved to {args.output_dir}/")
@@ -612,6 +602,32 @@ def main():
     print(f"  - llm_comparison.csv (side-by-side for qualitative analysis)")
     print(f"  - llm_agreement_results.json (agreement statistics)")
     print(f"{'=' * 60}")
+
+    # Print paper-ready summary
+    ar = agreement_results
+    print(f"""
+╔══════════════════════════════════════════════════════════╗
+║  PAPER-READY SUMMARY                                    ║
+╠══════════════════════════════════════════════════════════╣
+
+  Model: {MODEL}, temperature=0, seed={RANDOM_SEED}
+  Prompt: v2 (concept-anchored, reason-before-label)
+  Sample: {ar['n']} "Press for Accuracy" utterances
+
+  Agreement: {ar['agreement']:.1%}
+  Cohen's κ: {ar['cohens_kappa']:.3f}
+
+  Distribution:
+    Rule-based: A={ar['distribution']['rule_based']['A']}, B={ar['distribution']['rule_based']['B']}, C={ar['distribution']['rule_based']['C']}
+    GPT-4o:     A={ar['distribution']['llm']['A']}, B={ar['distribution']['llm']['B']}, C={ar['distribution']['llm']['C']}
+
+  Disagreement direction:
+    Agree: {ar['disagreement']['agree']} ({ar['disagreement']['agree']/ar['n']*100:.1f}%)
+    GPT-4o deeper: {ar['disagreement']['llm_deeper']} ({ar['disagreement']['llm_deeper']/ar['n']*100:.1f}%)
+    GPT-4o shallower: {ar['disagreement']['llm_shallower']} ({ar['disagreement']['llm_shallower']/ar['n']*100:.1f}%)
+
+╚══════════════════════════════════════════════════════════╝
+""")
 
 
 if __name__ == '__main__':

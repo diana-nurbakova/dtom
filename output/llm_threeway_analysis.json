@@ -1,0 +1,49 @@
+{
+  "n": 200,
+  "claude_model": "claude-sonnet-4-6",
+  "pairwise_kappa": {
+    "rulebased_vs_gpt": 0.165,
+    "rulebased_vs_claude": 0.186,
+    "gpt_vs_claude": 0.644
+  },
+  "distribution": {
+    "rule_based": {
+      "A": 174,
+      "B": 20,
+      "C": 6
+    },
+    "gpt": {
+      "A": 85,
+      "B": 41,
+      "C": 74
+    },
+    "claude": {
+      "A": 105,
+      "B": 54,
+      "C": 41
+    }
+  },
+  "unanimous": 91,
+  "claude_on_gpt_lifts": {
+    "n_lifts": 67,
+    "verdict": {
+      "A": 20,
+      "B": 10,
+      "C": 37
+    }
+  },
+  "claude_evidence_by_level": {
+    "A": {
+      "n": 105,
+      "evidence_pct": 4.8
+    },
+    "B": {
+      "n": 54,
+      "evidence_pct": 9.3
+    },
+    "C": {
+      "n": 41,
+      "evidence_pct": 9.8
+    }
+  }
+}

@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "reason": "The teacher is asking another student to share their thinking, which requires considering what the student might say.",
+    "reason": "The teacher is asking Peyton to share their thinking, which requires considering what Peyton might have thought or understood.",
     "level": "C — DEEP"
   },
   {
@@ -11,92 +11,92 @@
   },
   {
     "id": 2,
-    "reason": "The teacher asks the student to demonstrate their procedure, focusing on what they did.",
+    "reason": "The teacher asks Mikel to show how they got their answer, focusing on the procedure used.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 3,
-    "reason": "The teacher is asking for a factual definition of a decimal point's function.",
+    "reason": "The teacher repeats a question about the function of a decimal point, which is a factual question.",
     "level": "A — SURFACE"
   },
   {
     "id": 4,
-    "reason": "The teacher is asking where a number should be placed, which is a factual question about ordering.",
+    "reason": "The teacher asks where a number should be placed, which is a factual question about placement.",
     "level": "A — SURFACE"
   },
   {
     "id": 5,
-    "reason": "The teacher is asking the student to recall prior knowledge, which requires considering the student's past experiences.",
+    "reason": "The teacher asks Carter to recall where they have heard a concept before, which involves connecting to prior knowledge.",
     "level": "C — DEEP"
   },
   {
     "id": 6,
-    "reason": "The teacher is asking for a comparison, which is a factual observation question.",
+    "reason": "The teacher asks for differences between two items, which is a factual observation question.",
     "level": "A — SURFACE"
   },
   {
     "id": 7,
-    "reason": "The teacher is asking for a calculation based on given information, which is a factual question.",
+    "reason": "The teacher asks for a calculation based on given information, which is a factual question.",
     "level": "A — SURFACE"
   },
   {
     "id": 8,
-    "reason": "The teacher is asking for a definition, which is a factual question about the meaning of a term.",
-    "level": "A — SURFACE"
+    "reason": "The teacher asks for the meaning of 'represent', which requires understanding the concept.",
+    "level": "C — DEEP"
   },
   {
     "id": 9,
-    "reason": "The teacher is asking the student to repeat their procedure, focusing on what they did.",
+    "reason": "The teacher asks the student to repeat their explanation, focusing on the procedure.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 10,
-    "reason": "The teacher is inviting students to share and explain their answers, which involves understanding their reasoning.",
+    "reason": "The teacher invites students to share and explain their answers, focusing on their reasoning.",
     "level": "C — DEEP"
   },
   {
     "id": 11,
-    "reason": "The teacher is asking students to discuss and evaluate what makes a good graph, which involves reasoning about data representation.",
+    "reason": "The teacher asks students to discuss what makes a good graph, which involves reasoning about data representation.",
     "level": "C — DEEP"
   },
   {
     "id": 12,
-    "reason": "The teacher is asking how to verify a result using the student's work, focusing on the procedure.",
+    "reason": "The teacher asks how to check a calculation, focusing on the procedure used.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 13,
-    "reason": "The teacher is asking for a factual answer to a math problem.",
+    "reason": "The teacher asks for the correct answer, which is a factual question.",
     "level": "A — SURFACE"
   },
   {
     "id": 14,
-    "reason": "The teacher is asking the student to describe their strategy, focusing on their procedure.",
+    "reason": "The teacher asks Anna to describe her strategy, focusing on the procedure.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 15,
-    "reason": "The teacher is asking about the ability to rearrange fractions, which involves understanding the concept of common denominators.",
+    "reason": "The teacher asks about rearranging with a common denominator, which involves understanding the concept.",
     "level": "C — DEEP"
   },
   {
     "id": 16,
-    "reason": "The teacher is asking for a conversion from cents to dollars, which is a factual calculation.",
+    "reason": "The teacher asks for a conversion from cents to dollars, which is a factual question.",
     "level": "A — SURFACE"
   },
   {
     "id": 17,
-    "reason": "The teacher is asking for factor pairs, which is a factual question about multiplication.",
+    "reason": "The teacher asks for factor pairs, which is a factual question about multiplication.",
     "level": "A — SURFACE"
   },
   {
     "id": 18,
-    "reason": "The teacher is asking for a comparison of sizes, which is a factual question.",
+    "reason": "The teacher asks which fraction is larger, which is a factual comparison question.",
     "level": "A — SURFACE"
   },
   {
     "id": 19,
-    "reason": "The teacher is asking for a calculation based on given quantities, which is a factual question.",
+    "reason": "The teacher asks for a calculation based on given quantities, which is a factual question.",
     "level": "A — SURFACE"
   },
   {
@@ -146,22 +146,22 @@
   },
   {
     "id": 29,
-    "reason": "Teacher asks students to identify what they notice about a pattern, requiring some reasoning about their understanding of the pattern.",
-    "level": "B — INTERMEDIATE"
+    "reason": "Teacher asks students to identify what they notice about a pattern, requiring reasoning about their understanding of the pattern.",
+    "level": "C — DEEP"
   },
   {
     "id": 30,
-    "reason": "Teacher asks for Piper's opinion on an equation, indicating a need to understand her reasoning.",
+    "reason": "Teacher asks Piper for an equation, which requires understanding Piper's reasoning about the relationship between variables.",
     "level": "C — DEEP"
   },
   {
     "id": 31,
-    "reason": "Teacher asks for a student's opinion on a word pattern, indicating a need to understand their reasoning.",
+    "reason": "Teacher asks for a student's opinion on a word pattern, which could involve reasoning about their understanding.",
     "level": "C — DEEP"
   },
   {
     "id": 32,
-    "reason": "Teacher asks students to share their understanding of making a conjecture, requiring reasoning about their conceptual understanding.",
+    "reason": "Teacher asks students to identify what understanding is needed for conjecture, requiring reasoning about their conceptual understanding.",
     "level": "C — DEEP"
   },
   {
@@ -171,7 +171,7 @@
   },
   {
     "id": 34,
-    "reason": "Teacher asks River for an idea about a different use, indicating a need to understand their reasoning.",
+    "reason": "Teacher asks River for an idea about a different use, which involves reasoning about River's understanding of mathematical operations.",
     "level": "C — DEEP"
   },
   {
@@ -181,12 +181,12 @@
   },
   {
     "id": 36,
-    "reason": "Teacher asks about the result of a multiplication operation, not requiring reasoning about student understanding.",
+    "reason": "Teacher asks about the result of a multiplication operation, which is a factual question.",
     "level": "A — SURFACE"
   },
   {
     "id": 37,
-    "reason": "Teacher asks what the student wrote, a factual recall question not requiring reasoning about student understanding.",
+    "reason": "Teacher asks what the student wrote, which is a factual recall question.",
     "level": "A — SURFACE"
   },
   {
@@ -216,7 +216,7 @@
   },
   {
     "id": 43,
-    "reason": "The teacher is asking for a factual location, which does not require reasoning about the student's understanding.",
+    "reason": "The teacher is asking for a factual answer about a location, which does not require reasoning about the student's understanding.",
     "level": "A — SURFACE"
   },
   {
@@ -241,7 +241,7 @@
   },
   {
     "id": 48,
-    "reason": "The teacher is asking the student to explain their next steps, which involves understanding the student's plan or procedure.",
+    "reason": "The teacher is asking the student to explain their next steps, which involves understanding the student's plan or intention.",
     "level": "B — INTERMEDIATE"
   },
   {
@@ -251,13 +251,13 @@
   },
   {
     "id": 50,
-    "reason": "The teacher is asking the student to choose between GCF or LCM, which requires understanding the student's reasoning or decision-making process.",
+    "reason": "The teacher is asking the student to choose between GCF or LCM, which requires understanding the student's reasoning or preference.",
     "level": "C — DEEP"
   },
   {
     "id": 51,
     "reason": "The teacher is asking the student to describe what they observe, which involves understanding the student's perception or focus.",
-    "level": "C — DEEP"
+    "level": "B — INTERMEDIATE"
   },
   {
     "id": 52,
@@ -276,7 +276,7 @@
   },
   {
     "id": 55,
-    "reason": "The teacher is asking for a factual rule, which does not require reasoning about the student's understanding.",
+    "reason": "The teacher is asking for a factual answer about a rule, which does not require reasoning about the student's understanding.",
     "level": "A — SURFACE"
   },
   {
@@ -306,7 +306,7 @@
   },
   {
     "id": 61,
-    "reason": "The teacher is asking for a factual answer about the sixth item, without probing student understanding.",
+    "reason": "The teacher is asking for a factual answer about the sixth item, without needing to consider student understanding.",
     "level": "A — SURFACE"
   },
   {
@@ -321,12 +321,12 @@
   },
   {
     "id": 64,
-    "reason": "The teacher is asking the student to clarify their procedure, focusing on what they did.",
+    "reason": "The teacher is asking the student to clarify their procedure, focusing on what they did rather than why.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 65,
-    "reason": "The teacher is asking for a factual completion of an equation, without probing understanding.",
+    "reason": "The teacher is asking for a factual completion of an equation, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
@@ -336,77 +336,77 @@
   },
   {
     "id": 67,
-    "reason": "The teacher is stating a mathematical fact without probing student understanding.",
+    "reason": "The teacher is stating a mathematical fact about exponents, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
     "id": 68,
-    "reason": "The teacher is asking for a factual answer to a multiplication problem, without probing understanding.",
+    "reason": "The teacher is asking for a factual answer to a multiplication problem, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
     "id": 69,
-    "reason": "The teacher is asking for a procedure to find the median, focusing on what the student did.",
+    "reason": "The teacher is asking for a procedure to find the median, focusing on what the student did rather than why.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 70,
-    "reason": "The teacher is prompting the student to consider the implications of an even exponent, which involves understanding the student's reasoning.",
+    "reason": "The teacher is prompting the student to consider the implications of even and odd exponents, which involves understanding the student's conceptual grasp.",
     "level": "C — DEEP"
   },
   {
     "id": 71,
-    "reason": "The teacher is asking for a factual computation of a multiplication problem, without probing understanding.",
+    "reason": "The teacher is asking for a factual computation of a multiplication problem, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
     "id": 72,
-    "reason": "The teacher is asking the student to demonstrate their procedure, focusing on what they did.",
+    "reason": "The teacher is asking the student to demonstrate their procedure, focusing on what they did rather than why.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 73,
-    "reason": "The teacher is asking the student to share their procedure, focusing on what they did.",
+    "reason": "The teacher is asking the student to share their procedure, focusing on what they did rather than why.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 74,
-    "reason": "The teacher is asking for a conceptual understanding of volume, which involves probing the student's understanding.",
-    "level": "C — DEEP"
+    "reason": "The teacher is asking the student to recall or state factual knowledge about volume, not requiring reasoning about student understanding.",
+    "level": "A — SURFACE"
   },
   {
     "id": 75,
-    "reason": "The teacher is asking for a factual answer about the second share, without probing understanding.",
+    "reason": "The teacher is asking for a factual computation based on a previous answer, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
     "id": 76,
-    "reason": "The teacher is asking for a factual computation of a multiplication problem, without probing understanding.",
+    "reason": "The teacher is asking for a factual computation of a multiplication problem, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
     "id": 77,
-    "reason": "The teacher is asking the student to articulate connections, which involves understanding the student's reasoning.",
+    "reason": "The teacher is asking the student to articulate their understanding of connections, which involves reasoning about the student's conceptual grasp.",
     "level": "C — DEEP"
   },
   {
     "id": 78,
-    "reason": "The teacher is asking for a procedural application of multiplication to solve a problem, focusing on what the student did.",
-    "level": "B — INTERMEDIATE"
+    "reason": "The teacher is asking the student to apply a multiplication concept to a real-world scenario, which involves understanding the student's conceptual grasp.",
+    "level": "C — DEEP"
   },
   {
     "id": 79,
-    "reason": "The teacher is asking for a conceptual understanding of absolute value, which involves probing the student's understanding.",
+    "reason": "The teacher is asking the student to reflect on the meaning of a term, which involves understanding the student's conceptual grasp.",
     "level": "C — DEEP"
   },
   {
     "id": 80,
-    "reason": "The teacher is likely prompting students to complete a known mathematical rule, not requiring reasoning about student understanding.",
+    "reason": "The teacher is likely prompting students to complete a known mathematical rule, not requiring deep reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
     "id": 81,
-    "reason": "The teacher is asking for a description of the diagram, which does not require deep reasoning about student understanding.",
+    "reason": "The teacher is asking for a description of the diagram, which does not require reasoning about the student's understanding.",
     "level": "A — SURFACE"
   },
   {
@@ -436,7 +436,7 @@
   },
   {
     "id": 87,
-    "reason": "The teacher is asking for a specific number of lines, which is a factual check and does not require reasoning about student understanding.",
+    "reason": "The teacher is asking for a specific count, which is a factual check and does not require reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
@@ -456,7 +456,7 @@
   },
   {
     "id": 91,
-    "reason": "The teacher is asking for a factual count of numbers, which does not require reasoning about student understanding.",
+    "reason": "The teacher is asking for a count of numbers, which is a factual check and does not require reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
@@ -477,7 +477,7 @@
   {
     "id": 95,
     "reason": "The teacher is asking about a mental process, which requires understanding the student's approach to visualization.",
-    "level": "C — DEEP"
+    "level": "B — INTERMEDIATE"
   },
   {
     "id": 96,
@@ -486,12 +486,12 @@
   },
   {
     "id": 97,
-    "reason": "The teacher is prompting the student to predict the next step, which requires understanding the student's grasp of the problem.",
+    "reason": "The teacher is prompting the student to predict the next step, which requires understanding the student's grasp of the problem context.",
     "level": "C — DEEP"
   },
   {
     "id": 98,
-    "reason": "The teacher is asking students to discuss their strategy, which requires understanding their approach to finding multiples.",
+    "reason": "The teacher is asking students to discuss their strategies, which requires understanding their approaches to finding multiples.",
     "level": "B — INTERMEDIATE"
   },
   {
@@ -546,7 +546,7 @@
   },
   {
     "id": 109,
-    "reason": "Teacher asks for justification of the student's claim, probing their understanding of geometric concepts.",
+    "reason": "Teacher asks for justification of the student's claim about a line, probing their understanding.",
     "level": "C — DEEP"
   },
   {
@@ -556,7 +556,7 @@
   },
   {
     "id": 111,
-    "reason": "Teacher asks how the student arrived at a specific answer, focusing on their reasoning process.",
+    "reason": "Teacher asks how the student arrived at a specific fraction, probing their reasoning process.",
     "level": "C — DEEP"
   },
   {
@@ -586,7 +586,7 @@
   },
   {
     "id": 117,
-    "reason": "Teacher asks about properties of corresponding angles, probing the student's understanding of geometric concepts.",
+    "reason": "Teacher asks about properties of corresponding angles, probing the student's understanding of the concept.",
     "level": "C — DEEP"
   },
   {
@@ -601,17 +601,17 @@
   },
   {
     "id": 120,
-    "reason": "The teacher is asking for a component of a rule, which requires understanding what the student knows about rules for subtracting decimals.",
+    "reason": "The teacher is asking for a component of a rule, which requires understanding what elements are essential in the context of subtracting decimals.",
     "level": "C — DEEP"
   },
   {
     "id": 121,
-    "reason": "The teacher is prompting the student to use specific vocabulary, which requires understanding what the student knows about math vocabulary.",
+    "reason": "The teacher is prompting the student to use specific vocabulary, which requires understanding the student's current language use and its appropriateness.",
     "level": "C — DEEP"
   },
   {
     "id": 122,
-    "reason": "The teacher is asking for a strategy, which requires understanding the student's approach to solving the problem.",
+    "reason": "The teacher is asking for a strategy, which involves understanding the student's approach to solving the problem.",
     "level": "B — INTERMEDIATE"
   },
   {
@@ -621,82 +621,82 @@
   },
   {
     "id": 124,
-    "reason": "The teacher is confirming an answer, which does not require understanding the student's reasoning.",
+    "reason": "The teacher is confirming the answer, which is a factual check without needing to understand the student's reasoning.",
     "level": "A — SURFACE"
   },
   {
     "id": 125,
-    "reason": "The teacher is asking for a comparison, which requires understanding the student's reasoning about proximity.",
+    "reason": "The teacher is asking for a comparison, which involves understanding the student's ability to estimate and compare values.",
     "level": "C — DEEP"
   },
   {
     "id": 126,
-    "reason": "The teacher is asking for a factual answer about the value of a fraction, without needing to understand the student's thinking.",
+    "reason": "The teacher is asking for a factual answer about the value of a fraction, without needing to understand the student's reasoning.",
     "level": "A — SURFACE"
   },
   {
     "id": 127,
-    "reason": "The teacher is asking for an alternative name, which requires understanding the student's knowledge of equivalent fractions.",
+    "reason": "The teacher is asking for an alternative name, which involves understanding the student's knowledge of equivalent fractions.",
     "level": "C — DEEP"
   },
   {
     "id": 128,
-    "reason": "The teacher is asking for a factual answer about who can take down the expression, without needing to understand the student's thinking.",
+    "reason": "The teacher is asking for a factual response to take down an expression, without needing to understand the student's reasoning.",
     "level": "A — SURFACE"
   },
   {
     "id": 129,
-    "reason": "The teacher is asking for criteria for good answers, which requires understanding the student's reasoning about quality.",
+    "reason": "The teacher is prompting the student to consider what makes a good answer, which involves understanding the criteria for evaluation.",
     "level": "C — DEEP"
   },
   {
     "id": 130,
-    "reason": "The teacher is asking for an explanation of a term, which requires understanding the student's interpretation of real-world contexts.",
+    "reason": "The teacher is asking for an explanation of a term, which involves understanding the student's grasp of the concept.",
     "level": "C — DEEP"
   },
   {
     "id": 131,
-    "reason": "The teacher is asking for an explanation of the student's estimate and solution, which requires understanding the student's process.",
+    "reason": "The teacher is asking the student to explain their estimate and solution process, which involves understanding the student's approach.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 132,
-    "reason": "The teacher is asking for a conceptual understanding of subtraction, which requires understanding the student's grasp of the operation.",
+    "reason": "The teacher is asking for a conceptual understanding of subtraction, which involves understanding the student's grasp of the operation.",
     "level": "C — DEEP"
   },
   {
     "id": 133,
-    "reason": "The teacher is asking for a comparison, which requires understanding the student's reasoning about quantity.",
+    "reason": "The teacher is asking for a comparison, which involves understanding the student's ability to evaluate relative sizes.",
     "level": "C — DEEP"
   },
   {
     "id": 134,
-    "reason": "The teacher is asking for a reminder of a procedure, which requires understanding the student's process.",
+    "reason": "The teacher is prompting the student to recall a necessary step, which involves understanding the student's procedural knowledge.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 135,
-    "reason": "The teacher is asking for a factual answer about what the answer would be, without needing to understand the student's thinking.",
+    "reason": "The teacher is asking for a factual answer, without needing to understand the student's reasoning.",
     "level": "A — SURFACE"
   },
   {
     "id": 136,
-    "reason": "The teacher is asking for a comparison, which requires understanding the student's reasoning about proximity.",
+    "reason": "The teacher is asking for a comparison, which involves understanding the student's ability to estimate and compare values.",
     "level": "C — DEEP"
   },
   {
     "id": 137,
-    "reason": "The teacher is asking for a factual answer about the unit of measurement, without needing to understand the student's thinking.",
+    "reason": "The teacher is asking for a factual answer about the unit of measurement, without needing to understand the student's reasoning.",
     "level": "A — SURFACE"
   },
   {
     "id": 138,
-    "reason": "The teacher is asking for a number sentence, which requires understanding the student's process of translating a word problem into a mathematical expression.",
+    "reason": "The teacher is asking for a number sentence, which involves understanding the student's ability to translate a problem into a mathematical expression.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 139,
-    "reason": "The teacher is asking for a conceptual understanding of conversion, which requires understanding the student's grasp of when conversion is necessary.",
+    "reason": "The teacher is asking about the concept of conversion, which involves understanding the student's grasp of when and why conversion is necessary.",
     "level": "C — DEEP"
   },
   {
@@ -706,7 +706,7 @@
   },
   {
     "id": 141,
-    "reason": "The teacher is asking how the given points relate, which requires understanding the student's interpretation of the relationship.",
+    "reason": "The teacher is asking how two points relate, which requires understanding the student's interpretation of the relationship.",
     "level": "C — DEEP"
   },
   {
@@ -736,8 +736,8 @@
   },
   {
     "id": 147,
-    "reason": "The teacher is asking for a student's thought process, which requires understanding the student's approach.",
-    "level": "B — INTERMEDIATE"
+    "reason": "The teacher is asking for a student's thought process, which requires understanding the student's reasoning.",
+    "level": "C — DEEP"
   },
   {
     "id": 148,
@@ -761,7 +761,7 @@
   },
   {
     "id": 152,
-    "reason": "The teacher is asking for an explanation of what the numbers represent, which requires understanding the student's interpretation.",
+    "reason": "The teacher is asking for an explanation of what numbers represent, which requires understanding the student's interpretation.",
     "level": "C — DEEP"
   },
   {
@@ -771,7 +771,7 @@
   },
   {
     "id": 154,
-    "reason": "The teacher is asking the student to demonstrate a procedure, which requires understanding what the student did.",
+    "reason": "The teacher is asking a student to demonstrate a procedure, which requires understanding what the student did.",
     "level": "B — INTERMEDIATE"
   },
   {
@@ -781,18 +781,18 @@
   },
   {
     "id": 156,
-    "reason": "The teacher is asking for a comparison of two quantities, which requires understanding the student's interpretation of the context.",
+    "reason": "The teacher is asking for a comparison of two quantities, which requires understanding the student's interpretation.",
     "level": "C — DEEP"
   },
   {
     "id": 157,
-    "reason": "The teacher is asking for a factual answer about the location of a number, not requiring reasoning about student understanding.",
+    "reason": "The teacher is asking for a factual answer about the location of something, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
     "id": 158,
-    "reason": "The teacher is encouraging the student to attempt a solution, which requires understanding the student's willingness to engage.",
-    "level": "B — INTERMEDIATE"
+    "reason": "The teacher is encouraging a student to attempt a solution, which requires understanding the student's confidence and approach.",
+    "level": "C — DEEP"
   },
   {
     "id": 159,
@@ -816,12 +816,12 @@
   },
   {
     "id": 163,
-    "reason": "Teacher asks a student to recount the day's starting activity, focusing on what happened rather than understanding.",
+    "reason": "Teacher asks a student to recount the day's starting activity, focusing on what was done.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 164,
-    "reason": "Teacher asks the student to explain their procedure, focusing on what they did rather than their reasoning.",
+    "reason": "Teacher asks the student to explain their actions, focusing on the procedure they followed.",
     "level": "B — INTERMEDIATE"
   },
   {
@@ -836,12 +836,12 @@
   },
   {
     "id": 167,
-    "reason": "Teacher asks what the student has found, focusing on the result rather than the reasoning behind it.",
+    "reason": "Teacher asks what the student has found, which could involve understanding their process or result.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 168,
-    "reason": "Teacher asks for a factual answer about the denominator, not requiring reasoning about student understanding.",
+    "reason": "Teacher asks for a factual answer about the relationship between terms, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
@@ -851,13 +851,13 @@
   },
   {
     "id": 170,
-    "reason": "Teacher asks for a factual operation, not requiring reasoning about student understanding.",
+    "reason": "Teacher asks for a factual answer about the operation performed, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
     "id": 171,
-    "reason": "Teacher prompts students to think about factors, indicating a need to understand their reasoning process.",
-    "level": "C — DEEP"
+    "reason": "Teacher prompts students to think about factors, which involves understanding their process.",
+    "level": "B — INTERMEDIATE"
   },
   {
     "id": 172,
@@ -866,22 +866,22 @@
   },
   {
     "id": 173,
-    "reason": "Teacher asks a student to recount the procedure for finding the perimeter, focusing on what they did.",
+    "reason": "Teacher asks a student to recount the procedure for finding the perimeter, focusing on what was done.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 174,
-    "reason": "Teacher asks for a factual answer about a percentage problem, not requiring reasoning about student understanding.",
+    "reason": "Teacher asks for a factual answer about a mathematical operation, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
     "id": 175,
-    "reason": "Teacher asks for a factual term, not requiring reasoning about student understanding.",
+    "reason": "Teacher asks for a factual answer about terminology, not requiring reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
     "id": 176,
-    "reason": "Teacher asks about the behavior of a function at infinity, requiring understanding of the student's conceptual grasp.",
+    "reason": "Teacher asks about the behavior of a function at infinity, which could involve understanding the student's conceptual grasp.",
     "level": "C — DEEP"
   },
   {
@@ -891,12 +891,12 @@
   },
   {
     "id": 178,
-    "reason": "Teacher asks about the procedure for finding equivalent fractions, focusing on what they did.",
+    "reason": "Teacher asks about the procedure for finding equivalent fractions, focusing on what the student will do.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 179,
-    "reason": "Teacher asks about the role of an interpreter, requiring understanding of the student's conceptual grasp of interpretation.",
+    "reason": "Teacher asks about the role of an interpreter, which could involve understanding the student's conceptual grasp.",
     "level": "C — DEEP"
   },
   {
@@ -921,12 +921,12 @@
   },
   {
     "id": 184,
-    "reason": "The teacher is asking Erik and Alan to demonstrate their model, which involves attending to their procedure.",
+    "reason": "The teacher is asking Erik and Alan to demonstrate their model, which involves understanding their procedure.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 185,
-    "reason": "The teacher is asking about the function of a comma in a number, which requires understanding its role in place value.",
+    "reason": "The teacher is asking about the function of the comma in a number, which requires understanding its role in place value.",
     "level": "C — DEEP"
   },
   {
@@ -946,7 +946,7 @@
   },
   {
     "id": 189,
-    "reason": "The teacher is asking Parker to elaborate on his thinking, which requires attending to his thought process.",
+    "reason": "The teacher is asking Parker to elaborate on his thinking, which requires understanding his reasoning.",
     "level": "C — DEEP"
   },
   {
@@ -956,7 +956,7 @@
   },
   {
     "id": 191,
-    "reason": "The teacher is asking for a factual answer about the numbers, not probing student understanding.",
+    "reason": "The teacher is asking for specific numbers, which does not require reasoning about student understanding.",
     "level": "A — SURFACE"
   },
   {
@@ -966,12 +966,12 @@
   },
   {
     "id": 193,
-    "reason": "The teacher is asking Wyatt to share his thinking, which requires attending to his thought process.",
+    "reason": "The teacher is asking Wyatt to share his thinking, which requires understanding his reasoning.",
     "level": "C — DEEP"
   },
   {
     "id": 194,
-    "reason": "The teacher is asking for a factual answer about the numerator, not probing student understanding.",
+    "reason": "The teacher is asking for a specific factual answer about the numerator, not probing student understanding.",
     "level": "A — SURFACE"
   },
   {
@@ -981,22 +981,22 @@
   },
   {
     "id": 196,
-    "reason": "The teacher is asking Hunter to explain his thought process when comparing numbers, which requires reasoning about his understanding.",
+    "reason": "The teacher is asking Hunter to explain his thought process, which requires understanding his reasoning.",
     "level": "C — DEEP"
   },
   {
     "id": 197,
-    "reason": "The teacher is asking for a choice based on probability, which requires some reasoning about the student's strategy.",
+    "reason": "The teacher is asking for a choice based on probability, which requires some reasoning about strategy.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 198,
-    "reason": "The teacher is asking for an explanation of a procedure, which requires attending to the student's method.",
+    "reason": "The teacher is asking for an explanation of a procedure, which requires understanding the student's method.",
     "level": "B — INTERMEDIATE"
   },
   {
     "id": 199,
-    "reason": "The teacher is asking Shane to clarify his statement, which requires reasoning about his understanding.",
+    "reason": "The teacher is asking Shane to clarify his statement, which requires understanding his reasoning.",
     "level": "C — DEEP"
   }
 ]

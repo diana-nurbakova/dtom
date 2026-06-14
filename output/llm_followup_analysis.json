@@ -1,0 +1,48 @@
+{
+  "n": 200,
+  "kappa": {
+    "unweighted": {
+      "value": 0.165,
+      "ci95": [
+        0.09,
+        0.242
+      ],
+      "se": 0.039
+    },
+    "linear_weighted": {
+      "value": 0.105,
+      "ci95": [
+        0.05,
+        0.171
+      ],
+      "se": 0.031
+    },
+    "quadratic_weighted": {
+      "value": 0.061
+    },
+    "n_bootstrap": 10000
+  },
+  "gradient_decomposition": {
+    "overall_evidence_pct": 7.0,
+    "gpt_C": {
+      "n": 74,
+      "evidence_pct": 6.8,
+      "lifted_from_A": {
+        "n": 67,
+        "evidence_pct": 7.5
+      },
+      "rulebased_B_or_C": {
+        "n": 7,
+        "evidence_pct": 0.0
+      }
+    },
+    "gpt_B": {
+      "n": 41,
+      "evidence_pct": 14.6,
+      "lifted_from_A": {
+        "n": 25,
+        "evidence_pct": 12.0
+      }
+    }
+  }
+}

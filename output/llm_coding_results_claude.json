@@ -1,0 +1,1002 @@
+[
+  {
+    "id": 0,
+    "reason": "Teacher is calling on a student to share thinking without any prior student response to reason about; could be asked without any model of student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 1,
+    "reason": "Teacher poses a straightforward factual question about the word problem with a single expected answer (one quarter); no model of student thinking is needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 2,
+    "reason": "Teacher asks the student to demonstrate how they got their answer, attending to the student's procedure without probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 3,
+    "reason": "Teacher repeats the question about what a decimal point does, requesting a factual definition that has a single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 4,
+    "reason": "Teacher asks where a specific number gets placed in a stacking procedure, which is a factual/procedural question with a single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 5,
+    "reason": "Teacher probes the student's prior knowledge and conceptual connections by asking where they've encountered the idea of decomposing before, requiring a model of what the student understands.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 6,
+    "reason": "Teacher repeats a question about observable differences between two objects, requesting a factual comparison that doesn't require reasoning about student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 7,
+    "reason": "Teacher asks a direct computational question embedded in the problem context with a single expected answer; no model of student thinking is required.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 8,
+    "reason": "Teacher asks for a definition of a vocabulary word with a single expected answer; no model of student thinking is needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 9,
+    "reason": "Teacher asks the student to recount their procedure again, attending to what the student did but not probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 10,
+    "reason": "Teacher invites students to share and explain their answer, attending to procedure but not requiring a model of any specific student's understanding.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 11,
+    "reason": "Teacher directs students to discuss what a good graph or line plot would be, which invites reasoning about representation choices but is framed as a general task direction rather than probing a specific student's thinking.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 12,
+    "reason": "Teacher asks the student to show how to verify the answer using their existing work, attending to the student's procedure and tools without deeply probing their conceptual understanding.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 13,
+    "reason": "After hearing two different answers (half and three sixths), the teacher asks for the correct answer, which is a factual question with a single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 14,
+    "reason": "Teacher asks the student to describe their strategy, attending to what procedure the student is using without probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 15,
+    "reason": "Teacher asks how well the student could rearrange fractions using the same denominator, probing conceptual understanding of common denominators and fraction comparison.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 16,
+    "reason": "Teacher asks a straightforward conversion question with a single expected answer; no model of student thinking is required.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 17,
+    "reason": "Teacher requests a factual answer (factor pairs for 15) with a single expected answer; no reasoning about student understanding is needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 18,
+    "reason": "Teacher asks which fraction is larger, a factual question with a single expected answer following a problem with a common denominator already established.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 19,
+    "reason": "Teacher poses a straightforward multi-step word problem with a single expected numerical answer; no model of student thinking is required.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 20,
+    "reason": "Teacher directs students to select an equation and explain why it belongs to a line, asking for procedural justification tied to their own work.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 21,
+    "reason": "After marking answers wrong, the teacher asks a factual recall question about the initial shape, requiring no model of student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 22,
+    "reason": "Teacher explicitly notes 'I'm seeing a confusion' and asks students to justify their answer, probing conceptual understanding of fraction dimensions.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 23,
+    "reason": "Teacher offers a binary choice to confirm a factual categorization; no reasoning about student thinking is required.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 24,
+    "reason": "Teacher asks students to notice a pattern in the data, which requires observational thinking but is essentially a factual/observational prompt without probing reasoning.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 25,
+    "reason": "Teacher asks a factual proportional reasoning question; it is a straightforward numerical follow-up with a single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 26,
+    "reason": "Teacher requests a single arithmetic fact with no reasoning about student understanding needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 27,
+    "reason": "Without specific context about what Carrie thinks, this is a general invitation for a student's opinion, but the prior context (picking a new number) suggests the teacher is soliciting evaluation of the new number choice, which requires some model of the student's thinking.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 28,
+    "reason": "Teacher asks for identification of the smallest fraction, which is a factual answer requiring no model of student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 29,
+    "reason": "Teacher asks students to notice a pattern in the in/out table to discover the rule, prompting observational reasoning about the relationship rather than a single fact.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 30,
+    "reason": "Teacher calls on a specific student for an equation after establishing a pattern, asking for a factual/procedural answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 31,
+    "reason": "Teacher asks students to reason about what similarity in word structure implies, probing conceptual understanding of a linguistic/mathematical pattern.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 32,
+    "reason": "Teacher asks students to identify the conceptual prerequisite for making a good conjecture, probing understanding of the mathematical reasoning process.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 33,
+    "reason": "Teacher moves to the next multiplication fact after a correct answer; checking another arithmetic fact.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 34,
+    "reason": "Teacher asks River to share a use-case not involving adding/subtracting, attending to what the student previously said but probing for a different application of the concept.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 35,
+    "reason": "Teacher asks a factual question about fraction-whole relationships with a single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 36,
+    "reason": "Teacher asks the student to continue the procedure of multiplying by one-third to find the next result, tracking the student's process.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 37,
+    "reason": "Teacher asks the student to report what they had written, a factual recall of the student's own work.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 38,
+    "reason": "Teacher asks students to connect the observed pattern to the conceptual understanding of base 10, requiring reasoning about what students understand about place value.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 39,
+    "reason": "Teacher asks students to interpret a graph by constructing a narrative, requiring them to connect mathematical representations to conceptual meaning.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 40,
+    "reason": "Teacher asks students what they need to examine to find the answer, prompting procedural direction without probing conceptual understanding.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 41,
+    "reason": "Teacher asks the student to be specific about what they would do, attending to their procedure but not yet probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 42,
+    "reason": "Teacher probes the conceptual justification for simplification, requiring a model of what students understand about why simplifying matters.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 43,
+    "reason": "Teacher asks for a factual measurement or value related to a specific distance; no reasoning about student thinking is required.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 44,
+    "reason": "Following explicit prompts about revising thinking, the teacher asks the student to evaluate their own position relative to a peer's, requiring deep reasoning about the student's conceptual stance.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 45,
+    "reason": "Teacher requests identification of a specific coordinate value, a factual check that doesn't require reasoning about the student's understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 46,
+    "reason": "Teacher asks students to determine probabilities for an uneven two-game series, which is a procedural/computational question following the teacher's own setup, not deeply probing student thinking.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 47,
+    "reason": "Teacher asks students to recount a procedure that was just demonstrated, attending to what was done rather than probing conceptual understanding.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 48,
+    "reason": "With minimal context from an inaudible student response, the teacher asks what the student plans to do next, probing the student's intended procedure.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 49,
+    "reason": "Teacher repeats a factual question directed at a specific student about a single square's value; no reasoning about student understanding is required.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 50,
+    "reason": "Teacher asks the student to choose between GCF and LCM, requiring the student to apply conceptual understanding to a classification decision.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 51,
+    "reason": "Teacher asks the student to describe what they observe, attending to what the student notices procedurally or visually without deeply probing reasoning.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 52,
+    "reason": "Teacher asks the student to explain their equation, attending to what the student did procedurally.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 53,
+    "reason": "Teacher asks the student to explain their picture/representation, attending to what the student did and produced.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 54,
+    "reason": "Teacher asks the student to explain in words what they did before, focusing on recounting their procedure rather than probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 55,
+    "reason": "Teacher asks a specific student to state the rule, a factual recall question that does not require reasoning about student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 56,
+    "reason": "Teacher asks the student to reason about what a mathematical object looks like at a boundary condition (zero), probing conceptual understanding of the relationship between the variable and the shape.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 57,
+    "reason": "Teacher directs students' attention to a procedure they need to carry out (finding the fractional part of the remainder), without yet probing their reasoning.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 58,
+    "reason": "Teacher extends the conceptual analysis by flipping the scenario and asking what the outcome would be, probing whether students understand the underlying asymmetry in the argument.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 59,
+    "reason": "Teacher asks the student to explain their work/representation after seeing something interesting, attending to what the student did and produced.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 60,
+    "reason": "Teacher is soliciting a prediction about a procedural next step without probing any particular student's understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 61,
+    "reason": "Teacher requests a factual answer to the sixth problem; no reasoning about student thinking is required.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 62,
+    "reason": "Teacher asks a factual identification question about which side is the hypotenuse; a single expected answer with no probing of understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 63,
+    "reason": "Teacher asks Michael to explain a conceptual relationship (how something relates to subtraction), requiring a model of what the student understands.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 64,
+    "reason": "Teacher asks the student to walk through their procedure step-by-step given a specific input, attending to what the student does rather than why.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 65,
+    "reason": "Teacher asks a fill-in-the-blank arithmetic fact requiring no reasoning about student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 66,
+    "reason": "Teacher probes what the student conceptually understands 'multiplication facts' to mean in practice, requiring a model of the student's understanding.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 67,
+    "reason": "Teacher is completing a fill-in-the-blank statement about an exponent rule; a single expected answer with no probing of student reasoning.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 68,
+    "reason": "Teacher requests a factual computation result; no reasoning about student thinking is needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 69,
+    "reason": "Teacher repeats the same procedural question already asked, requesting a method for finding the median without probing deeper understanding.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 70,
+    "reason": "Teacher completes a fill-in-the-blank following the student's correct answer about the negative case, expecting a single factual answer about the positive case.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 71,
+    "reason": "Teacher asks for a factual computation of a specific multiplication; a single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 72,
+    "reason": "Teacher asks students to demonstrate or show their checking procedure, attending to what they did rather than probing their reasoning.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 73,
+    "reason": "Teacher asks Owen to recount his procedure, attending to what he did without probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 74,
+    "reason": "Teacher asks Logan to recall a concept (volume), which could probe understanding, but the phrasing 'what do we know' is an open factual recall without context of a specific student idea.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 75,
+    "reason": "Teacher asks for a factual conclusion following directly from the computation already completed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 76,
+    "reason": "Teacher asks for a straightforward arithmetic computation after the student chose the expression; no reasoning about student understanding required.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 77,
+    "reason": "Teacher invites Luke to articulate the connections he perceives, probing his conceptual thinking about relationships between numbers.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 78,
+    "reason": "Teacher asks students to determine what operation to use given a specific context, which probes procedural reasoning rather than a purely factual recall.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 79,
+    "reason": "Teacher asks students to articulate the conceptual meaning of absolute value in their own words, probing understanding rather than just requesting a fact.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 80,
+    "reason": "Teacher is completing a rule about equivalent fractions ('whatever I do to the bottom...'), prompting students to recall a known mathematical principle—no modeling of student thinking required.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 81,
+    "reason": "Teacher redirects the student to examine the diagram, asking how the whole garden looks—attending to what the student perceives procedurally rather than probing conceptual understanding.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 82,
+    "reason": "Teacher asks a student to demonstrate how to model a problem, which requires attention to the student's procedure but not deep reasoning about their understanding.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 83,
+    "reason": "Teacher requests a factual answer (the Y value) given an X value on a function, requiring no reasoning about student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 84,
+    "reason": "Teacher asks how an expression could be rewritten, focusing on a procedural step rather than probing why the student thinks what they think.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 85,
+    "reason": "Teacher challenges the student to justify the value of a pattern or 'secret' that doesn't always work, probing the conceptual utility and requiring reasoning about what the student understands about mathematical generalizations.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 86,
+    "reason": "Teacher asks for a straightforward arithmetic fact; no reasoning about student thinking is needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 87,
+    "reason": "Teacher asks a factual question about how many more lines are needed to divide a fraction diagram; this has a single expected answer and requires no model of student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 88,
+    "reason": "Teacher asks students to calculate specific probabilities for listed outcomes, which is a procedural/factual request following the enumeration of scenarios.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 89,
+    "reason": "Teacher asks what two eighths equals, a straightforward factual question requiring no reasoning about student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 90,
+    "reason": "Teacher asks for a straightforward arithmetic calculation; no reasoning about student thinking is needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 91,
+    "reason": "Teacher asks the student to recall or count a specific number from their work, attending to what the student did procedurally rather than probing their reasoning.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 92,
+    "reason": "Teacher asks a simple arithmetic/contextual fact (how many cookies were left) requiring no reasoning about student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 93,
+    "reason": "Teacher asks the student to identify situations that produce a straight line graph, probing conceptual understanding of when a function is linear and requiring a model of what the student understands.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 94,
+    "reason": "Teacher asks which axis a reflection corresponds to, a factual question with a single expected answer requiring no reasoning about student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 95,
+    "reason": "Teacher asks students to articulate their mental process for imagining a length, which attends to their procedure/strategy but is essentially a restatement of the prior question without deeper conceptual probing.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 96,
+    "reason": "Teacher asks the student to clarify what they mean by 'looking for fourths,' probing the student's conceptual understanding of their own strategy and requiring a model of what the student understands.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 97,
+    "reason": "Teacher asks students to predict what they will do next in solving a problem, inviting them to reason about mathematical process and purpose rather than simply recalling a fact.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 98,
+    "reason": "Teacher asks students to discuss their multiples and strategy, attending to what students did and how they did it—procedural sharing rather than deep conceptual probing.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 99,
+    "reason": "Teacher calls on a student to give their answer about 50%, which is a straightforward factual request requiring no reasoning about the student's understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 100,
+    "reason": "Teacher requests a straightforward factual calculation (a fourth of three); no reasoning about student thinking is needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 101,
+    "reason": "Teacher asks for a specific numerical estimate after the student said 'closer to a half'; this is a factual request for the student's answer, not a probe into reasoning.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 102,
+    "reason": "Teacher directs students to look at the arc and discuss with a partner, prompting a procedural step without probing any individual student's understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 103,
+    "reason": "Teacher asks how area is measured, a conceptual question about what area means and how it is quantified, requiring the teacher to consider what students understand about the concept.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 104,
+    "reason": "Teacher requests the correct answer from the student after she started to respond; this is a factual request that does not require modeling the student's thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 105,
+    "reason": "Teacher asks for a count of data points on one side following an explanation of quartile procedure; this is a factual arithmetic check requiring no model of student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 106,
+    "reason": "Teacher asks whether a construction is possible on a particular side, prompting the student to check a specific condition without probing deeper reasoning.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 107,
+    "reason": "Teacher checks whether the student's notation correctly reflects the idea of modifying X, attending to the student's procedure/representation rather than deeper conceptual reasoning.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 108,
+    "reason": "Teacher asks whether ordered pairs can be used to find the distance between two points, inviting students to connect a conceptual tool to a mathematical relationship.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 109,
+    "reason": "Teacher asks the student to justify why something is a line (rather than a line segment or other object), probing the student's conceptual understanding of the distinction.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 110,
+    "reason": "Teacher asks what happens when brackets are removed, a procedural step following a prior calculation question; this tracks procedure without probing reasoning.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 111,
+    "reason": "Teacher probes how the student arrived at 'one and one quarter' given their own redefinition of the unit (brown rod = two), requiring the teacher to model the student's reasoning about fractions and unit choice.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 112,
+    "reason": "Teacher asks students to recall the strategy used yesterday, which is a factual memory retrieval request rather than a probe of understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 113,
+    "reason": "Teacher directs students to identify keywords to determine how to modify the problem, attending to their procedure for parsing the problem rather than probing deeper conceptual understanding.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 114,
+    "reason": "Teacher asks a factual arithmetic question about how many times the roller coaster could be ridden given the computed amounts; no modeling of student thinking is required.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 115,
+    "reason": "Teacher prompts the student to identify what steps are required after the student says she doesn't know, asking her to articulate the procedure she should follow.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 116,
+    "reason": "Teacher asks whether the student remembers the name for a mixed number, which is a factual vocabulary recall question requiring no model of student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 117,
+    "reason": "Teacher asks Patrick to recall what is known about corresponding angles, which is a factual definitional question not requiring the teacher to model the student's thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 118,
+    "reason": "After the student gave a pizza-slice justification, the teacher moves on to ask for the numerical value of the numerator, which is a factual calculation question.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 119,
+    "reason": "Teacher prompts the student to complete a sentence about exchanging in subtraction, guiding recall of a procedural step rather than probing conceptual understanding.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 120,
+    "reason": "Teacher asks for a component of a rule for subtracting decimals; this is a factual/recall question that does not require modeling student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 121,
+    "reason": "Teacher asks for math vocabulary to use, which is a factual recall question about terminology rather than probing the student's conceptual understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 122,
+    "reason": "Teacher asks the student to describe their strategy/procedure for solving the problem, attending to what the student did but not probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 123,
+    "reason": "Teacher is requesting the factual answer being whispered, not probing understanding or procedure.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 124,
+    "reason": "Teacher is requesting the factual numerical answer to a problem already being worked on.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 125,
+    "reason": "Teacher asks which benchmark a fraction is closer to, which is a factual estimation question requiring no deep model of student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 126,
+    "reason": "Teacher asks for the value of a fraction (one twentieth), which is a straightforward factual question.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 127,
+    "reason": "Teacher asks if there is another name for the fraction represented, checking for equivalent fraction knowledge without probing reasoning.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 128,
+    "reason": "Teacher moves past a student's incorrect response and asks the class to simplify an expression, which is a factual procedural request.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 129,
+    "reason": "Teacher asks students what would constitute a good answer, prompting reflection on quality of mathematical explanations and requiring some reasoning about student understanding of mathematical communication.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 130,
+    "reason": "Teacher asks a student to clarify or define what 'real-world context or situation' means, probing conceptual understanding of the term just introduced.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 131,
+    "reason": "Teacher asks the student to explain their estimate and how they solved it, attending to the student's procedure without yet probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 132,
+    "reason": "Following a discussion about subtraction vs. addition of fractions, teacher asks what subtraction means conceptually, probing understanding of the operation.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 133,
+    "reason": "Teacher asks a binary factual comparison question (more or less) about the product relative to factors, which has a single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 134,
+    "reason": "Teacher prompts the student to recall a specific tool or strategy to use when tempted to add denominators, attending to the student's procedure and potential misconception.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 135,
+    "reason": "Teacher asks for the answer to a problem already in progress, which is a straightforward factual request.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 136,
+    "reason": "Teacher asks which benchmark the sum is closest to, which is a factual estimation question with an expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 137,
+    "reason": "Teacher redirects the class question to a specific student to get their factual answer about the unit of time.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 138,
+    "reason": "Teacher asks the student to produce the number sentence for their solution, attending to the student's procedure/representation.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 139,
+    "reason": "Teacher invites students to connect the concept of conversion to prior knowledge and real-world contexts, requiring reasoning about what students understand about conversion more broadly.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 140,
+    "reason": "Teacher asks students to restate the problem in their own words, which is a factual comprehension check not requiring modeling of any particular student's thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 141,
+    "reason": "Teacher asks how newly identified points relate to previously plotted points, requiring attention to what students have done procedurally but not probing deeper reasoning.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 142,
+    "reason": "Teacher invites additional student contributions about requirements for accuracy and size, which is an open solicitation not requiring modeling of any specific student's thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 143,
+    "reason": "Teacher asks for a factual arithmetic fact (two numbers that multiply to 24); no reasoning about student understanding is needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 144,
+    "reason": "Teacher asks the student to apply a procedure (find the denominator following given steps), attending to their procedural execution rather than their underlying reasoning.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 145,
+    "reason": "Teacher is reading a word problem aloud; this is a factual presentation requiring no modeling of student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 146,
+    "reason": "Teacher probes the conceptual understanding of why fractions can be equal when whole numbers cannot, requiring a model of what students understand about fraction size and equivalence.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 147,
+    "reason": "Teacher asks a student to walk through their thinking process, requiring attention to the student's procedure and reasoning behind their approach.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 148,
+    "reason": "Teacher asks a factual question about how many lines are given for twelfths on the number line; no modeling of student understanding is needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 149,
+    "reason": "Teacher asks for the final answer after the student has shown their computational steps; this is a factual check requiring no model of student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 150,
+    "reason": "Teacher asks a specific student to identify the two quantities being compared in a ratio table, which is a factual comprehension check about the problem setup.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 151,
+    "reason": "Teacher asks for the product of 6 times 2, which is a straightforward arithmetic fact check.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 152,
+    "reason": "Teacher asks what numbers in the first column represent, requiring students to articulate the meaning of the values, which probes conceptual understanding of the table structure.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 153,
+    "reason": "Teacher restates a scenario (10 apples in a basket) as a prompt; this is a factual setup requiring no modeling of student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 154,
+    "reason": "Teacher asks a student to demonstrate the procedure on the board, attending to what was done procedurally without probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 155,
+    "reason": "Teacher asks the student to continue reasoning about what could be done with the halved rod, probing conceptual thinking about part-whole relationships in context.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 156,
+    "reason": "Teacher probes the student's understanding of what the '1' means in different contexts (orange juice vs. one and one fourth), requiring a model of what the student understands about the meaning of the unit.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 157,
+    "reason": "Teacher asks where the student's work is, which is a simple factual/locational check requiring no model of student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 158,
+    "reason": "Teacher invites a student to attempt an answer after another student gave a hint, which is a general prompt not requiring deep modeling of this student's thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 159,
+    "reason": "Teacher asks students to compare the sizes of two fractions, which is a factual comparison check after establishing the values.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 160,
+    "reason": "Teacher asks students to identify what needs to be explained in the problem, requiring them to articulate their understanding of the task's conceptual demand.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 161,
+    "reason": "Teacher is asking for a factual category (type of number) with a single expected answer, following their own setup.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 162,
+    "reason": "Teacher asks students to recount a procedure (how to figure out the missing sign) after directing them to discuss it; tracks what they do, not why.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 163,
+    "reason": "Teacher requests a factual recall of how math class started today; single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 164,
+    "reason": "Teacher asks the student to recount their procedure without probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 165,
+    "reason": "Teacher asks for a factual count of squares, a single expected numerical answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 166,
+    "reason": "Teacher requests a factual answer (the student's result) without any reasoning about the student's understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 167,
+    "reason": "Teacher asks the student to report what they found, attending to their result or procedure but not probing reasoning.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 168,
+    "reason": "Teacher asks for a factual correspondence (denominator = divisor) completing a pattern already established in context.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 169,
+    "reason": "Teacher requests the factual answer to a computation; single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 170,
+    "reason": "Teacher asks for a specific arithmetic relationship (what operation on 1 gives 4), a single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 171,
+    "reason": "Teacher asks students to identify a common factor, a factual question with a single expected answer in context.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 172,
+    "reason": "Teacher repeats the same factual question about a factor of every even number, expecting a single answer (2).",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 173,
+    "reason": "Teacher asks for a procedure (how to find perimeter), attending to what the student does but not probing reasoning.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 174,
+    "reason": "Teacher moves to a new problem and poses it as a factual computation question; no reasoning about student thinking needed.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 175,
+    "reason": "Teacher completes a fill-in-the-blank about terminology already set up in context; single expected answer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 176,
+    "reason": "Teacher asks about end behavior of a function, requiring students to reason about a conceptual mathematical idea (limits/behavior at infinity), probing understanding.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 177,
+    "reason": "Teacher asks for a specific factual value (y-intercept) from a graph, continuing a series of factual questions.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 178,
+    "reason": "Teacher asks students to articulate the procedure for finding equivalent fractions after posing the setup; tracks what they will do.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 179,
+    "reason": "Teacher uses an analogy to prompt students to reason about the meaning of 'interpret,' probing conceptual understanding of the term.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 180,
+    "reason": "Teacher is soliciting any student to provide an answer to the addition problem previously posed, requiring no model of individual student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 181,
+    "reason": "Teacher requests identification of a specific digit in a specific place value position, a factual question requiring no reasoning about student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 182,
+    "reason": "Teacher asks what was being made with arrays, a recall question about prior activity requiring no model of student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 183,
+    "reason": "Teacher asks what numbers will be added, a factual/procedural question that does not require reasoning about student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 184,
+    "reason": "Teacher directs students to demonstrate their model on the board, attending to their procedure without probing the reasoning behind it.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 185,
+    "reason": "Teacher asks what the comma signifies in a number, probing the student's conceptual understanding of place value notation after a likely misreading.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 186,
+    "reason": "Teacher asks the student to identify Eli's error and explain how to help him, requiring the teacher to reason about what the student understands about the correct procedure and the misconception.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 187,
+    "reason": "Teacher poses a division word problem and asks for the numerical answer, a factual question requiring no model of student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 188,
+    "reason": "Teacher asks the student to identify differences between two mathematical objects, building on a prior comparison question; requires attending to what the student notices but is more observational than deeply conceptual.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 189,
+    "reason": "Teacher follows up on a vague 'no' response by asking the student to elaborate on their thinking, probing the reasoning or understanding behind the student's response.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 190,
+    "reason": "Teacher poses a multiplication fact to a specific student, requesting a factual answer with no reasoning about student understanding.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 191,
+    "reason": "Teacher asks the student to identify which numbers they are working with, a procedural/factual question requiring no model of student thinking.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 192,
+    "reason": "Teacher repeats the comparison question already posed, requesting a factual answer about which walk is longer.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 193,
+    "reason": "Teacher invites Wyatt to share his thinking about what is different about 5/8 across the problems, requiring the teacher to be interested in the student's reasoning and conceptual noticing.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 194,
+    "reason": "Teacher asks for the numerator value for each piece given the denominator context, a factual procedural question about fraction representation.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 195,
+    "reason": "Teacher asks where the positive number is located, a factual follow-up to the student's answer about the negative number's location.",
+    "level": "A — SURFACE"
+  },
+  {
+    "id": 196,
+    "reason": "Teacher probes what mental representation or concept Hunter associates with 'how much more,' requiring a model of the student's conceptual thinking about comparison.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 197,
+    "reason": "Teacher asks the student to choose a number and implicitly justify it based on probability reasoning, probing the student's understanding of likelihood in the context of the dice game.",
+    "level": "C — DEEP"
+  },
+  {
+    "id": 198,
+    "reason": "Teacher asks the student to explain how they align numbers for decimal addition, attending to the student's procedure for alignment.",
+    "level": "B — INTERMEDIATE"
+  },
+  {
+    "id": 199,
+    "reason": "Teacher asks Shane to state what the expression equals, a factual question requesting the answer Shane claimed to know.",
+    "level": "A — SURFACE"
+  }
+]

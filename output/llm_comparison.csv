@@ -1,0 +1,401 @@
+"id","utterance","context","rule_based","llm","llm_reason","next_student_move","rb_num","llm_num"
+"0","Peyton, share your thinking.","[T]: Anna, share your thinking and I want to see active listening thumb.
+[T]: Okay, I'll put you back in my pile.","A","C","The teacher is asking another student to share their thinking, which requires considering what the student might say.","MakingClaim","0","2"
+"1","What part of a whole fruit bar will he give to his brother?","[T]: Our problem is Larry has half of a fruit bar.
+[T]: He wants to give half of what he has to his brother.","A","A","The teacher is asking for a specific part of a whole, which is a factual question about fractions.","","0","0"
+"2","Mikel, will you go up and show us how you got your answer, please?","[T]: Go.
+[T]: [background conversation] Hey, back to me please, thank, you.","B","B","The teacher asks the student to demonstrate their procedure, focusing on what they did.","ProvidingEvidence","1","1"
+"3","What does it do?","[T]: What is a decimal point or more importantly, what does a decimal point do?
+[T]: I've talked about this in at least 10 lessons so far this year, easy.","A","A","The teacher is asking for a factual definition of a decimal point's function.","MakingClaim","0","0"
+"4","29, where does that one get stacked in?","[T]: So that was really nice.
+[T]: Yes, I'm glad that you came up and explained that to me.","A","A","The teacher is asking where a number should be placed, which is a factual question about ordering.","","0","0"
+"5","Carter, where have you heard that break apart decomposing before?","[T]: Yes, so-- Oh, you're writing this.
+[T]: I would love to hear your connection after you write this.","A","C","The teacher is asking the student to recall prior knowledge, which requires considering the student's past experiences.","MakingClaim","0","2"
+"6","When you look at these, what's different?","[T]: What's different between the one that I cut and the one I didn't?
+[T]: What's different between these?","A","A","The teacher is asking for a comparison, which is a factual observation question.","None","0","0"
+"7","How many cakes that are 30 yen cheaper do you need to buy in order to make up the 210 yen shortage?","[T]: Then 30 yen is going to be saved.
+[T]: With each, 30 yen is going to be saved.","A","A","The teacher is asking for a calculation based on given information, which is a factual question.","","0","0"
+"8","What does 'represent' mean?","[T]: Okay, we have nothing highlighted there, so there isn't anything new.
+[T]: But I would like you guys to remind yourselves and remind the people at your tables what it means to represent.","A","A","The teacher is asking for a definition, which is a factual question about the meaning of a term.","","0","0"
+"9","Tell me what you just did again.","[T]: Hmm.
+[T]: Show- explain that to me again.","B","B","The teacher is asking the student to repeat their procedure, focusing on what they did.","MakingClaim","1","1"
+"10","Would anybody like to share their answer and explain?","[Ms. Gibson]: All right, show me.
+[Ms. Gibson]: Okay.","B","C","The teacher is inviting students to share and explain their answers, which involves understanding their reasoning.","None","1","2"
+"11","Then you are going to discuss at your table group what a good graph would be, what would a line plot be?","[T]: Where is your table [unintelligible 00:11:47]?
+[T]: What I am going to have you do, is, I'm going to have you go by table groups to look at the data that is up there.","A","C","The teacher is asking students to discuss and evaluate what makes a good graph, which involves reasoning about data representation.","","0","2"
+"12","How can I check that using what you have there?","[T]: How can I check that one?
+[T]: Can you tell me how I can check that to see if it comes out to the 19 fourths?","A","B","The teacher is asking how to verify a result using the student's work, focusing on the procedure.","ProvidingEvidence","0","1"
+"13","What's the right answer?","[S]: Three.
+[T]: I hear half and three sixth.","A","A","The teacher is asking for a factual answer to a math problem.","MakingClaim","0","0"
+"14","What is your strategy that you're using here, Anna?","[T]: We do not do this freehand.
+[T]: Great strategy.","B","B","The teacher is asking the student to describe their strategy, focusing on their procedure.","MakingClaim","1","1"
+"15","How well could you rearrange these using the same denominator?","[T]: [background conversation] Okay, back to me.
+[T]: Thank you.","A","C","The teacher is asking about the ability to rearrange fractions, which involves understanding the concept of common denominators.","","0","2"
+"16","How many dollars is that?","[S]: I don't get allowance.
+[T]: My first question for you today says, a sticker costs 75 cents.","A","A","The teacher is asking for a conversion from cents to dollars, which is a factual calculation.","None","0","0"
+"17","15. factor pairs for 15 Harper.","[T]: All right.
+[T]: And last, but certainly not least, we have 15.","A","A","The teacher is asking for factor pairs, which is a factual question about multiplication.","MakingClaim","0","0"
+"18","Mr Asher which one is larger?","[T]: Already has a common denominator.
+[T]: Let's go and do number two.","A","A","The teacher is asking for a comparison of sizes, which is a factual question.","MakingClaim","0","0"
+"19","How many teaspoons of flavoring will he need for three batches of his new flavor?","[ Teacher ]: This last one, Ezra wanted to try a new flavor combination for his lip balm.
+[ Teacher ]: To make one batch, he combined 1/8 teaspoon of peppermint oil, 3/8 teaspoon of vanilla oil, and 1/8 teaspoon of orange oil.","A","A","The teacher is asking for a calculation based on given quantities, which is a factual question.","","0","0"
+"20","that you take one- when I call your name, you may select one- one equation and then you may explain to me why it belongs to that line.","[T]: I want to ask while you're looking at this problem-
+[T]: For which of course you'll have several answers because you have checked which one belonged where, to which line,","C","C","Teacher asks the student to explain why an equation belongs to a specific line, requiring reasoning about the student's understanding of the relationship between equations and lines.","None","2","2"
+"21","What was our initial shape?","[T]: Wrong.
+[T]: The answer is neither.","A","A","Teacher asks for the initial shape, which is a factual recall question not requiring reasoning about student understanding.","MakingClaim","0","0"
+"22","How do you know?","[T]: 1/4.
+[T]: Now turn and talk to your shoulder partner and say how do you know it's 3/4 by 1/4 because I'm seeing a confusion.","C","C","Teacher asks students to explain their reasoning about fractions, indicating a need to understand their thought process.","","2","2"
+"23","Does work or doesn’t work?","[T]: I want to keep track of the numbers that don’t work and I want to keep track of the numbers that do.
+[T]: Which list does six go in? ","A","A","Teacher asks a factual question about categorizing a number, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"24","What do you notice about the fractions in the gray shaded boxes?","[T]: What do you notice about the fractions in the gray shaded boxes?
+[T]: I want you to think first.","A","A","Teacher repeats a question about noticing fractions, which is a factual observation question.","MakingClaim","0","0"
+"25","If 10% is 9, what number would be 100%?","[T]: No good, that was a really great question sweetie.
+[T]: So 10%, what number would be 100%?","A","A","Teacher asks a factual question about percentage conversion, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"26","What's 30 x 5?","[T]: Excellent.
+[T]: How about this one right here, Sean?","A","A","Teacher asks for a factual multiplication answer, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"27","Carrie, what do you think?","[Ms. Parker]: You just picked a new number.
+[Ms. Parker]: Okay.","A","A","Teacher asks for Carrie's opinion without context indicating a need to understand her reasoning.","MakingClaim","0","0"
+"28","Who could tell me the smallest fraction?","[T]: So I have one-twelfth, one-third, and one-sixth.
+[T]: Who think that they could tell me the smallest fraction out of all three of these?","A","A","Teacher asks for the smallest fraction, a factual question not requiring reasoning about student understanding.","MakingClaim","0","0"
+"29","What can I look at to help me discover, what is my out, what do I notice?","[T]: My in rule is 10, 25, 15, 30.
+[T]: My out rule is three fifths.","A","B","Teacher asks students to identify what they notice about a pattern, requiring some reasoning about their understanding of the pattern.","","0","1"
+"30","Piper, what do you think?","[T]: Every time it goes up by 1, the y goes up by 3.
+[T]: Who's got an equation for this one?","A","C","Teacher asks for Piper's opinion on an equation, indicating a need to understand her reasoning.","MakingClaim","0","2"
+"31","What do you think?","[T]: What does that tell about a word if most of the word is the same?
+[T]: What does that tell us?","A","C","Teacher asks for a student's opinion on a word pattern, indicating a need to understand their reasoning.","","0","2"
+"32","Who can share, what do we need to have an understanding of in order to make a good conjecture, and I'm giving you a big hint right now as I do that?","[T]: Go.
+[T]: Five, four, three, two and one, so in order to do that, we have to have an understanding of what?","A","C","Teacher asks students to share their understanding of making a conjecture, requiring reasoning about their conceptual understanding.","MakingClaim","0","2"
+"33","Seven times two is?","[T]: Five times two is?
+[S]: 10","A","A","Teacher asks for a factual multiplication answer, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"34","River, did you have an idea of another use that wasn't adding and subtracting?","[T]: I like that too.
+[T]: What would be another use that's not having to do with adding and subtracting?","A","C","Teacher asks River for an idea about a different use, indicating a need to understand their reasoning.","MakingClaim","0","2"
+"35","If you have two of these, it's equal to that, so one what?","[T]: What color shape it ends up being, so if you have one of the fourth  what's the whole?
+[T]: What's going to be the whole?","A","A","Teacher asks a factual question about fractions, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"36","You have already done the next one but... we do times one third, then we will find?","[T]: So that's annoying because you...
+[S]: (inaudible) do three.","A","A","Teacher asks about the result of a multiplication operation, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"37","What did you have down here?","[T]: Let's get Silas to power clap.
+[T]: One, two, there, clap.","A","A","Teacher asks what the student wrote, a factual recall question not requiring reasoning about student understanding.","","0","0"
+"38","How does that pattern help you understand the base 10 in the easiest form?","[T]: What does this simple pattern right here tell you what you're doing?
+[T]: I want you to take 30 seconds, think about it.","A","C","Teacher asks how a pattern helps understand base 10, requiring reasoning about the student's conceptual understanding.","","0","2"
+"39","And I'd like you to type your story, what story is this graph telling you?","[T]: What is it showing you?
+[T]: it's showing you elevation in feet versus time in minutes.","A","C","Teacher asks students to interpret a graph, requiring reasoning about their understanding of the graph's story.","","0","2"
+"40","What do I have to look at?","[S]: 200 I think?
+[S]: No one because it's not (inauidble).","A","C","The teacher is asking the student to identify what they should focus on, which requires understanding the student's current focus or confusion.","None","0","2"
+"41","To be specific, what would you do?","[ Nessa ]: Very detailed.
+[T]: Very detailed.","B","B","The teacher is asking the student to specify their procedure, which involves understanding what the student plans to do.","MakingClaim","1","1"
+"42","What is the need to simplify or reduce?","[S]: Yes, like the  class, we would get  if we didn't simplify or we were supposed to simplify.
+[S]: I don't remember doing that.","A","C","The teacher is probing the student's understanding of the concept of simplification, which requires reasoning about the student's conceptual grasp.","None","0","2"
+"43","How about the school to the pool entrance?","[T]: How about the school?
+[T]: Are you guys okay working together, or should I split you up?","A","A","The teacher is asking for a factual location, which does not require reasoning about the student's understanding.","MakingClaim","0","0"
+"44","What do you think?","[T]: Do you feel like yours is correct, or do you feel like Connor's?
+[T]: Or did you do some revising of your thinking?","A","C","The teacher is asking for the student's opinion on their own or another's solution, which requires understanding the student's confidence and reasoning.","None","0","2"
+"45","What coordinate is the eight?","[Bruce]: The X, so now I'm going to Y.
+[Mr. Strathom]: What coordinate is that?","A","A","The teacher is asking for a specific coordinate, which is a factual check and does not require reasoning about the student's understanding.","MakingClaim","0","0"
+"46","What would the probabilities look like that time?","[T]: Now, suppose you had a two game, a, a, two game series but with these teams.  
+[T]: In other words they're not evenly matched.   ","A","C","The teacher is asking the student to consider probabilities in a new scenario, which requires understanding the student's grasp of probability concepts.","None","0","2"
+"47","What did I actually do?","[T]: Let's be very specific.
+[T]: Don't  raise your hand.","A","B","The teacher is asking the student to recount their actions, which involves understanding what the student did.","","0","1"
+"48","So, what are you gonna do with that?","[T]: Okay.
+[S]: (inaudible)","A","B","The teacher is asking the student to explain their next steps, which involves understanding the student's plan or procedure.","MakingClaim","0","1"
+"49","If one column is a 10th what is one square, Vicki?","[T]: I can shade grid and represent and solve decimal, addition and subtraction problems.
+[T]: So if one column is a tenth, what is one square?","A","A","The teacher is asking for a factual answer about the value of a square, which does not require reasoning about the student's understanding.","MakingClaim","0","0"
+"50","Angelica, do you think GCF or LCM?","[T]: You want me to put you in the middle for now?
+[T]: Okay, I'll put you in the middle for now.","A","C","The teacher is asking the student to choose between GCF or LCM, which requires understanding the student's reasoning or decision-making process.","","0","2"
+"51","So, what do you see there?","[S]: You think we should?
+[T]: Yes.","A","C","The teacher is asking the student to describe what they observe, which involves understanding the student's perception or focus.","None","0","2"
+"52","Emanual, what did you do for your equation?","[T]: Oh, this is gonna be a lot of adding.
+[T]: So what did you actually start with with your equation?","B","B","The teacher is asking the student to describe their starting point, which involves understanding the student's procedure.","None","1","1"
+"53","If we look at just his first one, can you tell me-- Tell us about your picture.","[T]: Will you bring yours up here please?
+[T]: Okay.","B","C","The teacher is asking the student to explain their picture, which involves understanding the student's representation and reasoning.","MakingClaim","1","2"
+"54","But take care that- Let's look at your- what did you do before, explain it to me in words.","[SN]: Try to do this piece here.
+[SN]: It equals 48.","B","B","The teacher is asking the student to explain their previous actions, which involves understanding the student's procedure.","MakingClaim","1","1"
+"55","What's the rule for number two, Nate?","[SS]: Yessety-yes?
+[T]: Who would like to share the rule?","A","A","The teacher is asking for a factual rule, which does not require reasoning about the student's understanding.","None","0","0"
+"56","So when it's zero, what would it visually look like?","[T]: It's going to be a cone, yeah.
+[T]: Pyramid -- circular pyramid.","A","C","The teacher is asking the student to visualize a concept, which involves understanding the student's conceptual grasp.","","0","2"
+"57","We need to look at this left over piece and see what fraction of the part it is.","[T]: Okay.
+[T]: So, crew, we know that it goes in at least one time, right?","A","C","The teacher is asking the student to analyze a fraction, which involves understanding the student's conceptual understanding of fractions.","MakingClaim","0","2"
+"58","If I could take the smartboard and flip it upside down, we're not having the bottom win, we're now going to have what?","[T]: Cancel out and in the long run, you're just approaching negative .
+[T]: This group's analysis is actually perfect.","A","C","The teacher is asking the student to consider a hypothetical scenario, which involves understanding the student's conceptual understanding.","MakingClaim","0","2"
+"59","OK, tell me about this.","[Stephanie]: And so, then I made, (flips through papers) we made this.
+[T1]: Oh, that’s interesting, let me see. ","A","B","The teacher is asking the student to explain their work, which involves understanding the student's reasoning and process.","None","0","1"
+"60","Anybody with me that has an idea of what I'm going to do for the other two sisters?","[T]: We actually did that.
+[T]: Does this work?","A","C","The teacher is asking students to predict the next step, which requires considering what students might understand about the pattern or process.","ProvidingEvidence","0","2"
+"61","What do we think for the sixth one?","[T]: Okay?
+[T]: alright., all right, someone online.","A","A","The teacher is asking for a factual answer about the sixth item, without probing student understanding.","MakingClaim","0","0"
+"62","Triangle A B C and triangle F E D. And number 10, which is the hypotenuse of triangle A B C?","[T]: Do you want me to repeat it?
+[SN]: Yeah.","A","A","The teacher is asking for a factual identification of the hypotenuse, which does not require reasoning about student understanding.","","0","0"
+"63","How is it related to subtraT2ion, Michael?","[Meredith]: Do we have a pen?
+[Meredith]: Do you have a  pen in that desk?","A","C","The teacher is asking how something is related to subtraction, which requires understanding the student's conceptual connections.","None","0","2"
+"64","So if you have eight, what would you do?","[Ariel]: For nine, I would do eight, then I would multiply the number by two and then I would subtract two and then I would add three.
+[T]: So I got when you said … says that again …[the first way,] you seem to have so many ways of doing things that I get lost.","B","B","The teacher is asking the student to clarify their procedure, focusing on what they did.","MakingClaim","1","1"
+"65","6 and what equals 12?","[T]: If my in is 12-
+[S]: 2 is 12.","A","A","The teacher is asking for a factual completion of an equation, without probing understanding.","None","0","0"
+"66","So when I say multiplication facts, when I tell you to practice your multiplication facts, what should you be practicing?","[Ezra]: Uh, factors multiples...
+[Mr. Parker]: Good, but basic right?","A","C","The teacher is asking the student to reflect on what practicing multiplication facts entails, which involves understanding the student's interpretation.","MakingClaim","0","2"
+"67","If I have a to the power of negative two, that equals one over a-","[T]: Now, those explorations, particularly the first one, you're going to find that your tool kit from last week is going to be very helpful for you because notice all the property names are here.
+[T]: You've got to identify, you got to match those things together, but you're also completing what goes in the blank.","A","A","The teacher is stating a mathematical fact without probing student understanding.","MakingClaim","0","0"
+"68","3/4 x 1/4 equals?","[T]: Write a multiplication number sentence for the area of the shaded rectangle.
+[T]: Basically, we've already done that.","A","A","The teacher is asking for a factual answer to a multiplication problem, without probing understanding.","","0","0"
+"69","Median, how can we find median?","[T]: What's the median of this list?
+[T]: How can we find that?","B","B","The teacher is asking for a procedure to find the median, focusing on what the student did.","MakingClaim","1","1"
+"70","Negative, but in this one the number will be...","[T]: Yes, the exponent is an even number but in the other one, the exponent is an odd number so what kind of number will you come up with?
+[S]: Negative.","A","C","The teacher is prompting the student to consider the implications of an even exponent, which involves understanding the student's reasoning.","MakingClaim","0","2"
+"71","What's negative X times negative X times negative X going to be?","[T]: Then the parentheses with the negative X here.
+[T]: Then I got to do a little math.","A","A","The teacher is asking for a factual computation of a multiplication problem, without probing understanding.","","0","0"
+"72","How do you ... could you show me that check?","[Ankur]: Yeah
+[Romina]: Yeah","B","B","The teacher is asking the student to demonstrate their procedure, focusing on what they did.","MakingClaim","1","1"
+"73","Okay, Owen, can you share what you did?","[T]: I don't know what's going on.
+[T]: There we go.","A","B","The teacher is asking the student to share their procedure, focusing on what they did.","None","0","1"
+"74","Logan, what do we know about volume?","[T]: We'll do one more.
+[T]: Touch down.","A","C","The teacher is asking for a conceptual understanding of volume, which involves probing the student's understanding.","MakingClaim","0","2"
+"75","Sixty and so what is the second share worth?","[T]: You found 30 and multiplied by two and got?
+[SN]: Sixty.","A","A","The teacher is asking for a factual answer about the second share, without probing understanding.","MakingClaim","0","0"
+"76","And what would that be?","[T]: Landon, which one would you like to tackle?
+[Landon]: 30x2","A","A","The teacher is asking for a factual computation of a multiplication problem, without probing understanding.","MakingClaim","0","0"
+"77","Luke, what kind of connections do you see?","[Ms. Parker]: Do you see a connection between these numbers?
+[Students]: Yes.","A","C","The teacher is asking the student to articulate connections, which involves understanding the student's reasoning.","MakingClaim","0","2"
+"78","So if they need two teaspoons but we're making three recipes, what are we going to do?","[Ms. Smith]: Two teaspoons.
+[Class]: Six teaspoons.","A","B","The teacher is asking for a procedural application of multiplication to solve a problem, focusing on what the student did.","MakingClaim","0","1"
+"79","Like I say that, what am I really talking about?","[Ms. Reeves]: Yeah, so these two lines mean absolute value.
+[Ms. Reeves]: Who can remember the definition of absolute value?","A","C","The teacher is asking for a conceptual understanding of absolute value, which involves probing the student's understanding.","","0","2"
+"80","Whatever I do to the bottom--","[Teacher]: Multiply?
+[Students]: By five.","A","A","The teacher is likely prompting students to complete a known mathematical rule, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"81","How does the whole diagram look, the whole garden?","[SN]: How can you determine how much of it is tiled?
+[T]: What does it look like, the example, the diagram?","A","A","The teacher is asking for a description of the diagram, which does not require deep reasoning about student understanding.","MakingClaim","0","0"
+"82","How can we model problem number one?","[T]: Next person.
+[T]: Adeline, you have problem number one.","A","B","The teacher is asking how to model a problem, which requires understanding the student's approach to the problem.","ProvidingEvidence","0","1"
+"83","Tell me what the Y that goes with it is.","[T]: This, I gave you the x.
+[T]: So this is saying go to five on the X, go find the function.","B","A","The teacher is asking for a specific value, which is a factual check and does not require reasoning about student understanding.","","1","0"
+"84","If I ignore the  and I just look at that, how could I rewrite that?","[T]: All right so I don't have .
+[T]: How could I rewrite that?","A","B","The teacher is asking the student to consider a different way to express something, which involves understanding the student's approach.","None","0","1"
+"85","What good is a secret that doesn’t work?","[Michael]: It only worked for a couple of them.
+[S]: It doesn’t work.","A","C","The teacher is questioning the utility of a method, which requires understanding the student's reasoning about its effectiveness.","MakingClaim","0","2"
+"86","What's 12 ÷ 6?","[T]: Yes, and that's not.
+[T]: This divided by 6.","A","A","The teacher is asking for a simple division fact, which does not require reasoning about student understanding.","","0","0"
+"87","How many more lines am I going to need?","[T]: Because can I say, ""SS right, 1/6, 2/6, 3/6, 6/6""?
+[S]: No.","A","A","The teacher is asking for a specific number of lines, which is a factual check and does not require reasoning about student understanding.","MakingClaim","0","0"
+"88","What are the probabilities of those things happening?","[T]:  Then -- or you could have Team A win the -- win one game and Team B win the other. 
+[T]: Or Team B could win both games, right? ","A","C","The teacher is asking about probabilities, which requires understanding the student's grasp of probability concepts.","MakingClaim","0","2"
+"89","If I take my two eighths, what does it equal?","[Ms. Strathom]: Four and eight.
+[Ms. Strathom]: Well, look at that.","A","A","The teacher is asking for a specific equivalence, which is a factual check and does not require reasoning about student understanding.","","0","0"
+"90","3 12 minus 3 =?","[T]: already.
+[T]: Okay.","A","A","The teacher is asking for a simple subtraction fact, which does not require reasoning about student understanding.","MakingClaim","0","0"
+"91","How many numbers did you have in your list if you listed them all out?","[SN]: If you use a calculator and find the percent of kids at Lincoln school, it's a decimal.
+[SN]: I think it's T because the C and B are like the same thing.","A","A","The teacher is asking for a factual count of numbers, which does not require reasoning about student understanding.","MakingClaim","0","0"
+"92","How many were left?","[T]: No.
+[T]: What if I said I ate four of my eight cookies.","A","A","The teacher is asking for a simple subtraction fact, which does not require reasoning about student understanding.","MakingClaim","0","0"
+"93","And, for example, in what kind- what situations does this become a straight line?","[T]: You won't get any numbers, right?
+[S]: Yes.","A","C","The teacher is asking about conditions for a straight line, which requires understanding the student's grasp of the concept.","None","0","2"
+"94","The green triangle up there, which axis?","[T]: Not quite because then G' would match up with F, and F would match up with G. But it's a reflection, right?
+[T]: Like this, right?","A","A","The teacher is asking for a specific axis, which is a factual check and does not require reasoning about student understanding.","","0","0"
+"95","What do you sort of do to  imagine it in your heads to imagine the length?","[T]: So  Brian, you can't imagine but that's a good way of doing  it, so you could all imagine the length of a meter stick.
+[T]: And what do you do in your heads to imagine the  length of two meters?","A","C","The teacher is asking about a mental process, which requires understanding the student's approach to visualization.","MakingClaim","0","2"
+"96","What do you mean?","[T]: What's the first thing you tried to do, Selena?
+[ Selena ]: I looked for my fourths.","A","C","The teacher is asking for clarification of a term used by the student, which requires understanding the student's thinking.","MakingClaim","0","2"
+"97","What do you think we're going to do?","[Ms. Smith]: And then she sells four tickets a day for one week.
+[Ms. Smith]: Whoa.","A","C","The teacher is prompting the student to predict the next step, which requires understanding the student's grasp of the problem.","None","0","2"
+"98","I'd like you to talk at your teams about your multiples and your strategy for finding the multiples.","[T]: Flash.
+[T]: Thank you.","A","B","The teacher is asking students to discuss their strategy, which requires understanding their approach to finding multiples.","","0","1"
+"99","Alfie, what do you think?","[T]: Yeah, nice job thinking about money there.
+[T]: Okay the last one we have is 50%.","A","C","The teacher is asking for the student's opinion, which requires understanding the student's reasoning about the problem.","MakingClaim","0","2"
+"100","So what is a fourth of three?","[T]: And then a fourth of each of those.
+[T]: So 123412341234.","A","A","Teacher asks for a factual answer about a fraction; no reasoning about student thinking is needed.","MakingClaim","0","0"
+"101","What is your estimate?","[S]: Closer to a half.
+[T]: Closer to a half.","A","C","Teacher asks for the student's estimate, which requires considering the student's thought process about the problem.","MakingClaim","0","2"
+"102","What do we think about, look at the arc, and whisper to your face partner again?","[T]: Let's do number two together.
+[T]: This is an interesting one.","A","C","Teacher prompts students to think and discuss, indicating a focus on their reasoning about the arc.","","0","2"
+"103","And the question I forgot to ask you in the very first poster that we did, is: How do we measure area?","[S]: The perimeter.
+[T]: As you work, think about what… what area is.","A","C","Teacher asks about the concept of measuring area, probing the student's understanding of the concept.","","0","2"
+"104","Tell us how it is, what's the right answer?","[Mr. Parker]: What would you do?
+[Adeline]: I'd...","B","A","Teacher asks for the correct answer, focusing on the factual outcome rather than the student's reasoning.","MakingClaim","1","0"
+"105","So how many pieces of data do I now have on the right-hand side?","[T]: Therefore, the seventh and eighth piece of data can still remain in play when we are trying to find the first and third quartile.
+[SN]: Yeah.","A","A","Teacher asks for a factual count of data pieces, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"106","Can't you make one on th- this side?","[S]: Hm.
+[T]: Hm?","A","C","Teacher prompts the student to consider an alternative, indicating some reasoning about the student's understanding.","MakingClaim","0","2"
+"107","Then this one is showing that I modified?","[S]: Modifying X.
+[T]: Just X.","A","B","Teacher checks if the student understands the modification, focusing on the student's procedure.","MakingClaim","0","1"
+"108","Is there a way we can find out how far away they are from one another using the ordered pairs?","[S]: I know.
+[S]: Yes.","A","C","Teacher asks about a method to find distance, probing the student's understanding of ordered pairs.","ProvidingEvidence","0","2"
+"109","How do you know it's a line, ?","[T]: It is not a line segment.
+[T]: It is not a Bailey.","C","C","Teacher asks for justification of the student's claim, probing their understanding of geometric concepts.","","2","2"
+"110","How much is it if you take off the brackets?","[S]: Mm?
+[T]: How much is it when you multiply it?","A","A","Teacher asks for a factual calculation, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"111","How did you get one and one quarter when  you called the brown rod two now?","[T1]: That’s something new that Sarah and Audra  introduced that I think is very nice.
+[T1]: But now let’s hear the  other argument.","B","C","Teacher asks how the student arrived at a specific answer, focusing on their reasoning process.","","1","2"
+"112","What was the strategy we used yesterday to solve problems like number three?","[T]: Ready?
+[T]: Go.","B","B","Teacher asks for recall of a strategy, focusing on the student's procedural memory.","ProvidingEvidence","1","1"
+"113","Everybody look and see, what are the keywords to help you see how to modify this?","[T]: What should the picture look like?
+[T]: What are the keywords there?","A","C","Teacher asks students to identify keywords, focusing on their understanding of the problem context.","","0","2"
+"114","So he went on the roller coaster and he could have gone on the roller coaster how many times?","[T]: Grandmother gave him enough for two rides, which is two times eight korun.
+[T]: Plus he received from his grandfather an additional five times eight korun.","A","A","Teacher asks for a factual calculation based on given information, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"115","What do you need to do?","[T]: Addison, don't automatically say you don't know how to do it.
+[Addison]: I don't.","A","C","Teacher asks what the student needs to do, prompting them to consider their own understanding and next steps.","MakingClaim","0","2"
+"116","Do you remember what that's called?","[S]: Um, first you have to so you have to look at the numbers and then if
+[T]: what kind of fraction is one and nine twentieths?","A","B","Teacher asks for recall of a term, focusing on the student's memory of terminology.","MakingClaim","0","1"
+"117","And Patrick, what kind of or what do we know about corresponding angles?","[T]: corresponding Thanks, Patrick.
+[T]: Correspong.","A","C","Teacher asks about properties of corresponding angles, probing the student's understanding of geometric concepts.","MakingClaim","0","2"
+"118","Good, so what'll my numerator be?","[T]: Why did you say there at the end whatever you do to the bottom you do to the top?
+[ Alex ]: Because if you cut the pizza more, you're changing the number of slices that you care about.","A","A","Teacher asks for a factual calculation of the numerator, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"119","Then I had to exchange it for a--?","[S]: The bottom numerator.
+[S]: I couldn't subtract the top numerator from the bottom numerator because the top numerator was smaller.","A","B","Teacher prompts the student to complete their explanation, focusing on their procedural understanding.","MakingClaim","0","1"
+"120","If I have to write a rule for subtracting decimals what is something the rule has to contain?","[T]: Thank you.
+[T]: Come here.","A","C","The teacher is asking for a component of a rule, which requires understanding what the student knows about rules for subtracting decimals.","MakingClaim","0","2"
+"121","We have to use our math vocabulary, what's the math vocabulary I want to hear from you today?","[T]: If I am explaining that piece to a third-grader, Pete, and I say I multiply it, are they going to understand what you're saying?
+[ Pete ]: No.","A","C","The teacher is prompting the student to use specific vocabulary, which requires understanding what the student knows about math vocabulary.","MakingClaim","0","2"
+"122","David, what was one of your strategies?","[Ms. Smith]: Before I hear answers, I want to know how you thought about this problem?
+[Ms. Smith]: What did you do to solve it?","A","B","The teacher is asking for a strategy, which requires understanding the student's approach to solving the problem.","None","0","1"
+"123","I’m hearing people whisper, what is it?","[T]: Okay, the number we give to an impossible even.
+[T]: Something’s that impossible that can’t happen.","A","A","The teacher is asking for a factual answer about what is being whispered, without needing to understand the student's thinking.","MakingClaim","0","0"
+"124","What is our answer?","[T]: 15, do we agree?
+[T]: I agree.","A","A","The teacher is confirming an answer, which does not require understanding the student's reasoning.","MakingClaim","0","0"
+"125","What is this one closer to?","[T]: So thinking about it, I think Sasha had a really great way of visualizing it and then also, when you have 1/4, it's tricky because it's right in the middle.
+[T]: Let's just do one more and then we need to move on.","A","C","The teacher is asking for a comparison, which requires understanding the student's reasoning about proximity.","","0","2"
+"126","How much is that one worth?","[T]: If our fraction is nine twentieths.
+[T]: our denominators is 20.","A","A","The teacher is asking for a factual answer about the value of a fraction, without needing to understand the student's thinking.","MakingClaim","0","0"
+"127","Is there another number name for the  purple?","[Erik]: One twelfth
+[T]: That's one name, one twelfth.","A","C","The teacher is asking for an alternative name, which requires understanding the student's knowledge of equivalent fractions.","MakingClaim","0","2"
+"128","3^2 x 5. Who can take this one down for me?","[T]: How do I re-write that using exponential form, Charlie?
+[ Charlie ]: You divide","A","A","The teacher is asking for a factual answer about who can take down the expression, without needing to understand the student's thinking.","MakingClaim","0","0"
+"129","When you answer these questions, what would make them good answers?","[Claud]: Compare your predictions with problem two.
+[T]: Yes, actuSSy answer these two questions.","A","C","The teacher is asking for criteria for good answers, which requires understanding the student's reasoning about quality.","","0","2"
+"130","What does that mean?","[T]: With real-world contexts or situations.
+[T]: Talk to your friends, what's a real-world context or situation.","A","C","The teacher is asking for an explanation of a term, which requires understanding the student's interpretation of real-world contexts.","ProvidingEvidence","0","2"
+"131","Okay, Maya, will you please explain your estimate, and then how you solved it?","[T]: Okay, so, Maya, will you turn your microphone on please?
+[S]: Yes.","C","B","The teacher is asking for an explanation of the student's estimate and solution, which requires understanding the student's process.","ProvidingEvidence","2","1"
+"132","Subtraction is doing what?","[Georgia]: We needed to round it to help us get the answer, that's why, but then we got 0.33and then we started shading in but then we realized that-- We started shading in but then we realized that would like be adding the two.
+[T]: If you shade in both of those amounts, you're adding because putting two parts together is adding.","A","C","The teacher is asking for a conceptual understanding of subtraction, which requires understanding the student's grasp of the operation.","MakingClaim","0","2"
+"133","Is it going to be more or less?","[T]: These other factors, or is it going to be less than those factors?
+[T]: RIcardo.","A","C","The teacher is asking for a comparison, which requires understanding the student's reasoning about quantity.","","0","2"
+"134","Remind me, what should you make sure you definitely use if you are still feeling like you add maybe a two on this?","[T]: What about the bottom one, please?
+[T]: 1/2 plus 2/5.","A","B","The teacher is asking for a reminder of a procedure, which requires understanding the student's process.","MakingClaim","0","1"
+"135","Then, your answer would be what?","[T]: Quietly go with your partner, you have about-- Then decide who is A and B.
+[T]: We're going to have time for one minute each.","A","A","The teacher is asking for a factual answer about what the answer would be, without needing to understand the student's thinking.","None","0","0"
+"136","Am I going to be closer to a half, m I going to be closer to one or am I going to be closer to about one and a half?","[T]: And there's one fourth, okay?
+[T]: I'm adding those together.","A","C","The teacher is asking for a comparison, which requires understanding the student's reasoning about proximity.","","0","2"
+"137","What do you think, Thatcher?","[Ms. Davies]: What unit are they using to measure time?
+[Class]: An hour?","A","A","The teacher is asking for a factual answer about the unit of measurement, without needing to understand the student's thinking.","MakingClaim","0","0"
+"138","And Whitney, what would your number sentence be?","[T]: So you can write that in words, how many times does one fourth fit into two and three fourths.
+[T]: And remember, this is just to show you what to do and then you can just write your work in your notebook.","A","B","The teacher is asking for a number sentence, which requires understanding the student's process of translating a word problem into a mathematical expression.","MakingClaim","0","1"
+"139","When we convert, when do you ever have to convert to something?","[T]: I think you guys have to think way back.
+[T]: We're not thinking about fractions necessarily.","A","C","The teacher is asking for a conceptual understanding of conversion, which requires understanding the student's grasp of when conversion is necessary.","None","0","2"
+"140","What we’re asked to do in that first problem?","[T]: Looks like we have  some work cut out for us, isn’t that right?
+[T]: Ok, can someone  tell us what that first problem is about in your own words?","A","A","The teacher is asking for a factual answer about the problem statement, not requiring reasoning about student understanding.","ProvidingEvidence","0","0"
+"141","How do those relate to these points?","[T]: Five comma zero.
+[T]: Okay.","A","C","The teacher is asking how the given points relate, which requires understanding the student's interpretation of the relationship.","","0","2"
+"142","Anything else that people think for this?","[T]: It doesn't have to be double, they just have to be larger.
+[T]: They need to be accurate and larger.","A","C","The teacher is inviting additional thoughts, which could involve reasoning about student understanding of the problem.","MakingClaim","0","2"
+"143","What two numbers multiplied is 24?","[T]: Let's see.
+[T]: Let's do it this way, make it easier.","A","A","The teacher is asking for a factual answer about multiplication, not requiring reasoning about student understanding.","ProvidingEvidence","0","0"
+"144","Following my steps, what's the denominator?","[ Teacher ]: Sorry, what would I write?
+[ Student ]: You should write 15.","A","A","The teacher is asking for a factual answer based on following steps, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"145","Dani earned $9 in allowance last week, he spent two thirds of his allowance on comic books, how much money did he spend on comic books?","[S]: Let's go.
+[T]: Okay.","A","A","The teacher is asking for a factual calculation based on given information, not requiring reasoning about student understanding.","","0","0"
+"146","But when we're dealing with fractions, they can be because what matters is the size of the...","[T]: They're not equal when we're dealing with whole numbers, right?
+[Ss]: No.","A","C","The teacher is explaining a concept about fractions, which involves reasoning about student understanding of size and equivalence.","MakingClaim","0","2"
+"147","Somebody take me through their thinking on this one.","[T]: Show.
+[T]: All right.","A","B","The teacher is asking for a student's thought process, which requires understanding the student's approach.","MakingClaim","0","1"
+"148","How many lines did they give us for our twelfths?","[T]: Can you wait?
+[T]: Okay, so let's look at our twelfths then.","A","A","The teacher is asking for a factual answer about the number of lines, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"149","What would your final answer be?","[T]: Good job keep going.
+[S]: Then 40 divided by 5 is 8.","A","A","The teacher is asking for a factual answer about the final result, not requiring reasoning about student understanding.","None","0","0"
+"150","Eden, what are the two things that we are comparing for Diego?","[Ms. Davies]: So we're going to make two ratio tables at the top of page 15.
+[Ms. Davies]: We're going to start by making one for Diego.","A","A","The teacher is asking for a factual answer about what is being compared, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"151","Six times two which is?","[T]: Jonah.
+[ Ishmail ]: Two.","A","A","The teacher is asking for a factual answer to a multiplication problem, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"152","Let’s take in the first column, what do those numbers represent?","[Stephanie]: Uh, on these sides?
+[T1]: Yeah. ","A","C","The teacher is asking for an explanation of what the numbers represent, which requires understanding the student's interpretation.","None","0","2"
+"153","So what if we had 10 apples.","[Ms. Gibson]: So we have that if there were 10 apples in a basket?
+[Ms. Gibson]: Okay?","C","C","The teacher is asking a hypothetical question to explore understanding, which requires reasoning about student understanding.","","2","2"
+"154","Zach, come and show them what we did.","[Ms. Strathom]: One fourth plus two sixths?
+[S1]: Yes.","A","B","The teacher is asking the student to demonstrate a procedure, which requires understanding what the student did.","None","0","1"
+"155","And then what could I do with it, if I sawed it in half?","[T]: Would you agree that maybe I could take this one [white rod]  and saw it in half, if I had a saw?
+[Erik]: Yeah.","A","C","The teacher is asking the student to think about the implications of an action, which requires reasoning about student understanding.","MakingClaim","0","2"
+"156","So what is the one in the orange juice mean compared to the one and one fourth in the soda water?","[T]: The part that's circled in yellow?
+[Max]: Well, it's basically the answer because it's super extended or, sorry, it's super extended because we had to do work on the division problem for five divided by four.","A","C","The teacher is asking for a comparison of two quantities, which requires understanding the student's interpretation of the context.","MakingClaim","0","2"
+"157","Where is it at?","[ T ]: Let me see where you're at.
+[ T ]: Because I bet you just didn't round it, I bet that's all you forgot to do.","A","A","The teacher is asking for a factual answer about the location of a number, not requiring reasoning about student understanding.","","0","0"
+"158","Wanna take a shot at it?","[Michael]: I don't know
+[ROmina]: Divide by half for the other line and go down ","A","B","The teacher is encouraging the student to attempt a solution, which requires understanding the student's willingness to engage.","MakingClaim","0","1"
+"159","And then which one's bigger?","[T]: Yes.
+[T]: So then we will have four fifths.","A","A","The teacher is asking for a factual comparison of sizes, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"160","The hardest part is the explaining part, so what is it that you're going to be explaining in the problem?","[T]: Some of you've already gotten started, you're in a big hurry, you're going to have tons of time.
+[T]: I want you to talk to your neighbor about what you think you have to do.","A","C","Teacher prompts students to consider what they will need to explain, indicating a need to understand the student's approach to the problem.","","0","2"
+"161","What type of number?","[Ms. Strathom]: This is an easy one.
+[Ms. Strathom]: I can do it with anything that is a what type of number?","A","A","Teacher asks for a factual answer about the type of number, without needing to consider student understanding.","None","0","0"
+"162","what do you do?","[T]: If you do the length * the width, you should get the area they gave you.
+[T]: Right now, I want you to turn and tell someone how do you figure out the missing sign.","B","B","Teacher asks students to discuss their procedure for finding the missing sign, focusing on what they did.","","1","1"
+"163","Dan, how do we start math today?","[T]: [unintelligible 00:34:32]
+[T]: Can anyone share how we started math today that is a little bit different than normal.","A","B","Teacher asks a student to recount the day's starting activity, focusing on what happened rather than understanding.","None","0","1"
+"164","John, can you explain what you did?","[T]: John, turn your microphone on.
+[T]: Okay.","B","B","Teacher asks the student to explain their procedure, focusing on what they did rather than their reasoning.","MakingClaim","1","1"
+"165","All these squares, if you counted all the red squares up, how many squares would there be filled in?","[T]: One, two, three, four, five, six, seven.
+[T]: 47 hundreds.","A","A","Teacher asks for a factual count of squares, not requiring reasoning about student understanding.","","0","0"
+"166","Brogan, what'd you get for an answer?","[T]: Okay.
+[T]: All right.","A","A","Teacher asks for a factual answer, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"167","Now what have you found?","[T]: Have you done?
+[SN]: Here we have to do it in the simplified way or-","A","B","Teacher asks what the student has found, focusing on the result rather than the reasoning behind it.","None","0","1"
+"168","And the denominator is the same as the what?","[T]: So the numerator is the same as the dividend.
+[T]: Right?","A","A","Teacher asks for a factual answer about the denominator, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"169","What is my answer?","[S]: Which makes it a?
+[S]: I did that now.","A","A","Teacher asks for a factual answer, not requiring reasoning about student understanding.","","0","0"
+"170","What am I doing to one to get four?","[Ms. Smith]: They want us to find our denominator.
+[Ms. Smith]: Easy question.","A","A","Teacher asks for a factual operation, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"171","What [unintelligible 00:39:33] might go into both of those?","[T]: It's weighted only 20% and it's only 1 point out of all that, yes.
+[T]: No, no, you just have to do-- Here you would want to think, ""What could I divide these by that's a factor of both of them?""","A","C","Teacher prompts students to think about factors, indicating a need to understand their reasoning process.","","0","2"
+"172","What number is a factor of every even number?","[T]: You know they're both even, and what number goes into every even number.
+[T]: What number goes into every even number?","A","A","Teacher asks for a factual answer about factors of even numbers, not requiring reasoning about student understanding.","MakingClaim","0","0"
+"173","Ethan, how do we find the perimeter?","[Ms. Smith]: How do we find the fence?
+[Ms. Smith]: Samantha knows, but somebody else has to know.","B","B","Teacher asks a student to recount the procedure for finding the perimeter, focusing on what they did.","MakingClaim","1","1"
+"174","Okay I'm going to go down here to 9 is 10% of what number?","[T]: Good job.
+[T]: So your first one is 18, I can see that there are several, you can type that in all right.","A","A","Teacher asks for a factual answer about a percentage problem, not requiring reasoning about student understanding.","","0","0"
+"175","Therefore, this is called?","[T]: Of course we will, we will not call them terms, we should call him- call them?
+[T]: Factors.","A","A","Teacher asks for a factual term, not requiring reasoning about student understanding.","","0","0"
+"176","At the ends of the function, all the way to the left at negative infinity, and all the way at the right at positive infinity, what is the function doing?","[S]: Those look more sixes than zeros.
+[T]: Whatever, don't judge me.","A","C","Teacher asks about the behavior of a function at infinity, requiring understanding of the student's conceptual grasp.","","0","2"
+"177","What's the y intercept?","[T]: What's the y intercept on this graph?
+[T]: What's the slope?","A","A","Teacher asks for a factual answer about the y-intercept, not requiring reasoning about student understanding.","","0","0"
+"178","What am I going to do?","[T]: If I'm using these fractions and I want them all to be equivalent to 4/5, what am I doing with them?
+[T]: How am I going to find out what is equivalent?","A","B","Teacher asks about the procedure for finding equivalent fractions, focusing on what they did.","None","0","1"
+"179","If you have an interpreter, what is that person doing?","[T]: I can interpret a drawing to solve fraction, number story.
+[T]: Interpret; if I am interpreting something-- Think about a foreign language.","A","C","Teacher asks about the role of an interpreter, requiring understanding of the student's conceptual grasp of interpretation.","MakingClaim","0","2"
+"180","Anybody want to tell me?","[Ms. Gibson]: 3/8ths plus one and 2/3rds.
+[Ms. Gibson]: Show me.","A","A","The teacher is asking for a volunteer to share their answer, which does not require reasoning about student understanding.","ProvidingEvidence","0","0"
+"181","Somebody tell me what digit is in the hundredths spot?","[T]: Show.
+[T]: All right.","B","A","The teacher is asking for a factual answer about place value, which does not require reasoning about student understanding.","MakingClaim","1","0"
+"182","What were we making with our arrays?","[Nathan]: We were doing arrays.
+[Ms. Smith]: We were looking at arrays.","A","B","The teacher is asking students to recall what they were making with arrays, which requires some attention to what they did.","MakingClaim","0","1"
+"183","What are we going to add?","[T]: What are we going to do to figure this out, Dana?
+[T]: We sure are, we're going to add.","A","A","The teacher is asking for a specific factual answer about what to add, not probing student understanding.","MakingClaim","0","0"
+"184","Ok, why don't the rest of you sit down and let's have Erik  and Alan make that model.","[Erik]: Yeah, Alan and I made that same model.
+[Erik]: We made the  same model that was, I think it was two oranges and like  one purple, yeah it was two oranges and one purple and  then it had the thirds","C","B","The teacher is asking Erik and Alan to demonstrate their model, which involves attending to their procedure.","RelatingToAnother","2","1"
+"185","What is that comma saying?","[Jane]: One hundred sixty-nine hundred.
+[T]: Whoop.","A","C","The teacher is asking about the function of a comma in a number, which requires understanding its role in place value.","MakingClaim","0","2"
+"186","What I would do is start off with my rectangle to figure out what the right way is and then, how could you help Eli?","[T]: What mistake did Eli make?
+[T]: Sketch a partition rectangle that can help Eli understand what he did wrong.""","A","C","The teacher is asking students to think about how to help Eli understand his mistake, which requires reasoning about Eli's understanding.","","0","2"
+"187","How many bags come in a carton.","[T]: Okay, so the principle is ordering snack size bags of pretzels.
+[T]: Nine cartons contain 540 bags.","A","A","The teacher is asking for a factual calculation of bags per carton, not probing student understanding.","","0","0"
+"188","Then well what do you see that's different?","[T]: Yes.
+[T]: What do you see that is the same in both?","A","B","The teacher is asking students to compare similarities and differences, which requires some reasoning about their observations.","ProvidingEvidence","0","1"
+"189","No, what are you thinking?","[T]: Parker, what are you thinking?
+[Parker]: No.","A","C","The teacher is asking Parker to elaborate on his thinking, which requires attending to his thought process.","MakingClaim","0","2"
+"190","700 x 5, Charles.","[Lennox]: 2,400.00
+[T]: Good job.","A","A","The teacher is asking for a factual calculation, not probing student understanding.","MakingClaim","0","0"
+"191","So what are your numbers up here?","[S]: Yes, it makes sense.
+[T]: Okay.","A","A","The teacher is asking for a factual answer about the numbers, not probing student understanding.","MakingClaim","0","0"
+"192","Which is a longer walk?","[T]: Over here.
+[T]: Okay, is it a longer walk to go from the family restaurant to the boat rental, or from the post office to the fire department?","A","A","The teacher is asking for a factual comparison of distances, not probing student understanding.","","0","0"
+"193","Wyatt, what are you thinking?","[T]: With a raised hand, who can tell me what is different about 5/8 in the first three problems that you solved today.
+[T]: Cooper used a different strategy to solve that one.","A","C","The teacher is asking Wyatt to share his thinking, which requires attending to his thought process.","ProvidingEvidence","0","2"
+"194","What would my numerator be for each of those pieces?","[Student]: Denominator.
+[Ms. Parker]: My denominator is going to be three.","A","A","The teacher is asking for a factual answer about the numerator, not probing student understanding.","MakingClaim","0","0"
+"195","And the positive one?","[Kimberly]: To the left of zero.
+[T1]: Okay.","A","A","The teacher is asking for a factual answer about the position of a number, not probing student understanding.","MakingClaim","0","0"
+"196","When you hear how much more what do you think of in your head?","[T]: Hunter what are you going to do with them?
+[ Hunter ]: I'm going to look at the other number and try and compare how much more it has","A","C","The teacher is asking Hunter to explain his thought process when comparing numbers, which requires reasoning about his understanding.","ProvidingEvidence","0","2"
+"197","If you had one chance to roll the dice, and everything was on it, what number would you choose?","[T2]: What was the one number from this one? 
+[T2]: For a sum that you wanted to pick? ","A","B","The teacher is asking for a choice based on probability, which requires some reasoning about the student's strategy.","MakingClaim","0","1"
+"198","How do you align it?","[Hudson]: The ones place is with the tenths place.
+[S]: You can put zeros to hold them.","B","B","The teacher is asking for an explanation of a procedure, which requires attending to the student's method.","MakingClaim","1","1"
+"199","Shane, what does SS these equals?","[T]: Shane just said something and I'm wondering if anybody else noticed this?
+[T]: She said, ""I know what it equals.""","A","C","The teacher is asking Shane to clarify his statement, which requires reasoning about his understanding.","MakingClaim","0","2"

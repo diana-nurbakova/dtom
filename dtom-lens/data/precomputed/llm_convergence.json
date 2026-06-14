@@ -1,0 +1,181 @@
+{
+  "n": 200,
+  "models": {
+    "gpt": "gpt-4o",
+    "claude": "claude-sonnet-4-6"
+  },
+  "prompt_version": "v2_concept_anchored",
+  "primary": {
+    "model": "gpt-4o",
+    "cohens_kappa": 0.165,
+    "agreement": 0.5,
+    "distribution": {
+      "rule_based": {
+        "A": 174,
+        "B": 20,
+        "C": 6
+      },
+      "llm": {
+        "A": 85,
+        "B": 41,
+        "C": 74
+      }
+    },
+    "disagreement": {
+      "agree": 100,
+      "llm_deeper": 95,
+      "llm_shallower": 5
+    },
+    "evidence_rates": {
+      "rule_based": {
+        "A": {
+          "n": 174,
+          "evidence_pct": 6.3
+        },
+        "B": {
+          "n": 20,
+          "evidence_pct": 10.0
+        },
+        "C": {
+          "n": 6,
+          "evidence_pct": 16.7
+        }
+      },
+      "llm": {
+        "A": {
+          "n": 85,
+          "evidence_pct": 3.5
+        },
+        "B": {
+          "n": 41,
+          "evidence_pct": 14.6
+        },
+        "C": {
+          "n": 74,
+          "evidence_pct": 6.8
+        }
+      }
+    }
+  },
+  "weighted_kappa": {
+    "unweighted": {
+      "value": 0.165,
+      "ci95": [
+        0.09,
+        0.242
+      ],
+      "se": 0.039
+    },
+    "linear_weighted": {
+      "value": 0.105,
+      "ci95": [
+        0.05,
+        0.171
+      ],
+      "se": 0.031
+    },
+    "quadratic_weighted": {
+      "value": 0.061
+    },
+    "n_bootstrap": 10000
+  },
+  "threeway": {
+    "pairwise_kappa": {
+      "rulebased_vs_gpt": 0.165,
+      "rulebased_vs_claude": 0.186,
+      "gpt_vs_claude": 0.644
+    },
+    "distribution": {
+      "rule_based": {
+        "A": 174,
+        "B": 20,
+        "C": 6
+      },
+      "gpt": {
+        "A": 85,
+        "B": 41,
+        "C": 74
+      },
+      "claude": {
+        "A": 105,
+        "B": 54,
+        "C": 41
+      }
+    },
+    "unanimous": 91,
+    "claude_on_gpt_lifts": {
+      "n_lifts": 67,
+      "verdict": {
+        "A": 20,
+        "B": 10,
+        "C": 37
+      }
+    },
+    "claude_evidence_by_level": {
+      "A": {
+        "n": 105,
+        "evidence_pct": 4.8
+      },
+      "B": {
+        "n": 54,
+        "evidence_pct": 9.3
+      },
+      "C": {
+        "n": 41,
+        "evidence_pct": 9.8
+      }
+    }
+  },
+  "consensus": {
+    "distribution": {
+      "A": 109,
+      "B": 49,
+      "C": 42
+    },
+    "non_surface_pct": 45.5,
+    "vote_patterns": {
+      "unanimous": 91,
+      "majority_2_1": 98,
+      "split_1_1_1": 11
+    },
+    "method_agreement": {
+      "rule_based": 63.0,
+      "gpt": 82.0,
+      "claude": 95.0
+    },
+    "evidence_gradient": {
+      "A": {
+        "n": 109,
+        "evidence_pct": 3.7
+      },
+      "B": {
+        "n": 49,
+        "evidence_pct": 12.2
+      },
+      "C": {
+        "n": 42,
+        "evidence_pct": 9.5
+      }
+    },
+    "evidence_gradient_monotonic": false,
+    "chi_square_3level": {
+      "chi2": 4.338,
+      "dof": 2,
+      "p": 0.1143
+    },
+    "surface_vs_nonsurface": {
+      "surface_pct": 3.7,
+      "nonsurface_pct": 11.0,
+      "odds_ratio": 3.24,
+      "fisher_p": 0.0533,
+      "chi2_p": 0.0815
+    }
+  },
+  "reproducibility": {
+    "n": 200,
+    "identical": 191,
+    "identical_pct": 95.5,
+    "changed": 9,
+    "kappa": 0.93
+  }
+}

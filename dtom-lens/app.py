@@ -115,7 +115,7 @@ SAMPLE_DIR = os.path.join(DATA_DIR, 'sample_transcripts')
 def load_precomputed():
     """Load all precomputed analysis results."""
     results = {}
-    for name in ['talkmoves_results', 'ncte_results', 'llm_agreement']:
+    for name in ['talkmoves_results', 'ncte_results', 'llm_agreement', 'llm_convergence']:
         path = os.path.join(PRECOMPUTED_DIR, f'{name}.json')
         if os.path.exists(path):
             with open(path, 'r') as f:
@@ -1106,26 +1106,126 @@ def _render_within_category_precomputed(s2, precomputed):
             for ex in examples.get(level, []):
                 st.markdown(f'- "{ex}"')
 
-    # LLM agreement stats
-    llm = precomputed.get('llm_agreement', {})
-    if llm:
-        st.markdown("---")
-        st.markdown("##### Convergent Validity (LLM)")
-        agr = llm.get('agreement', {})
-        llm_cols = st.columns(3)
-        llm_cols[0].metric("Cohen's κ", f"{agr.get('cohens_kappa', 0):.3f}")
-        llm_cols[1].metric("Agreement", f"{agr.get('agreement', 0)*100:.0f}%")
-        llm_cols[2].metric("Model", llm.get('model', 'N/A'))
+    # LLM convergent validity — prefer the richer triple-convergence payload,
+    # fall back to the legacy single-classifier llm_agreement.json.
+    conv = precomputed.get('llm_convergence')
+    if conv:
+        _render_llm_convergence(conv)
+    else:
+        llm = precomputed.get('llm_agreement', {})
+        if llm:
+            st.markdown("---")
+            st.markdown("##### Convergent Validity (LLM)")
+            agr = llm.get('agreement', {})
+            llm_cols = st.columns(3)
+            llm_cols[0].metric("Cohen's κ", f"{agr.get('cohens_kappa', 0):.3f}")
+            llm_cols[1].metric("Agreement", f"{agr.get('agreement', 0)*100:.0f}%")
+            llm_cols[2].metric("Model", llm.get('model', 'N/A'))
 
-        rb_dist = agr.get('distribution', {}).get('rule_based', {})
-        llm_dist = agr.get('distribution', {}).get('llm', {})
-        rb_nonsurface = (rb_dist.get('B', 0) + rb_dist.get('C', 0)) / llm.get('n_coded', 200) * 100
-        llm_nonsurface = (llm_dist.get('B', 0) + llm_dist.get('C', 0)) / llm.get('n_coded', 200) * 100
+            rb_dist = agr.get('distribution', {}).get('rule_based', {})
+            llm_dist = agr.get('distribution', {}).get('llm', {})
+            rb_nonsurface = (rb_dist.get('B', 0) + rb_dist.get('C', 0)) / llm.get('n_coded', 200) * 100
+            llm_nonsurface = (llm_dist.get('B', 0) + llm_dist.get('C', 0)) / llm.get('n_coded', 200) * 100
+            st.caption(
+                f"LLM finds {llm_nonsurface:.0f}% non-surface "
+                f"(vs {rb_nonsurface:.0f}% rule-based) — "
+                f"LLM sees *more* hidden depth, confirming that "
+                f"rule-based estimates are conservative."
+            )
+
+
+def _render_llm_convergence(conv):
+    """Render the triple-convergence Study 3 results (rule-based / GPT-4o / Claude)."""
+    n = conv.get('n', 200)
+    models = conv.get('models', {})
+    st.markdown("---")
+    st.markdown("##### Convergent Validity — Triple Convergence")
+    st.caption(
+        f"Three independent classifiers on the same {n} *Press for Accuracy* "
+        f"utterances: rule-based patterns, {models.get('gpt', 'GPT-4o')} "
+        f"(context-aware), and {models.get('claude', 'Claude')} (independent vendor)."
+    )
+
+    tw = conv.get('threeway', {})
+    pk = tw.get('pairwise_kappa', {})
+    dist = tw.get('distribution', {})
+
+    # Distribution: non-surface (B+C) by method
+    def nonsurf(col):
+        d = dist.get(col, {})
+        tot = sum(d.values()) or n
+        return (d.get('B', 0) + d.get('C', 0)) / tot * 100
+
+    bar_cols = ['rule_based', 'gpt', 'claude']
+    bar_names = ['Rule-based', models.get('gpt', 'GPT-4o'), models.get('claude', 'Claude')]
+    bar_vals = [nonsurf(c) for c in bar_cols]
+    cons = conv.get('consensus', {})
+    cons_ns = cons.get('non_surface_pct')
+    if cons_ns is not None:
+        bar_names.append('Consensus')
+        bar_vals.append(cons_ns)
+
+    dist_col, kappa_col = st.columns([1.1, 1])
+    with dist_col:
+        st.markdown("###### Non-surface depth detected")
+        fig = _make_level_bar_chart(
+            values=[round(v, 1) for v in bar_vals],
+            labels=bar_names,
+            legend_names=bar_names,
+            colors=['#95a5a6', '#e74c3c', '#9b59b6', '#2ecc71'][:len(bar_vals)],
+            y_title="% non-surface (B+C)",
+            text_values=[f"{v:.0f}%" for v in bar_vals],
+            y_range=(0, max(bar_vals) * 1.25),
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    with kappa_col:
+        st.markdown("###### Pairwise agreement (Cohen's κ)")
+        st.metric(
+            f"{models.get('gpt', 'GPT-4o')} ↔ {models.get('claude', 'Claude')}",
+            f"{pk.get('gpt_vs_claude', 0):.3f}",
+            help="Substantial agreement between the two LLMs.",
+        )
+        kc = st.columns(2)
+        kc[0].metric("Rule ↔ GPT-4o", f"{pk.get('rulebased_vs_gpt', 0):.3f}")
+        kc[1].metric("Rule ↔ Claude", f"{pk.get('rulebased_vs_claude', 0):.3f}")
         st.caption(
-            f"LLM finds {llm_nonsurface:.0f}% non-surface "
-            f"(vs {rb_nonsurface:.0f}% rule-based) — "
-            f"LLM sees *more* hidden depth, confirming that "
-            f"rule-based estimates are conservative."
+            "The two LLMs agree **substantially with each other** but only "
+            "**slightly with the rule-based patterns** — the divergence is a "
+            "method difference (patterns vs. context), not model quirk. The "
+            "rule-based estimate is a conservative lower bound."
+        )
+
+    # Consensus + reproducibility + lift adjudication
+    sc = cons.get('surface_vs_nonsurface', {})
+    repro = conv.get('reproducibility', {})
+    lifts = tw.get('claude_on_gpt_lifts', {})
+    m1, m2, m3 = st.columns(3)
+    if cons_ns is not None:
+        m1.metric("Consensus non-surface", f"{cons_ns:.0f}%",
+                  help=f"Majority vote of the three classifiers (n={n}).")
+    if sc:
+        m2.metric(
+            "Evidence: non-surface vs surface",
+            f"{sc.get('nonsurface_pct', 0):.1f}% vs {sc.get('surface_pct', 0):.1f}%",
+            help=f"Odds ratio {sc.get('odds_ratio', '?')}, Fisher p={sc.get('fisher_p', '?')}. "
+                 "Consensus non-surface utterances elicit ~3× more student evidence.",
+        )
+    if repro:
+        m3.metric("GPT-4o reproducibility", f"{repro.get('identical_pct', 0):.0f}%",
+                  help=f"Identical labels across two runs (temp=0, seed=42); "
+                       f"run-to-run κ={repro.get('kappa', '?')}.")
+
+    verdict = lifts.get('verdict', {})
+    if verdict:
+        nl = lifts.get('n_lifts', 0)
+        st.caption(
+            f"**Adjudicating GPT-4o's {nl} surface→deep re-codings:** an independent "
+            f"model ({models.get('claude', 'Claude')}) corroborated "
+            f"{verdict.get('C', 0)} as deep and {verdict.get('B', 0)} as intermediate "
+            f"({verdict.get('C', 0) + verdict.get('B', 0)}/{nl} non-surface), while "
+            f"reverting {verdict.get('A', 0)} to surface — GPT-4o over-extends the "
+            f"deepest level, but most of the added depth is genuine."
         )
 
 

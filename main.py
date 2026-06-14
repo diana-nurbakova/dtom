@@ -39,7 +39,7 @@ def main():
     )
     parser.add_argument(
         "--with-llm", action="store_true",
-        help="Also run Study 3 (LLM classifier, requires ANTHROPIC_API_KEY)",
+        help="Also run Study 3 (GPT-4o LLM classifier, requires OPENAI_API_KEY)",
     )
     parser.add_argument(
         "--study3-only", action="store_true",
@@ -73,7 +73,7 @@ def main():
 
     if (args.with_llm or args.study3_only) and not args.ncte:
         print("\n" + "=" * 70)
-        print("RUNNING STUDY 3 (LLM Classifier)")
+        print("RUNNING STUDY 3 (GPT-4o LLM Classifier)")
         print("=" * 70)
         sys.argv = [
             "dtom_llm_classifier",

@@ -1,0 +1,39 @@
+{
+  "n": 200,
+  "vote_patterns": {
+    "unanimous": 91,
+    "majority_2_1": 98,
+    "split_1_1_1": 11
+  },
+  "consensus_distribution": {
+    "A": 109,
+    "B": 49,
+    "C": 42
+  },
+  "consensus_non_surface_pct": 45.5,
+  "method_agreement_with_consensus": {
+    "rule_based": 63.0,
+    "gpt": 82.0,
+    "claude": 95.0
+  },
+  "evidence_gradient": {
+    "A": {
+      "n": 109,
+      "evidence_pct": 3.7
+    },
+    "B": {
+      "n": 49,
+      "evidence_pct": 12.2
+    },
+    "C": {
+      "n": 42,
+      "evidence_pct": 9.5
+    }
+  },
+  "evidence_gradient_monotonic": false,
+  "chi_square": {
+    "chi2": 4.338,
+    "dof": 2,
+    "p": 0.1143
+  }
+}
