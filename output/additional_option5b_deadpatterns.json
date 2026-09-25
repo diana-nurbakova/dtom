@@ -1,0 +1,112 @@
+{
+  "n_utterances": 20770,
+  "n_deep_patterns": 22,
+  "n_intermediate_patterns": 14,
+  "n_live_patterns": 29,
+  "dead_deep": [
+    "\\bwhat makes you\\b",
+    "\\bwhat tells you\\b",
+    "\\bhow does that connect\\b",
+    "\\bdo you agree\\b.*\\bwhy\\b",
+    "\\bwhy do you agree\\b",
+    "\\bcould you do it differently\\b",
+    "\\btell me more about\\b.*\\bthinking\\b"
+  ],
+  "dead_intermediate": [],
+  "deep_frequency": {
+    "\\bwhat if\\b": 114,
+    "\\bexplain\\b.*\\b(thinking|reasoning|why|how)\\b": 94,
+    "\\bwhy\\b(?!.*\\bnot\\b)": 75,
+    "\\bhow do you know\\b": 75,
+    "\\bprove\\b": 63,
+    "\\bwhat.{0,20}mean\\b.*\\bby\\b": 57,
+    "\\bconvince\\b": 29,
+    "\\bwhy\\b.*\\b(think|work|true|right|correct|happen|say|choose|pick)\\b": 10,
+    "\\bhow can you tell\\b": 9,
+    "\\bwhat would happen\\b": 9,
+    "\\bjustify\\b": 8,
+    "\\bis there another way\\b": 7,
+    "\\bdoes that work\\b": 6,
+    "\\bhow does that relate\\b": 6,
+    "\\bdoes that make sense\\b": 1,
+    "\\bwhat makes you\\b": 0,
+    "\\bwhat tells you\\b": 0,
+    "\\bhow does that connect\\b": 0,
+    "\\bdo you agree\\b.*\\bwhy\\b": 0,
+    "\\bwhy do you agree\\b": 0,
+    "\\bcould you do it differently\\b": 0,
+    "\\btell me more about\\b.*\\bthinking\\b": 0
+  },
+  "intermediate_frequency": {
+    "\\bhow.{0,15}(figure|solve|find|get|work)\\b": {
+      "matches": 430,
+      "unique_matches": 256,
+      "matches_not_preempted_by_deep": 422
+    },
+    "\\bexplain\\b": {
+      "matches": 337,
+      "unique_matches": 264,
+      "matches_not_preempted_by_deep": 234
+    },
+    "\\bwhat.{0,10}you do\\b": {
+      "matches": 283,
+      "unique_matches": 129,
+      "matches_not_preempted_by_deep": 276
+    },
+    "\\btell\\s+(me|us)\\s+what\\b": {
+      "matches": 280,
+      "unique_matches": 238,
+      "matches_not_preempted_by_deep": 271
+    },
+    "\\bhow did you\\b": {
+      "matches": 279,
+      "unique_matches": 143,
+      "matches_not_preempted_by_deep": 277
+    },
+    "\\bshow\\s+(me|us)\\b": {
+      "matches": 223,
+      "unique_matches": 184,
+      "matches_not_preempted_by_deep": 213
+    },
+    "\\bhow do you\\b": {
+      "matches": 219,
+      "unique_matches": 187,
+      "matches_not_preempted_by_deep": 140
+    },
+    "\\bcan you\\s+(show|tell|explain|describe)\\b": {
+      "matches": 198,
+      "unique_matches": 58,
+      "matches_not_preempted_by_deep": 169
+    },
+    "\\bwhat did you do\\b": {
+      "matches": 153,
+      "unique_matches": 0,
+      "matches_not_preempted_by_deep": 153
+    },
+    "\\bwhat.{0,10}(next|then)\\b": {
+      "matches": 98,
+      "unique_matches": 95,
+      "matches_not_preempted_by_deep": 97
+    },
+    "\\bwhat.{0,10}(method|strategy|approach|steps|process)\\b": {
+      "matches": 81,
+      "unique_matches": 73,
+      "matches_not_preempted_by_deep": 80
+    },
+    "\\btell\\s+(me|us)\\s+how\\b": {
+      "matches": 65,
+      "unique_matches": 46,
+      "matches_not_preempted_by_deep": 62
+    },
+    "\\bwalk.{0,10}through\\b": {
+      "matches": 34,
+      "unique_matches": 29,
+      "matches_not_preempted_by_deep": 33
+    },
+    "\\bdescribe\\b": {
+      "matches": 31,
+      "unique_matches": 29,
+      "matches_not_preempted_by_deep": 30
+    }
+  }
+}

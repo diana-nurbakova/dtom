@@ -1,0 +1,15 @@
+left_out_pattern,pattern_freq,pattern_unique_matches,pct_intermediate,evidence_pct_A,evidence_pct_B,evidence_pct_C,evidence_n_B,monotonic,degenerate,chi2,cramers_v,binary_or,binary_or_ci_low,binary_or_ci_high,delta_binary_or_pct
+\bexplain\b,337,264,8.7,7.7,24.6,29.8,1388,True,False,580.95,0.194,4.14,3.657,4.687,-9.86
+\bhow did you\b,279,143,8.9,7.7,24.8,29.8,1402,True,False,599.25,0.197,4.208,3.718,4.761,-8.38
+"\bwhat.{0,10}(next|then)\b",98,95,9.1,7.4,27.0,29.8,1446,True,False,748.49,0.221,4.796,4.248,5.414,4.42
+"\bwhat.{0,10}you do\b",283,129,9.0,7.4,27.1,29.8,1420,True,False,741.68,0.22,4.79,4.241,5.411,4.29
+"\bhow.{0,15}(figure|solve|find|get|work)\b",430,256,8.4,7.5,27.3,29.8,1353,True,False,721.93,0.217,4.769,4.217,5.394,3.83
+\btell\s+(me|us)\s+how\b,65,46,9.4,7.5,25.7,29.8,1484,True,False,681.99,0.211,4.49,3.977,5.069,-2.24
+"\bwalk.{0,10}through\b",34,29,9.4,7.4,25.7,29.8,1496,True,False,686.19,0.211,4.498,3.985,5.077,-2.07
+"\bwhat.{0,10}(method|strategy|approach|steps|process)\b",81,73,9.2,7.4,26.5,29.8,1468,True,False,723.13,0.217,4.673,4.139,5.275,1.74
+\bshow\s+(me|us)\b,223,184,8.7,7.5,26.6,29.8,1415,True,False,705.76,0.214,4.646,4.111,5.25,1.15
+\btell\s+(me|us)\s+what\b,280,238,8.5,7.5,26.9,29.8,1329,True,False,687.05,0.211,4.645,4.104,5.258,1.13
+\bhow do you\b,219,187,9.0,7.4,26.4,29.8,1452,True,False,708.89,0.215,4.627,4.098,5.226,0.74
+\bdescribe\b,31,29,9.4,7.4,26.2,29.8,1502,True,False,715.67,0.216,4.615,4.09,5.207,0.48
+\bcan you\s+(show|tell|explain|describe)\b,198,58,9.3,7.4,26.2,29.8,1485,True,False,710.78,0.215,4.608,4.083,5.201,0.33
+\bwhat did you do\b,153,0,9.6,7.4,26.0,29.8,1522,True,False,714.2,0.215,4.593,4.071,5.181,0.0

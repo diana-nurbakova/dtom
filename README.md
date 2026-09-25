@@ -91,6 +91,28 @@ uv run dtom-llm --data-dir data/TalkMoves/data --output-dir output/
 uv run dtom-ncte --data-dir data/NCTE --output-dir ncte_output/
 ```
 
+### Additional experiments (WI-IAT 2026 revision)
+
+```bash
+uv run python -m dtom.additional_experiments --option all   # or 1, 2, 3, 4, 5
+```
+
+Option 5 is the pattern-ablation sensitivity analysis of Study 2 (`specs/pattern_ablation_spec.md`):
+
+```bash
+uv run python -m dtom.additional_experiments --option 5
+```
+
+Outputs: `output/additional_option5_ablation.json`, `output/additional_option5_loo.csv`. Seed 42 throughout.
+
+Option 5b extends it to both pattern tiers (`specs/pattern_ablation_spec_v2.md`):
+
+```bash
+uv run python -m dtom.additional_experiments --option 5b
+```
+
+Outputs: `output/additional_option5b_ablation.json`, `output/additional_option5b_loo.csv`, `output/additional_option5b_deadpatterns.json`. Seed 42.
+
 ## Output
 
 ### TalkMoves (Studies 1-3)

@@ -12,9 +12,12 @@ Four supplementary analyses specified in
   Option 3  Within-category depth across all Level-1 categories
             (Press for Accuracy, Revoicing, Restating)
   Option 4  L3 depth distribution by grade level (TalkMoves Subset-1)
+  Option 5  Pattern-ablation sensitivity of Study 2
+            (`specs/pattern_ablation_spec.md`)
+  Option 5b Two-tier pattern ablation (`specs/pattern_ablation_spec_v2.md`)
 
 Options 1 & 2 reuse the Study-3 LLM output files in `output/`.
-Options 3 & 4 re-run the rule-based pipeline on the TalkMoves corpus.
+Options 3-5b re-run the rule-based pipeline on the TalkMoves corpus.
 
 Usage:
   uv run python -m dtom.additional_experiments --option all
@@ -39,6 +42,8 @@ import pandas as pd
 from scipy import stats
 
 from dtom.analysis_pipeline import (
+    DEEP_PATTERNS,
+    INTERMEDIATE_PATTERNS,
     L3_DEPTH_MAP,
     MENTAL_DEPTH_LABELS,
     classify_mentalizing_depth,
@@ -426,13 +431,569 @@ def option4_grade_level(combined: pd.DataFrame, data_dir: str, output_dir: str) 
 
 
 # ============================================================
+# OPTION 5 — Pattern-ablation sensitivity of Study 2
+# ============================================================
+
+ABLATION_SEED = 42
+RANDOM_SIZES = (5, 10, 15)
+RANDOM_DRAWS = 200
+DROP_TOPK = (1, 2, 3, 5)
+
+
+def _ablation_stat_block(labels: np.ndarray, ev: np.ndarray, linked: np.ndarray,
+                         n_deep: int) -> dict:
+    """Study-2 statistics for one labelling of the Press-for-Accuracy set.
+
+    `labels` holds 'A'/'B'/'C' per utterance, `ev` the next-student-turn
+    evidence flag and `linked` whether a student turn was found within 3 turns.
+    """
+    total = len(labels)
+    dist_n = {lv: int((labels == lv).sum()) for lv in LEVELS}
+    dist_pct = {lv: round(dist_n[lv] / total * 100, 1) for lv in LEVELS}
+
+    lab_l, ev_l = labels[linked], ev[linked]
+    evidence_n, evidence_pct, ct = {}, {}, []
+    for lv in LEVELS:
+        m = lab_l == lv
+        n, k = int(m.sum()), int(ev_l[m].sum())
+        evidence_n[lv] = n
+        evidence_pct[lv] = round(k / n * 100, 1) if n else None
+        if n:
+            ct.append([n - k, k])
+
+    monotonic = all(evidence_pct[lv] is not None for lv in LEVELS) and (
+        evidence_pct["A"] < evidence_pct["B"] < evidence_pct["C"])
+
+    chi2 = p = v = None
+    ct = np.array(ct)
+    if ct.shape[0] >= 2 and (ct.sum(axis=0) > 0).all():
+        chi2, p, _, _ = stats.chi2_contingency(ct)
+        v = float(np.sqrt(chi2 / (ct.sum() * (min(ct.shape) - 1))))
+
+    # Surface vs non-surface: odds of evidence after non-surface / after surface
+    surf = lab_l == "A"
+    a, b = int(ev_l[~surf].sum()), int((~surf).sum() - ev_l[~surf].sum())
+    c, d = int(ev_l[surf].sum()), int(surf.sum() - ev_l[surf].sum())
+    odds = ci = binary_p = None
+    if min(a, b, c, d) > 0:
+        odds = a * d / (b * c)
+        se = np.sqrt(1 / a + 1 / b + 1 / c + 1 / d)
+        ci = [round(float(np.exp(np.log(odds) - 1.96 * se)), 3),
+              round(float(np.exp(np.log(odds) + 1.96 * se)), 3)]
+        _, binary_p = stats.fisher_exact([[a, b], [c, d]])
+
+    return {
+        "n_deep_patterns": n_deep,
+        "dist_pct": dist_pct,
+        "dist_n": dist_n,
+        "evidence_pct": evidence_pct,
+        "evidence_n": evidence_n,
+        "monotonic": bool(monotonic),
+        "chi2": round(float(chi2), 2) if chi2 is not None else None,
+        "p": float(p) if p is not None else None,
+        "cramers_v": round(v, 3) if v is not None else None,
+        "binary_or": round(float(odds), 3) if odds is not None else None,
+        "binary_or_ci95": ci,
+        "binary_p": float(binary_p) if binary_p is not None else None,
+        "n_nonsurface": int((labels != "A").sum()),
+        "nonsurface_composition": {
+            "deep": round(dist_n["C"] / max(total - dist_n["A"], 1) * 100, 1),
+            "intermediate": round(dist_n["B"] / max(total - dist_n["A"], 1) * 100, 1),
+        },
+        "degenerate": bool(evidence_n["B"] < 30 or evidence_n["C"] < 30),
+    }
+
+
+def _summarise_runs(runs: list, baseline_or: float) -> dict:
+    ors = np.array([r["binary_or"] for r in runs if r["binary_or"] is not None])
+    return {
+        "n_runs": len(runs),
+        "pct_monotonic": round(float(np.mean([r["monotonic"] for r in runs]) * 100), 1),
+        "pct_binary_p_lt_001": round(float(np.mean(
+            [r["binary_p"] is not None and r["binary_p"] < 0.001 for r in runs]) * 100), 1),
+        "binary_or": {
+            "mean": round(float(ors.mean()), 3),
+            "median": round(float(np.median(ors)), 3),
+            "p2.5": round(float(np.percentile(ors, 2.5)), 3),
+            "p97.5": round(float(np.percentile(ors, 97.5)), 3),
+            "min": round(float(ors.min()), 3),
+            "max": round(float(ors.max()), 3),
+            "pct_within_30pct_of_baseline": round(float(np.mean(
+                np.abs(ors / baseline_or - 1) <= 0.30) * 100), 1),
+        },
+        "pct_deep": {
+            "median": float(np.median([r["dist_pct"]["C"] for r in runs])),
+            "min": float(min(r["dist_pct"]["C"] for r in runs)),
+            "max": float(max(r["dist_pct"]["C"] for r in runs)),
+        },
+    }
+
+
+def _ablation_setup(combined: pd.DataFrame):
+    """Precompute everything the ablations share on the Press-for-Accuracy set.
+
+    Returns (n_utt, deep_match, interm_match, run). The match matrices are
+    pattern x utterance; `run(deep_set, interm_set)` classifies under the given
+    pattern sets and returns (stat block, labels). Classification is "any deep
+    match -> C, else any intermediate match -> B, else A", identical to
+    classify_mentalizing_depth's priority order; the full-set baseline is
+    checked against the main classifier before returning.
+    """
+    subset = combined[(combined["t_move"] == "PressAccuracy")
+                      & (combined["word_count"] > 3)].copy()
+    texts = subset["Sentence"].astype(str).str.lower().str.strip().tolist()
+    n_utt = len(texts)
+
+    # Next student move within 3 turns (independent of the depth labels)
+    s_move = combined["s_move"].tolist()
+    linked = np.zeros(n_utt, dtype=bool)
+    ev = np.zeros(n_utt, dtype=bool)
+    for i, idx in enumerate(subset.index):
+        for offset in range(1, 4):
+            j = idx + offset
+            if j < len(s_move) and s_move[j] is not None:
+                linked[i] = True
+                ev[i] = s_move[j] == "ProvidingEvidence"
+                break
+
+    deep_match = np.array([[bool(re.search(p, t)) for t in texts] for p in DEEP_PATTERNS])
+    interm_match = np.array([[bool(re.search(p, t)) for t in texts]
+                             for p in INTERMEDIATE_PATTERNS])
+    deep_idx = {p: i for i, p in enumerate(DEEP_PATTERNS)}
+    interm_idx = {p: i for i, p in enumerate(INTERMEDIATE_PATTERNS)}
+    none = np.zeros(n_utt, dtype=bool)
+
+    def run(deep_set, interm_set=INTERMEDIATE_PATTERNS):
+        rows = [deep_idx[p] for p in deep_set]
+        deep_any = deep_match[rows].any(axis=0) if rows else none
+        rows = [interm_idx[p] for p in interm_set]
+        interm_any = interm_match[rows].any(axis=0) if rows else none
+        labels = np.where(deep_any, "C", np.where(interm_any, "B", "A"))
+        return _ablation_stat_block(labels, ev, linked, len(deep_set)), labels
+
+    reference = subset["Sentence"].apply(classify_mentalizing_depth).to_numpy()
+    assert (run(DEEP_PATTERNS)[1] == reference).all(), \
+        "vectorised baseline != main classifier"
+    return n_utt, deep_match, interm_match, run
+
+
+def option5_pattern_ablation(combined: pd.DataFrame, output_dir: str) -> dict:
+    """Re-run Study 2 on Press for Accuracy under reduced deep-pattern sets:
+    split-half, leave-one-out, drop-top-k and random subsets."""
+    print("\n" + "=" * 70)
+    print("OPTION 5: Pattern-Ablation Sensitivity (Study 2)")
+    print("=" * 70)
+
+    n_utt, deep_match, _, run = _ablation_setup(combined)
+    pat_idx = {p: i for i, p in enumerate(DEEP_PATTERNS)}
+    baseline = run(DEEP_PATTERNS)[0]
+
+    n_deep = len(DEEP_PATTERNS)
+    print(f"\nPress for Accuracy (>3 words): N={n_utt:,}  "
+          f"deep patterns={n_deep}  intermediate patterns={len(INTERMEDIATE_PATTERNS)}")
+
+    # Frequency = independent match count in this set; ties keep list order
+    freq = {p: int(deep_match[pat_idx[p]].sum()) for p in DEEP_PATTERNS}
+    ranked = sorted(DEEP_PATTERNS, key=lambda p: -freq[p])
+    # Utterances whose *only* deep match is this pattern
+    unique = {p: int((deep_match[pat_idx[p]] & (deep_match.sum(axis=0) == 1)).sum())
+              for p in DEEP_PATTERNS}
+
+    def line(name, r):
+        e = r["evidence_pct"]
+        ci = r["binary_or_ci95"] or [None, None]
+        print(f"  {name:<24}{r['n_deep_patterns']:>3}  deep={r['dist_pct']['C']:>4}%  "
+              f"ev {e['A']}->{e['B']}->{e['C']}  mono={'Y' if r['monotonic'] else 'N'}  "
+              f"chi2={r['chi2']}  V={r['cramers_v']}  "
+              f"OR={r['binary_or']} [{ci[0]}, {ci[1]}]")
+
+    print("\nBaseline")
+    line("all patterns", baseline)
+    base_or = baseline["binary_or"]
+
+    # A. Split-half, frequency-balanced alternating assignment
+    D1, D2 = ranked[0::2], ranked[1::2]
+    split = {"D1": run(D1)[0], "D2": run(D2)[0], "D1_patterns": D1, "D2_patterns": D2,
+             "D1_coverage": int(deep_match[[pat_idx[p] for p in D1]].any(axis=0).sum()),
+             "D2_coverage": int(deep_match[[pat_idx[p] for p in D2]].any(axis=0).sum())}
+    print("\nA. Split-half")
+    line("D1", split["D1"])
+    line("D2", split["D2"])
+
+    # B. Leave-one-out
+    loo = {}
+    for p in DEEP_PATTERNS:
+        r = run([q for q in DEEP_PATTERNS if q != p])[0]
+        r["delta_binary_or_pct"] = round((r["binary_or"] / base_or - 1) * 100, 2)
+        r["pattern_freq"] = freq[p]
+        r["pattern_unique_matches"] = unique[p]
+        loo[p] = r
+    loo_summary = {"n_runs": len(loo), "pct_monotonic": round(
+        float(np.mean([r["monotonic"] for r in loo.values()]) * 100), 1)}
+    for key, get in [
+        ("binary_or", lambda r: r["binary_or"]),
+        ("chi2", lambda r: r["chi2"]),
+        ("cramers_v", lambda r: r["cramers_v"]),
+        ("pct_deep", lambda r: r["dist_pct"]["C"]),
+        ("evidence_pct_A", lambda r: r["evidence_pct"]["A"]),
+        ("evidence_pct_B", lambda r: r["evidence_pct"]["B"]),
+        ("evidence_pct_C", lambda r: r["evidence_pct"]["C"]),
+    ]:
+        vals = {p: get(r) for p, r in loo.items()}
+        base_val = get(baseline)
+        most = max(vals, key=lambda p: abs(vals[p] - base_val))
+        loo_summary[key] = {"min": min(vals.values()), "max": max(vals.values()),
+                            "baseline": base_val, "most_influential_pattern": most,
+                            "value_without_it": vals[most]}
+    print("\nB. Leave-one-out")
+    for key in ("binary_or", "cramers_v", "evidence_pct_C"):
+        s = loo_summary[key]
+        print(f"  {key:<16} range [{s['min']}, {s['max']}]  baseline {s['baseline']}  "
+              f"most influential: {s['most_influential_pattern']!r} -> {s['value_without_it']}")
+    print(f"  monotonic in {loo_summary['pct_monotonic']}% of runs")
+
+    # C. Drop top-k most frequent
+    drop = {}
+    print("\nC. Drop top-k most frequent")
+    for k in DROP_TOPK:
+        r = run(ranked[k:])[0]
+        r["dropped_patterns"] = ranked[:k]
+        drop[str(k)] = r
+        line(f"drop top-{k}", r)
+
+    # D. Random subsets
+    rng = np.random.default_rng(ABLATION_SEED)
+    random_runs, random_summary = {}, {}
+    print(f"\nD. Random subsets (B={RANDOM_DRAWS}, seed={ABLATION_SEED})")
+    for m in RANDOM_SIZES:
+        runs = []
+        for _ in range(RANDOM_DRAWS):
+            draw = [str(p) for p in rng.choice(DEEP_PATTERNS, m, replace=False)]
+            r = run(draw)[0]
+            r["patterns"] = draw
+            runs.append(r)
+        random_runs[str(m)] = runs
+        random_summary[str(m)] = s = _summarise_runs(runs, base_or)
+        print(f"  m={m:<3} monotonic {s['pct_monotonic']}%  "
+              f"OR median {s['binary_or']['median']} "
+              f"[{s['binary_or']['p2.5']}, {s['binary_or']['p97.5']}]  "
+              f"within +/-30% of baseline {s['binary_or']['pct_within_30pct_of_baseline']}%  "
+              f"p<.001 {s['pct_binary_p_lt_001']}%")
+
+    results = {
+        "n_utterances": n_utt,
+        "n_deep_patterns": n_deep,
+        "n_intermediate_patterns": len(INTERMEDIATE_PATTERNS),
+        "seed": ABLATION_SEED,
+        "deep_pattern_frequency": {p: {"matches": freq[p], "unique_matches": unique[p]}
+                                   for p in ranked},
+        "baseline": baseline,
+        "split_half": split,
+        "loo": loo,
+        "loo_summary": loo_summary,
+        "drop_topk": drop,
+        "random_summary": random_summary,
+        "random": random_runs,
+    }
+
+    out = os.path.join(output_dir, "additional_option5_ablation.json")
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2)
+    print(f"\nSaved: {out}")
+
+    loo_df = pd.DataFrame([{
+        "left_out_pattern": p,
+        "pattern_freq": r["pattern_freq"],
+        "pattern_unique_matches": r["pattern_unique_matches"],
+        "pct_deep": r["dist_pct"]["C"],
+        "evidence_pct_A": r["evidence_pct"]["A"],
+        "evidence_pct_B": r["evidence_pct"]["B"],
+        "evidence_pct_C": r["evidence_pct"]["C"],
+        "evidence_n_C": r["evidence_n"]["C"],
+        "monotonic": r["monotonic"],
+        "chi2": r["chi2"],
+        "cramers_v": r["cramers_v"],
+        "binary_or": r["binary_or"],
+        "binary_or_ci_low": r["binary_or_ci95"][0],
+        "binary_or_ci_high": r["binary_or_ci95"][1],
+        "delta_binary_or_pct": r["delta_binary_or_pct"],
+    } for p, r in loo.items()])
+    loo_df = loo_df.reindex(loo_df["delta_binary_or_pct"].abs()
+                            .sort_values(ascending=False).index)
+    out_csv = os.path.join(output_dir, "additional_option5_loo.csv")
+    loo_df.to_csv(out_csv, index=False)
+    print(f"Saved: {out_csv}")
+    return results
+
+
+# ============================================================
+# OPTION 5b — Pattern ablation over both tiers (spec v2)
+# ============================================================
+
+INTERM_RANDOM_SIZES = (4, 7, 10)
+BASELINE_OR = (4.593, [4.071, 5.181])   # v1 baseline, must reproduce exactly
+
+
+def _split_half(patterns: list, freq: dict):
+    """Frequency-balanced alternating split; ties keep list order."""
+    ranked = sorted(patterns, key=lambda p: -freq[p])
+    return ranked, ranked[0::2], ranked[1::2]
+
+
+def option5b_two_tier_ablation(combined: pd.DataFrame, output_dir: str) -> dict:
+    """Spec v2: ablate the intermediate tier (E), split all 36 patterns into
+    two complete two-tier classifiers (F, primary), and remove each tier
+    entirely (G)."""
+    print("\n" + "=" * 70)
+    print("OPTION 5b: Two-Tier Pattern Ablation (Study 2, spec v2)")
+    print("=" * 70)
+
+    n_utt, deep_match, interm_match, run = _ablation_setup(combined)
+    D, I = DEEP_PATTERNS, INTERMEDIATE_PATTERNS
+
+    # --- Prerequisites: counts, frequencies, dead patterns
+    deep_freq = {p: int(deep_match[i].sum()) for i, p in enumerate(D)}
+    interm_freq = {p: int(interm_match[i].sum()) for i, p in enumerate(I)}
+    interm_unique = {p: int((interm_match[i] & (interm_match.sum(axis=0) == 1)).sum())
+                     for i, p in enumerate(I)}
+    # B-level coverage: intermediate matches not pre-empted by a deep match
+    deep_any = deep_match.any(axis=0)
+    interm_effective = {p: int((interm_match[i] & ~deep_any).sum()) for i, p in enumerate(I)}
+    dead = {"deep": [p for p in D if deep_freq[p] == 0],
+            "intermediate": [p for p in I if interm_freq[p] == 0]}
+    n_live = len(D) + len(I) - len(dead["deep"]) - len(dead["intermediate"])
+
+    print(f"\nPress for Accuracy (>3 words): N={n_utt:,}")
+    print(f"Pattern counts from analysis_pipeline: deep={len(D)}, intermediate={len(I)}, "
+          f"total={len(D) + len(I)}, live={n_live}")
+    print(f"Dead deep ({len(dead['deep'])}): {dead['deep']}")
+    print(f"Dead intermediate ({len(dead['intermediate'])}): {dead['intermediate']}")
+    print("\nIntermediate frequency (matches / unique / not pre-empted by deep):")
+    for p in sorted(I, key=lambda p: -interm_freq[p]):
+        print(f"  {interm_freq[p]:>5} {interm_unique[p]:>5} {interm_effective[p]:>5}  {p}")
+
+    dead_out = {
+        "n_utterances": n_utt,
+        "n_deep_patterns": len(D),
+        "n_intermediate_patterns": len(I),
+        "n_live_patterns": n_live,
+        "dead_deep": dead["deep"],
+        "dead_intermediate": dead["intermediate"],
+        "deep_frequency": dict(sorted(deep_freq.items(), key=lambda kv: -kv[1])),
+        "intermediate_frequency": {
+            p: {"matches": interm_freq[p], "unique_matches": interm_unique[p],
+                "matches_not_preempted_by_deep": interm_effective[p]}
+            for p in sorted(I, key=lambda p: -interm_freq[p])},
+    }
+    out = os.path.join(output_dir, "additional_option5b_deadpatterns.json")
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(dead_out, f, indent=2)
+    print(f"Saved: {out}")
+
+    def go(deep_set, interm_set, **extra):
+        r = run(deep_set, interm_set)[0]
+        r["n_interm_patterns"] = len(interm_set)
+        r.update(extra)
+        return r
+
+    def line(name, r):
+        e = r["evidence_pct"]
+        ci = r["binary_or_ci95"] or [None, None]
+        print(f"  {name:<18}D={r['n_deep_patterns']:>2} I={r['n_interm_patterns']:>2}  "
+              f"A/B/C={r['dist_pct']['A']}/{r['dist_pct']['B']}/{r['dist_pct']['C']}%  "
+              f"ev {e['A']}->{e['B']}->{e['C']}  mono={'Y' if r['monotonic'] else 'N'}  "
+              f"OR={r['binary_or']} [{ci[0]}, {ci[1]}]  p={r['binary_p']:.1e}"
+              f"{'  DEGENERATE' if r['degenerate'] else ''}")
+
+    # --- Baseline, must reproduce v1 exactly
+    baseline = go(D, I)
+    print("\nBaseline")
+    line("all 36", baseline)
+    if (baseline["binary_or"], baseline["binary_or_ci95"]) != BASELINE_OR:
+        raise RuntimeError(f"Baseline OR {baseline['binary_or']} {baseline['binary_or_ci95']} "
+                           f"!= v1 {BASELINE_OR}; reconcile before interpreting.")
+    base_or = baseline["binary_or"]
+
+    def delta(r):
+        return round((r["binary_or"] / base_or - 1) * 100, 2)
+
+    deep_ranked, D1, D2 = _split_half(D, deep_freq)
+    interm_ranked, I1, I2 = _split_half(I, interm_freq)
+
+    # --- F. Combined-set split-half (primary)
+    F = {"P1": go(D1, I1), "P2": go(D2, I2),
+         "P1_patterns": {"deep": D1, "intermediate": I1},
+         "P2_patterns": {"deep": D2, "intermediate": I2}}
+    for k in ("P1", "P2"):
+        F[k]["delta_binary_or_pct"] = delta(F[k])
+    print("\nF. Combined-set split-half (primary)")
+    line("P1", F["P1"])
+    line("P2", F["P2"])
+
+    # --- E1. Intermediate split-half
+    E1 = {"I1": go(D, I1), "I2": go(D, I2), "I1_patterns": I1, "I2_patterns": I2}
+    for k in ("I1", "I2"):
+        E1[k]["delta_binary_or_pct"] = delta(E1[k])
+    print("\nE1. Intermediate split-half (deep = all 22)")
+    line("I1", E1["I1"])
+    line("I2", E1["I2"])
+
+    # --- E2. Intermediate leave-one-out
+    E2 = {}
+    for p in I:
+        r = go(D, [q for q in I if q != p], pattern_freq=interm_freq[p],
+               pattern_unique_matches=interm_unique[p])
+        r["delta_binary_or_pct"] = delta(r)
+        E2[p] = r
+    valid = {p: r for p, r in E2.items() if not r["degenerate"]}
+    most = max(valid, key=lambda p: abs(valid[p]["delta_binary_or_pct"]))
+    E2_summary = {
+        "n_runs": len(E2),
+        "n_degenerate_excluded": len(E2) - len(valid),
+        "binary_or_min": min(r["binary_or"] for r in valid.values()),
+        "binary_or_max": max(r["binary_or"] for r in valid.values()),
+        "evidence_pct_B_min": min(r["evidence_pct"]["B"] for r in valid.values()),
+        "evidence_pct_B_max": max(r["evidence_pct"]["B"] for r in valid.values()),
+        "pct_monotonic": round(float(np.mean([r["monotonic"] for r in valid.values()])
+                                     * 100), 1),
+        "most_influential_pattern": most,
+        "max_abs_delta_binary_or_pct": abs(valid[most]["delta_binary_or_pct"]),
+        "binary_or_without_it": valid[most]["binary_or"],
+    }
+    print("\nE2. Intermediate leave-one-out")
+    print(f"  OR range [{E2_summary['binary_or_min']}, {E2_summary['binary_or_max']}]  "
+          f"B evidence range [{E2_summary['evidence_pct_B_min']}, "
+          f"{E2_summary['evidence_pct_B_max']}]  monotonic {E2_summary['pct_monotonic']}%  "
+          f"degenerate excluded {E2_summary['n_degenerate_excluded']}")
+    print(f"  most influential: {most!r}  OR -> {E2_summary['binary_or_without_it']} "
+          f"({valid[most]['delta_binary_or_pct']:+}%)")
+
+    # --- E3. Drop top-k most frequent intermediate
+    E3 = {}
+    print("\nE3. Drop top-k most frequent intermediate")
+    for k in DROP_TOPK:
+        r = go(D, interm_ranked[k:], dropped_patterns=interm_ranked[:k])
+        r["delta_binary_or_pct"] = delta(r)
+        E3[str(k)] = r
+        line(f"drop top-{k}", r)
+
+    # --- E4. Random intermediate subsets
+    rng = np.random.default_rng(ABLATION_SEED)
+    E4_runs, E4_summary = {}, {}
+    print(f"\nE4. Random intermediate subsets (B={RANDOM_DRAWS}, seed={ABLATION_SEED})")
+    for m in INTERM_RANDOM_SIZES:
+        runs = []
+        for _ in range(RANDOM_DRAWS):
+            draw = [str(p) for p in rng.choice(I, m, replace=False)]
+            runs.append(go(D, draw, patterns=draw))
+        valid_runs = [r for r in runs if not r["degenerate"]]
+        E4_runs[str(m)] = runs
+        E4_summary[str(m)] = s = _summarise_runs(valid_runs, base_or)
+        s["n_degenerate_excluded"] = len(runs) - len(valid_runs)
+        s["pct_binary_or_gt_1"] = round(float(np.mean(
+            [r["binary_or"] > 1 for r in valid_runs]) * 100), 1)
+        print(f"  m={m:<3} OR median {s['binary_or']['median']} "
+              f"[{s['binary_or']['p2.5']}, {s['binary_or']['p97.5']}]  "
+              f"range [{s['binary_or']['min']}, {s['binary_or']['max']}]  "
+              f"within +/-30% {s['binary_or']['pct_within_30pct_of_baseline']}%  "
+              f"p<.001 {s['pct_binary_p_lt_001']}%  monotonic {s['pct_monotonic']}%  "
+              f"degenerate excluded {s['n_degenerate_excluded']}")
+
+    # --- G. Tier-removal anchors. An empty level is expected by construction,
+    # so degeneracy is judged on the tier that remains.
+    G1 = go([], I)
+    G1["degenerate"] = G1["evidence_n"]["B"] < 30
+    G2 = go(D, [])
+    G2["degenerate"] = G2["evidence_n"]["C"] < 30
+    G = {"G1_no_deep": G1, "G2_no_intermediate": G2}
+    for r in G.values():
+        r["delta_binary_or_pct"] = delta(r)
+    print("\nG. Tier-removal anchors")
+    line("G1 no deep", G1)
+    line("G2 no interm", G2)
+
+    # --- Pre-registered verdict (spec v2 §5)
+    halves = [F["P1"], F["P2"]]
+    halves_ok = [not r["degenerate"] for r in halves]
+    within = all(abs(r["delta_binary_or_pct"]) <= 30 for r in halves)
+    signif = all(r["binary_p"] < 0.001 for r in halves)
+    same_sign = all(r["binary_or"] > 1 for r in halves)
+    e2_ok = E2_summary["max_abs_delta_binary_or_pct"] <= 15
+    if not all(halves_ok):
+        verdict = "undetermined (degenerate split-half)"
+    elif within and signif and e2_ok:
+        verdict = "robust"
+    elif signif and same_sign:
+        verdict = "partly robust"
+    else:
+        verdict = "fragile"
+    criteria = {
+        "F_halves_non_degenerate": all(halves_ok),
+        "F_both_within_30pct": within,
+        "F_both_p_lt_001": signif,
+        "F_both_or_gt_1": same_sign,
+        "E2_max_shift_le_15pct": e2_ok,
+    }
+    print(f"\nPre-registered verdict: {verdict.upper()}")
+    for k, v in criteria.items():
+        print(f"  {k:<26}{v}")
+
+    results = {
+        "spec": "specs/pattern_ablation_spec_v2.md",
+        "n_utterances": n_utt,
+        "seed": ABLATION_SEED,
+        "verdict": verdict,
+        "verdict_criteria": criteria,
+        "patterns": dead_out,
+        "baseline": baseline,
+        "F_combined_split_half": F,
+        "E1_interm_split_half": E1,
+        "E2_interm_loo": E2,
+        "E2_summary": E2_summary,
+        "E3_interm_drop_topk": E3,
+        "E4_summary": E4_summary,
+        "E4_random": E4_runs,
+        "G_tier_removal": G,
+    }
+    out = os.path.join(output_dir, "additional_option5b_ablation.json")
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2)
+    print(f"\nSaved: {out}")
+
+    loo_df = pd.DataFrame([{
+        "left_out_pattern": p,
+        "pattern_freq": r["pattern_freq"],
+        "pattern_unique_matches": r["pattern_unique_matches"],
+        "pct_intermediate": r["dist_pct"]["B"],
+        "evidence_pct_A": r["evidence_pct"]["A"],
+        "evidence_pct_B": r["evidence_pct"]["B"],
+        "evidence_pct_C": r["evidence_pct"]["C"],
+        "evidence_n_B": r["evidence_n"]["B"],
+        "monotonic": r["monotonic"],
+        "degenerate": r["degenerate"],
+        "chi2": r["chi2"],
+        "cramers_v": r["cramers_v"],
+        "binary_or": r["binary_or"],
+        "binary_or_ci_low": r["binary_or_ci95"][0],
+        "binary_or_ci_high": r["binary_or_ci95"][1],
+        "delta_binary_or_pct": r["delta_binary_or_pct"],
+    } for p, r in E2.items()])
+    loo_df = loo_df.reindex(loo_df["delta_binary_or_pct"].abs()
+                            .sort_values(ascending=False).index)
+    out_csv = os.path.join(output_dir, "additional_option5b_loo.csv")
+    loo_df.to_csv(out_csv, index=False)
+    print(f"Saved: {out_csv}")
+    return results
+
+
+# ============================================================
 # MAIN
 # ============================================================
 
 def main():
     parser = argparse.ArgumentParser(description="DToM additional experiments")
     parser.add_argument("--option", default="all",
-                        choices=["all", "1", "2", "2-extract", "2-summarize", "3", "4"])
+                        choices=["all", "1", "2", "2-extract", "2-summarize", "3", "4", "5", "5b"])
     parser.add_argument("--data-dir", default="data/TalkMoves/data")
     parser.add_argument("--output-dir", default="output")
     parser.add_argument("--coding-path", default="output/additional_option2_coding.json",
@@ -440,7 +1001,7 @@ def main():
     args = parser.parse_args()
     os.makedirs(args.output_dir, exist_ok=True)
 
-    need_corpus = args.option in ("all", "3", "4")
+    need_corpus = args.option in ("all", "3", "4", "5", "5b")
     combined = load_transcripts(args.data_dir) if need_corpus else None
 
     if args.option in ("all", "1"):
@@ -457,6 +1018,10 @@ def main():
         option3_within_category(combined, args.output_dir)
     if args.option in ("all", "4"):
         option4_grade_level(combined, args.data_dir, args.output_dir)
+    if args.option in ("all", "5"):
+        option5_pattern_ablation(combined, args.output_dir)
+    if args.option in ("all", "5b"):
+        option5b_two_tier_ablation(combined, args.output_dir)
 
     print("\nDone.")
 
