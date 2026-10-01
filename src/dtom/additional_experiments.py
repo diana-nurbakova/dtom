@@ -15,9 +15,12 @@ Four supplementary analyses specified in
   Option 5  Pattern-ablation sensitivity of Study 2
             (`specs/pattern_ablation_spec.md`)
   Option 5b Two-tier pattern ablation (`specs/pattern_ablation_spec_v2.md`)
+  Option 6  Matched transcript-level effect size, 2 x 2 IV x DV on TalkMoves
+            (`specs/matched_effect_size_spec.md`)
 
 Options 1 & 2 reuse the Study-3 LLM output files in `output/`.
-Options 3-5b re-run the rule-based pipeline on the TalkMoves corpus.
+Options 3-6 re-run the rule-based pipeline on the TalkMoves corpus
+(option 6 also reads the NCTE utterances for its reference values).
 
 Usage:
   uv run python -m dtom.additional_experiments --option all
@@ -987,21 +990,312 @@ def option5b_two_tier_ablation(combined: pd.DataFrame, output_dir: str) -> dict:
 
 
 # ============================================================
+# OPTION 6 — Matched transcript-level effect size (2 x 2 on TalkMoves)
+# ============================================================
+
+# Shared measurement config (specs/matched_effect_size_spec.md §3), read by
+# every cell and by the NCTE reference — never re-declared per cell.
+#
+# Depth encoding: both pipelines already use {0, 1, 2}. The category mapping
+# via L3_DEPTH_MAP (0 none / 1 surface / 2 deep), the pattern classifier via
+# A/B/C -> 0/1/2 (as in ncte_replication.study_r2_sequential). The {0, .5, 1}
+# hypothesis in the spec came from reading DV rates (0.105/0.078) as depths.
+DEPTH_ENCODING = {"A": 0, "B": 1, "C": 2}
+DEPTH_ENCODING_DESC = ("{0,1,2}: category mapping None/Context/KeepingTogether/Marking=0, "
+                       "Restating/Revoicing/PressAccuracy=1, PressReasoning/GettingStudentsRelate=2; "
+                       "pattern classifier A=0, B=1, C=2")
+MIN_TEACHER_UTT = 20
+MIN_STUDENT_UTT = 10
+MIN_UTTERANCE_RULE = (f">={MIN_TEACHER_UTT} teacher and >={MIN_STUDENT_UTT} student utterances "
+                      f"per transcript, any length (counted before the >3-word classifier filter)")
+CLASSIFIER_MIN_WORDS = 3     # classifier scores teacher utterances with > 3 words
+ELABORATE_MIN_WORDS = 10
+BOOT_B = 10_000
+BOOT_SEED = 42
+STUDY1_GATE = {"n_transcripts": 536, "cohens_d": 0.468, "t_stat": 5.42,
+               "high_mean": 0.193, "low_mean": 0.129}
+NCTE_PUBLISHED = {"n_transcripts": 1654, "cohens_d": 0.433}
+MATCHED_BAND = (0.35, 0.55)
+
+MATCHED_CELLS = OrderedDict([
+    ("A", ("category_mapping", "evidence_tag")),     # reproduce 0.468
+    ("B", ("category_mapping", "elaborate_10w")),    # DV effect
+    ("C", ("pattern_classifier", "evidence_tag")),   # IV effect
+    ("D", ("pattern_classifier", "elaborate_10w")),  # matched to NCTE
+])
+
+
+def _turn_elaboration_rate(student: pd.DataFrame) -> pd.Series:
+    """>=10-word rate over student *turns*: consecutive student rows sharing a
+    `Turn` value are merged, matching NCTE where one row is one speaker turn.
+    Rows with a missing `Turn` stay single-sentence turns."""
+    st = student.reindex(columns=["transcript_id", "Turn", "word_count"])
+    pos = pd.Series(st.index, index=st.index)
+    new_turn = ((st["transcript_id"] != st["transcript_id"].shift())
+                | (st["Turn"] != st["Turn"].shift())
+                | (pos.diff() != 1))
+    st["turn_key"] = new_turn.cumsum()
+    turns = st.groupby(["transcript_id", "turn_key"])["word_count"].sum()
+    return (turns >= ELABORATE_MIN_WORDS).groupby(level=0).mean()
+
+
+def _talkmoves_transcript_table(combined: pd.DataFrame) -> pd.DataFrame:
+    """One row per transcript: mean depth under each IV, rate under each DV."""
+    teacher = combined[combined["t_move"].notna()]
+    student = combined[combined["s_move"].notna()]
+    scored = teacher[teacher["word_count"] > CLASSIFIER_MIN_WORDS].copy()
+    scored["pc_depth"] = (scored["Sentence"].apply(classify_mentalizing_depth)
+                          .map(DEPTH_ENCODING))
+
+    by_t = teacher.groupby("transcript_id")
+    by_s = student.groupby("transcript_id")
+    tx = pd.DataFrame({
+        # Study 1 counts teacher utterances with a mapped L3 level
+        "n_teacher": by_t["l3_depth"].count(),
+        "n_scored": scored.groupby("transcript_id").size(),
+        "n_student": by_s.size(),
+        "category_mapping": by_t["l3_depth"].mean(),
+        "pattern_classifier": scored.groupby("transcript_id")["pc_depth"].mean(),
+        "evidence_tag": by_s["s_move"].apply(lambda s: (s == "ProvidingEvidence").mean()),
+        "elaborate_10w": by_s["word_count"].apply(lambda w: (w >= ELABORATE_MIN_WORDS).mean()),
+        "elaborate_10w_turn": _turn_elaboration_rate(student),
+    })
+    tx["n_scored"] = tx["n_scored"].fillna(0).astype(int)
+    return tx
+
+
+def _ncte_transcript_table(ncte_dir: str) -> pd.DataFrame:
+    """NCTE per-transcript table, as in ncte_replication.study_r2_sequential."""
+    su = pd.read_csv(os.path.join(ncte_dir, "ncte_single_utterances.csv"))
+    text_col = "cleaned_text" if "cleaned_text" in su.columns else "text"
+    teacher = su[su["speaker"] == "teacher"]
+    student = su[su["speaker"].isin(["student", "multiple students"])]
+    scored = teacher[teacher["num_words"] > CLASSIFIER_MIN_WORDS].copy()
+    scored["pc_depth"] = (scored[text_col].apply(classify_mentalizing_depth)
+                          .map(DEPTH_ENCODING))
+    tx = pd.DataFrame({
+        "n_teacher": teacher.groupby("OBSID").size(),
+        "n_scored": scored.groupby("OBSID").size(),
+        "n_student": student.groupby("OBSID").size(),
+        "pattern_classifier": scored.groupby("OBSID")["pc_depth"].mean(),
+        "elaborate_10w": student.groupby("OBSID")["num_words"].apply(
+            lambda w: (w >= ELABORATE_MIN_WORDS).mean()),
+    })
+    tx["n_scored"] = tx["n_scored"].fillna(0).astype(int)
+    print(f"  NCTE: {len(su):,} utterances, {len(scored):,} scored teacher utterances, "
+          f"{su['OBSID'].nunique()} transcripts")
+    return tx
+
+
+def _include(tx: pd.DataFrame, teacher_col: str = "n_teacher") -> pd.DataFrame:
+    return tx[(tx[teacher_col] >= MIN_TEACHER_UTT) & (tx["n_student"] >= MIN_STUDENT_UTT)]
+
+
+def _matched_effect(tx: pd.DataFrame, iv: str, dv: str, rule: str) -> dict:
+    """Median split on mean depth; Cohen's d (pooled SD as in Study 1 / R2d),
+    Hedges' g, Student t-test and a stratified percentile bootstrap CI."""
+    sub = tx.dropna(subset=[iv, dv])
+    med = sub[iv].median()
+    hi = sub.loc[sub[iv] >= med, dv].to_numpy(float)
+    lo = sub.loc[sub[iv] < med, dv].to_numpy(float)
+
+    def d_of(h, l, axis=None):
+        sd = np.sqrt((h.var(axis=axis, ddof=1) + l.var(axis=axis, ddof=1)) / 2)
+        return (h.mean(axis=axis) - l.mean(axis=axis)) / sd
+
+    d = float(d_of(hi, lo))
+    j = 1 - 3 / (4 * (len(hi) + len(lo)) - 9)
+    t, p = stats.ttest_ind(hi, lo)
+
+    # Resample transcripts within each half, holding the split fixed
+    rng = np.random.default_rng(BOOT_SEED)
+    bh = hi[rng.integers(0, len(hi), (BOOT_B, len(hi)))]
+    bl = lo[rng.integers(0, len(lo), (BOOT_B, len(lo)))]
+    boot = d_of(bh, bl, axis=1)
+    ci = np.percentile(boot, [2.5, 97.5])
+
+    return {
+        "iv": iv,
+        "dv": dv,
+        "n_transcripts": int(len(sub)),
+        "min_utterance_rule": rule,
+        "depth_encoding": DEPTH_ENCODING_DESC,
+        "mean_depth": round(float(sub[iv].mean()), 4),
+        "median_depth": round(float(med), 4),
+        "high_mean": round(float(hi.mean()), 3),
+        "low_mean": round(float(lo.mean()), 3),
+        "high_sd": round(float(hi.std(ddof=1)), 3),
+        "low_sd": round(float(lo.std(ddof=1)), 3),
+        "high_n": int(len(hi)),
+        "low_n": int(len(lo)),
+        "cohens_d": round(d, 3),
+        "hedges_g": round(d * j, 3),
+        "ci95": [round(float(ci[0]), 3), round(float(ci[1]), 3)],
+        "hedges_g_ci95": [round(float(ci[0] * j), 3), round(float(ci[1] * j), 3)],
+        "t_stat": round(float(t), 3),
+        "p": float(p),
+    }
+
+
+def _cell_line(name: str, r: dict) -> str:
+    return (f"  {name:<3} {r['iv']:<19} x {r['dv']:<19} N={r['n_transcripts']:<5} "
+            f"hi={r['high_mean']:.3f} lo={r['low_mean']:.3f}  d={r['cohens_d']:.3f} "
+            f"[{r['ci95'][0]:.3f}, {r['ci95'][1]:.3f}]  g={r['hedges_g']:.3f}  "
+            f"t={r['t_stat']:.2f} p={r['p']:.2e}")
+
+
+def option6_matched_effect_size(combined: pd.DataFrame, ncte_dir: str,
+                                output_dir: str) -> dict:
+    """2 x 2 (IV: category mapping | pattern classifier) x (DV: evidence tag |
+    >=10-word response) transcript-level median split on TalkMoves, to put the
+    NCTE d = 0.433 next to a like-for-like TalkMoves value (cell D)."""
+    print("\n" + "=" * 70)
+    print("OPTION 6: Matched Transcript-Level Effect Size (2 x 2)")
+    print("=" * 70)
+    print(f"  Depth encoding: {DEPTH_ENCODING_DESC}")
+    print(f"  Inclusion rule: {MIN_UTTERANCE_RULE}")
+
+    tx_all = _talkmoves_transcript_table(combined)
+    tx = _include(tx_all)
+    print(f"  TalkMoves: {len(tx_all)} transcripts, {len(tx)} meet the inclusion rule")
+
+    results = OrderedDict()
+    results["config"] = {
+        "depth_encoding": DEPTH_ENCODING_DESC,
+        "min_utterance_rule": MIN_UTTERANCE_RULE,
+        "classifier_scope": (f"all teacher utterances with >{CLASSIFIER_MIN_WORDS} words, "
+                             f"talk-move labels ignored (as on NCTE)"),
+        "elaborate_threshold_words": ELABORATE_MIN_WORDS,
+        "bootstrap": {"B": BOOT_B, "seed": BOOT_SEED,
+                      "method": "percentile; transcripts resampled within each half, split fixed"},
+        "cohens_d_pooled_sd": "sqrt((var_high + var_low) / 2), as in Study 1 and NCTE R2d",
+        "talkmoves_n_transcripts_loaded": int(len(tx_all)),
+        "talkmoves_n_transcripts_included": int(len(tx)),
+        "talkmoves_scored_teacher_utterances": int(tx_all["n_scored"].sum()),
+    }
+
+    # Validation gate: cell A must reproduce the published Study 1 numbers
+    a = _matched_effect(tx, *MATCHED_CELLS["A"], MIN_UTTERANCE_RULE)
+    observed = {"n_transcripts": a["n_transcripts"], "cohens_d": a["cohens_d"],
+                "t_stat": round(a["t_stat"], 2), "high_mean": a["high_mean"],
+                "low_mean": a["low_mean"]}
+    passed = observed == STUDY1_GATE
+    results["validation_gate"] = {"passed": passed, "expected": STUDY1_GATE,
+                                  "observed": observed}
+    print(f"\n  Validation gate (cell A vs Study 1): {'PASS' if passed else 'FAIL'}")
+    print(f"    expected {STUDY1_GATE}\n    observed {observed}")
+    if not passed:
+        out = os.path.join(output_dir, "additional_option6_matched_d.json")
+        with open(out, "w", encoding="utf-8") as f:
+            json.dump(results, f, indent=2)
+        raise SystemExit(f"Cell A does not reproduce Study 1 — reconcile before "
+                         f"interpreting B/C/D. Gate written to {out}")
+
+    print()
+    cells = OrderedDict()
+    for name, (iv, dv) in MATCHED_CELLS.items():
+        cells[name] = a if name == "A" else _matched_effect(tx, iv, dv, MIN_UTTERANCE_RULE)
+        print(_cell_line(name, cells[name]))
+    results["cells"] = cells
+
+    d = {k: cells[k]["cohens_d"] for k in cells}
+    results["decomposition"] = {
+        "A_minus_D": round(d["A"] - d["D"], 3),
+        "dv_effect_A_minus_B": round(d["A"] - d["B"], 3),
+        "iv_effect_A_minus_C": round(d["A"] - d["C"], 3),
+        "interaction_A_minus_B_minus_C_plus_D": round(d["A"] - d["B"] - d["C"] + d["D"], 3),
+        "identity": "A - D = (A - B) + (A - C) - (A - B - C + D)",
+    }
+    print(f"\n  A - D = {results['decomposition']['A_minus_D']:+.3f}  "
+          f"(DV A-B {results['decomposition']['dv_effect_A_minus_B']:+.3f}, "
+          f"IV A-C {results['decomposition']['iv_effect_A_minus_C']:+.3f}, "
+          f"interaction {results['decomposition']['interaction_A_minus_B_minus_C_plus_D']:+.3f})")
+
+    # Sensitivity: unit of the >=10-word DV and the teacher-count rule
+    sens = OrderedDict()
+    sens["D_turn_level_dv"] = _matched_effect(
+        tx, "pattern_classifier", "elaborate_10w_turn", MIN_UTTERANCE_RULE)
+    sens["D_turn_level_dv"]["note"] = ("TalkMoves rows are sentences, NCTE rows are turns; "
+                                       "consecutive student rows with the same Turn merged")
+    scored_rule = (f">={MIN_TEACHER_UTT} scored (>{CLASSIFIER_MIN_WORDS}-word) teacher and "
+                   f">={MIN_STUDENT_UTT} student utterances (original NCTE R2c rule)")
+    sens["D_ncte_original_rule"] = _matched_effect(
+        _include(tx_all, "n_scored"), "pattern_classifier", "elaborate_10w", scored_rule)
+    results["sensitivity"] = sens
+    print("\n  Sensitivity:")
+    print(_cell_line("D/t", sens["D_turn_level_dv"]))
+    print(_cell_line("D/r", sens["D_ncte_original_rule"]))
+
+    # NCTE reference, same effect-size function, both inclusion rules
+    ncte_path = os.path.join(ncte_dir, "ncte_single_utterances.csv")
+    if os.path.exists(ncte_path):
+        print("\n  NCTE reference:")
+        ntx = _ncte_transcript_table(ncte_dir)
+        ncte = OrderedDict()
+        ncte["original_rule"] = _matched_effect(
+            _include(ntx, "n_scored"), "pattern_classifier", "elaborate_10w", scored_rule)
+        ncte["harmonised_rule"] = _matched_effect(
+            _include(ntx), "pattern_classifier", "elaborate_10w", MIN_UTTERANCE_RULE)
+        ok = (ncte["original_rule"]["n_transcripts"] == NCTE_PUBLISHED["n_transcripts"]
+              and ncte["original_rule"]["cohens_d"] == NCTE_PUBLISHED["cohens_d"])
+        ncte["reproduces_published"] = {"passed": ok, "expected": NCTE_PUBLISHED}
+        results["ncte_reference"] = ncte
+        print(_cell_line("N/o", ncte["original_rule"]))
+        print(_cell_line("N/h", ncte["harmonised_rule"]))
+        print(f"    reproduces published 0.433 / N=1654: {'PASS' if ok else 'FAIL'}")
+    else:
+        print(f"\n  [NCTE reference skipped: {ncte_path} not found]")
+
+    # Pre-registered reading (spec §5), fixed before seeing D
+    dd = cells["D"]
+    if dd["p"] >= 0.05:
+        verdict = "ESCALATE"
+        reading = ("Cell D not significant: the replication claim needs rewriting, "
+                   "not renumbering. Escalate before editing.")
+    elif MATCHED_BAND[0] <= dd["cohens_d"] <= MATCHED_BAND[1]:
+        verdict = "MATCHED"
+        reading = (f"D = {dd['cohens_d']:.3f} lies in {MATCHED_BAND}: the cross-corpus "
+                   f"comparison holds under matched measurement. Report D vs 0.433; "
+                   f"0.468 stays as the Study 1 result.")
+    else:
+        verdict = "CONFOUNDED"
+        reading = (f"D = {dd['cohens_d']:.3f} lies outside {MATCHED_BAND}: the 0.468 vs 0.433 "
+                   f"similarity was partly coincidental. Report D vs 0.433 and note in "
+                   f"Limitations that the two operationalisations give different "
+                   f"transcript-level effect sizes on the same corpus.")
+    results["interpretation"] = {"band": list(MATCHED_BAND), "verdict": verdict,
+                                 "reading": reading,
+                                 "matched_pair": {"talkmoves_D": dd["cohens_d"],
+                                                  "ncte": NCTE_PUBLISHED["cohens_d"]}}
+    print(f"\n  Verdict: {verdict}\n    {reading}")
+
+    out = os.path.join(output_dir, "additional_option6_matched_d.json")
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2)
+    out_csv = os.path.join(output_dir, "additional_option6_transcripts.csv")
+    tx.to_csv(out_csv)
+    print(f"\nSaved: {out}\nSaved: {out_csv}")
+    return results
+
+
+# ============================================================
 # MAIN
 # ============================================================
 
 def main():
     parser = argparse.ArgumentParser(description="DToM additional experiments")
     parser.add_argument("--option", default="all",
-                        choices=["all", "1", "2", "2-extract", "2-summarize", "3", "4", "5", "5b"])
+                        choices=["all", "1", "2", "2-extract", "2-summarize", "3", "4", "5", "5b", "6"])
     parser.add_argument("--data-dir", default="data/TalkMoves/data")
     parser.add_argument("--output-dir", default="output")
+    parser.add_argument("--ncte-data-dir", default="data/NCTE",
+                        help="NCTE CSV directory for the Option 6 reference values")
     parser.add_argument("--coding-path", default="output/additional_option2_coding.json",
                         help="JSON map id->reason category for Option 2 summary")
     args = parser.parse_args()
     os.makedirs(args.output_dir, exist_ok=True)
 
-    need_corpus = args.option in ("all", "3", "4", "5", "5b")
+    need_corpus = args.option in ("all", "3", "4", "5", "5b", "6")
     combined = load_transcripts(args.data_dir) if need_corpus else None
 
     if args.option in ("all", "1"):
@@ -1022,6 +1316,8 @@ def main():
         option5_pattern_ablation(combined, args.output_dir)
     if args.option in ("all", "5b"):
         option5b_two_tier_ablation(combined, args.output_dir)
+    if args.option in ("all", "6"):
+        option6_matched_effect_size(combined, args.ncte_data_dir, args.output_dir)
 
     print("\nDone.")
 

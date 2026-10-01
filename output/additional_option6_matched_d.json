@@ -1,0 +1,283 @@
+{
+  "config": {
+    "depth_encoding": "{0,1,2}: category mapping None/Context/KeepingTogether/Marking=0, Restating/Revoicing/PressAccuracy=1, PressReasoning/GettingStudentsRelate=2; pattern classifier A=0, B=1, C=2",
+    "min_utterance_rule": ">=20 teacher and >=10 student utterances per transcript, any length (counted before the >3-word classifier filter)",
+    "classifier_scope": "all teacher utterances with >3 words, talk-move labels ignored (as on NCTE)",
+    "elaborate_threshold_words": 10,
+    "bootstrap": {
+      "B": 10000,
+      "seed": 42,
+      "method": "percentile; transcripts resampled within each half, split fixed"
+    },
+    "cohens_d_pooled_sd": "sqrt((var_high + var_low) / 2), as in Study 1 and NCTE R2d",
+    "talkmoves_n_transcripts_loaded": 567,
+    "talkmoves_n_transcripts_included": 536,
+    "talkmoves_scored_teacher_utterances": 131184
+  },
+  "validation_gate": {
+    "passed": true,
+    "expected": {
+      "n_transcripts": 536,
+      "cohens_d": 0.468,
+      "t_stat": 5.42,
+      "high_mean": 0.193,
+      "low_mean": 0.129
+    },
+    "observed": {
+      "n_transcripts": 536,
+      "cohens_d": 0.468,
+      "t_stat": 5.42,
+      "high_mean": 0.193,
+      "low_mean": 0.129
+    }
+  },
+  "cells": {
+    "A": {
+      "iv": "category_mapping",
+      "dv": "evidence_tag",
+      "n_transcripts": 536,
+      "min_utterance_rule": ">=20 teacher and >=10 student utterances per transcript, any length (counted before the >3-word classifier filter)",
+      "depth_encoding": "{0,1,2}: category mapping None/Context/KeepingTogether/Marking=0, Restating/Revoicing/PressAccuracy=1, PressReasoning/GettingStudentsRelate=2; pattern classifier A=0, B=1, C=2",
+      "mean_depth": 0.2471,
+      "median_depth": 0.2308,
+      "high_mean": 0.193,
+      "low_mean": 0.129,
+      "high_sd": 0.152,
+      "low_sd": 0.12,
+      "high_n": 268,
+      "low_n": 268,
+      "cohens_d": 0.468,
+      "hedges_g": 0.468,
+      "ci95": [
+        0.303,
+        0.635
+      ],
+      "hedges_g_ci95": [
+        0.303,
+        0.635
+      ],
+      "t_stat": 5.422,
+      "p": 8.949226739371332e-08
+    },
+    "B": {
+      "iv": "category_mapping",
+      "dv": "elaborate_10w",
+      "n_transcripts": 536,
+      "min_utterance_rule": ">=20 teacher and >=10 student utterances per transcript, any length (counted before the >3-word classifier filter)",
+      "depth_encoding": "{0,1,2}: category mapping None/Context/KeepingTogether/Marking=0, Restating/Revoicing/PressAccuracy=1, PressReasoning/GettingStudentsRelate=2; pattern classifier A=0, B=1, C=2",
+      "mean_depth": 0.2471,
+      "median_depth": 0.2308,
+      "high_mean": 0.227,
+      "low_mean": 0.181,
+      "high_sd": 0.145,
+      "low_sd": 0.107,
+      "high_n": 268,
+      "low_n": 268,
+      "cohens_d": 0.365,
+      "hedges_g": 0.365,
+      "ci95": [
+        0.202,
+        0.527
+      ],
+      "hedges_g_ci95": [
+        0.202,
+        0.526
+      ],
+      "t_stat": 4.231,
+      "p": 2.7440525128481807e-05
+    },
+    "C": {
+      "iv": "pattern_classifier",
+      "dv": "evidence_tag",
+      "n_transcripts": 536,
+      "min_utterance_rule": ">=20 teacher and >=10 student utterances per transcript, any length (counted before the >3-word classifier filter)",
+      "depth_encoding": "{0,1,2}: category mapping None/Context/KeepingTogether/Marking=0, Restating/Revoicing/PressAccuracy=1, PressReasoning/GettingStudentsRelate=2; pattern classifier A=0, B=1, C=2",
+      "mean_depth": 0.0965,
+      "median_depth": 0.082,
+      "high_mean": 0.206,
+      "low_mean": 0.116,
+      "high_sd": 0.138,
+      "low_sd": 0.128,
+      "high_n": 268,
+      "low_n": 268,
+      "cohens_d": 0.678,
+      "hedges_g": 0.677,
+      "ci95": [
+        0.499,
+        0.878
+      ],
+      "hedges_g_ci95": [
+        0.498,
+        0.876
+      ],
+      "t_stat": 7.844,
+      "p": 2.3851734847245385e-14
+    },
+    "D": {
+      "iv": "pattern_classifier",
+      "dv": "elaborate_10w",
+      "n_transcripts": 536,
+      "min_utterance_rule": ">=20 teacher and >=10 student utterances per transcript, any length (counted before the >3-word classifier filter)",
+      "depth_encoding": "{0,1,2}: category mapping None/Context/KeepingTogether/Marking=0, Restating/Revoicing/PressAccuracy=1, PressReasoning/GettingStudentsRelate=2; pattern classifier A=0, B=1, C=2",
+      "mean_depth": 0.0965,
+      "median_depth": 0.082,
+      "high_mean": 0.245,
+      "low_mean": 0.164,
+      "high_sd": 0.131,
+      "low_sd": 0.114,
+      "high_n": 268,
+      "low_n": 268,
+      "cohens_d": 0.66,
+      "hedges_g": 0.66,
+      "ci95": [
+        0.485,
+        0.839
+      ],
+      "hedges_g_ci95": [
+        0.484,
+        0.838
+      ],
+      "t_stat": 7.645,
+      "p": 9.769023721179581e-14
+    }
+  },
+  "decomposition": {
+    "A_minus_D": -0.192,
+    "dv_effect_A_minus_B": 0.103,
+    "iv_effect_A_minus_C": -0.21,
+    "interaction_A_minus_B_minus_C_plus_D": 0.085,
+    "identity": "A - D = (A - B) + (A - C) - (A - B - C + D)"
+  },
+  "sensitivity": {
+    "D_turn_level_dv": {
+      "iv": "pattern_classifier",
+      "dv": "elaborate_10w_turn",
+      "n_transcripts": 536,
+      "min_utterance_rule": ">=20 teacher and >=10 student utterances per transcript, any length (counted before the >3-word classifier filter)",
+      "depth_encoding": "{0,1,2}: category mapping None/Context/KeepingTogether/Marking=0, Restating/Revoicing/PressAccuracy=1, PressReasoning/GettingStudentsRelate=2; pattern classifier A=0, B=1, C=2",
+      "mean_depth": 0.0965,
+      "median_depth": 0.082,
+      "high_mean": 0.279,
+      "low_mean": 0.195,
+      "high_sd": 0.145,
+      "low_sd": 0.133,
+      "high_n": 268,
+      "low_n": 268,
+      "cohens_d": 0.601,
+      "hedges_g": 0.6,
+      "ci95": [
+        0.419,
+        0.789
+      ],
+      "hedges_g_ci95": [
+        0.418,
+        0.788
+      ],
+      "t_stat": 6.96,
+      "p": 9.981514564504863e-12,
+      "note": "TalkMoves rows are sentences, NCTE rows are turns; consecutive student rows with the same Turn merged"
+    },
+    "D_ncte_original_rule": {
+      "iv": "pattern_classifier",
+      "dv": "elaborate_10w",
+      "n_transcripts": 528,
+      "min_utterance_rule": ">=20 scored (>3-word) teacher and >=10 student utterances (original NCTE R2c rule)",
+      "depth_encoding": "{0,1,2}: category mapping None/Context/KeepingTogether/Marking=0, Restating/Revoicing/PressAccuracy=1, PressReasoning/GettingStudentsRelate=2; pattern classifier A=0, B=1, C=2",
+      "mean_depth": 0.0955,
+      "median_depth": 0.0806,
+      "high_mean": 0.241,
+      "low_mean": 0.164,
+      "high_sd": 0.128,
+      "low_sd": 0.115,
+      "high_n": 264,
+      "low_n": 264,
+      "cohens_d": 0.638,
+      "hedges_g": 0.637,
+      "ci95": [
+        0.463,
+        0.822
+      ],
+      "hedges_g_ci95": [
+        0.463,
+        0.821
+      ],
+      "t_stat": 7.333,
+      "p": 8.579430706008353e-13
+    }
+  },
+  "ncte_reference": {
+    "original_rule": {
+      "iv": "pattern_classifier",
+      "dv": "elaborate_10w",
+      "n_transcripts": 1654,
+      "min_utterance_rule": ">=20 scored (>3-word) teacher and >=10 student utterances (original NCTE R2c rule)",
+      "depth_encoding": "{0,1,2}: category mapping None/Context/KeepingTogether/Marking=0, Restating/Revoicing/PressAccuracy=1, PressReasoning/GettingStudentsRelate=2; pattern classifier A=0, B=1, C=2",
+      "mean_depth": 0.1985,
+      "median_depth": 0.1767,
+      "high_mean": 0.105,
+      "low_mean": 0.078,
+      "high_sd": 0.072,
+      "low_sd": 0.051,
+      "high_n": 827,
+      "low_n": 827,
+      "cohens_d": 0.433,
+      "hedges_g": 0.433,
+      "ci95": [
+        0.342,
+        0.525
+      ],
+      "hedges_g_ci95": [
+        0.342,
+        0.525
+      ],
+      "t_stat": 8.804,
+      "p": 3.2580665524701862e-18
+    },
+    "harmonised_rule": {
+      "iv": "pattern_classifier",
+      "dv": "elaborate_10w",
+      "n_transcripts": 1655,
+      "min_utterance_rule": ">=20 teacher and >=10 student utterances per transcript, any length (counted before the >3-word classifier filter)",
+      "depth_encoding": "{0,1,2}: category mapping None/Context/KeepingTogether/Marking=0, Restating/Revoicing/PressAccuracy=1, PressReasoning/GettingStudentsRelate=2; pattern classifier A=0, B=1, C=2",
+      "mean_depth": 0.1987,
+      "median_depth": 0.177,
+      "high_mean": 0.105,
+      "low_mean": 0.078,
+      "high_sd": 0.072,
+      "low_sd": 0.051,
+      "high_n": 828,
+      "low_n": 827,
+      "cohens_d": 0.432,
+      "hedges_g": 0.432,
+      "ci95": [
+        0.341,
+        0.525
+      ],
+      "hedges_g_ci95": [
+        0.341,
+        0.525
+      ],
+      "t_stat": 8.787,
+      "p": 3.762763772579237e-18
+    },
+    "reproduces_published": {
+      "passed": true,
+      "expected": {
+        "n_transcripts": 1654,
+        "cohens_d": 0.433
+      }
+    }
+  },
+  "interpretation": {
+    "band": [
+      0.35,
+      0.55
+    ],
+    "verdict": "CONFOUNDED",
+    "reading": "D = 0.660 lies outside (0.35, 0.55): the 0.468 vs 0.433 similarity was partly coincidental. Report D vs 0.433 and note in Limitations that the two operationalisations give different transcript-level effect sizes on the same corpus.",
+    "matched_pair": {
+      "talkmoves_D": 0.66,
+      "ncte": 0.433
+    }
+  }
+}

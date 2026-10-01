@@ -113,6 +113,14 @@ uv run python -m dtom.additional_experiments --option 5b
 
 Outputs: `output/additional_option5b_ablation.json`, `output/additional_option5b_loo.csv`, `output/additional_option5b_deadpatterns.json`. Seed 42.
 
+Option 6 computes the matched transcript-level effect size (`specs/matched_effect_size_spec.md`): a 2 x 2 of IV (category mapping | pattern classifier) x DV (evidence tag | >=10-word response) on TalkMoves, with the NCTE value recomputed by the same function. Cell A must reproduce Study 1 (d = 0.468, N = 536) or the run stops.
+
+```bash
+uv run python -m dtom.additional_experiments --option 6
+```
+
+Outputs: `output/additional_option6_matched_d.json`, `output/additional_option6_transcripts.csv`. Bootstrap B = 10,000, seed 42.
+
 ## Output
 
 ### TalkMoves (Studies 1-3)
