@@ -1,6 +1,14 @@
 # DToM — Double Theory of Mind Empirical Analysis
 
-Empirical grounding for the Double Theory of Mind (DToM) framework through secondary analysis of classroom discourse data. This project accompanies a theoretical paper targeted at **EC-TEL 2026**.
+This repository supports the paper accepted to **WI-IAT 2026**:
+
+> Diana Nurbakova and Duaa Baig. **Mentalising Depth in Teacher Discourse: What AI Classifiers Collapse and What It Predicts.** *IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT 2026).*
+
+If you use this code or the derived data, please cite the paper (see [Citation](#citation)).
+
+Empirical grounding for the Double Theory of Mind (DToM) framework through secondary analysis of classroom discourse data. The theoretical framework is introduced in a companion paper published at **EC-TEL 2026**:
+
+> Duaa Baig, Diana Nurbakova, Sylvie Calabretto, and Baba Mbaye. **Who Understands Whom? Mutual Theory of Mind as a Unified Framework for Teacher-Facing AI.** *EC-TEL 2026*, Springer ([proceedings volume](https://link.springer.com/book/9783032379818), ISBN 978-3-032-37981-8).
 
 The DToM framework proposes that teacher-facing AI creates a three-layer cognitive structure:
 
@@ -161,6 +169,43 @@ dtom/
 ├── output/                    # TalkMoves results
 └── ncte_output/               # NCTE replication results
 ```
+
+## Citation
+
+```bibtex
+@inproceedings{nurbakova2026mentalising,
+  title     = {Mentalising Depth in Teacher Discourse: What {AI} Classifiers Collapse and What It Predicts},
+  author    = {Nurbakova, Diana and Baig, Duaa},
+  booktitle = {Proceedings of the IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT 2026)},
+  year      = {2026}
+}
+```
+
+For the underlying theoretical framework, please also cite:
+
+```bibtex
+@inproceedings{baig2026who,
+  title     = {Who Understands Whom? {M}utual Theory of Mind as a Unified Framework for Teacher-Facing {AI}},
+  author    = {Baig, Duaa and Nurbakova, Diana and Calabretto, Sylvie and Mbaye, Baba},
+  booktitle = {Technology Enhanced Learning (EC-TEL 2026)},
+  publisher = {Springer},
+  isbn      = {978-3-032-37981-8},
+  url       = {https://link.springer.com/book/9783032379818},
+  year      = {2026}
+}
+```
+
+## License
+
+This repository mixes two licenses:
+
+| Scope | License |
+|-------|---------|
+| Source code (`src/`, `main.py`, `dtom-lens/` application code) | [MIT](LICENSE) |
+| TalkMoves-derived files (`output/`, `reports/`, `dtom-lens/data/sample_transcripts/`, TalkMoves results in `dtom-lens/data/precomputed/`) | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), inherited from TalkMoves |
+| NCTE data | **Not redistributed.** Only aggregate statistics are included (`ncte_output/`, `dtom-lens/data/precomputed/ncte_results.json`) |
+
+See [LICENSE-DATA.md](LICENSE-DATA.md) for the full file list and attribution requirements. To reproduce the NCTE results, apply for access to the NCTE dataset yourself (see [Datasets](#ncte)).
 
 ## References
 
